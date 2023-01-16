@@ -1,65 +1,64 @@
 import React from 'react';
 import {
     CDBSidebar,
-    CDBSidebarHeader,
-    CDBSidebarMenuItem,
     CDBSidebarContent,
-    CDBSidebarMenu,
-    CDBSidebarSubMenu,
     CDBSidebarFooter,
-    CDBBadge,
-    CDBContainer,
-    CDBSidebarCTA,
+    CDBSidebarHeader,
+    CDBSidebarMenu,
+    CDBSidebarMenuItem,
 } from 'cdbreact';
+import { NavLink } from 'react-router-dom';
+
+import '../Components/sidebar.css'
 
 const Sidebar = () => {
     return (
-        <CDBSidebar textColor="#333" backgroundColor="#f4f4f4">
-            <CDBSidebarHeader prefix={<i className="fa fa-bars" />}>BABYCARE ™</CDBSidebarHeader>
+        <div style={{ display: 'flex', height: '100vh', overflow: 'scroll initial' }}>
+            <CDBSidebar textColor="#000" backgroundColor="#fff">
+                <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
+                    <span class="fa fa-table " style={{ marginRight: "10px" }}></span>
+                    <a href="/" className="text-decoration-none" style={{ color: 'inherit' }}>
+                        Vision Education <br /> <p style={{ textAlign: 'center' }}>Hub</p>
+                    </a>
+                </CDBSidebarHeader>
 
-            <CDBSidebarContent>
-                <CDBSidebarMenu>
-                    <CDBSidebarMenuItem icon="th-large" textFontSize="14px">
-                        Dashboard
-                    </CDBSidebarMenuItem>
-                    <CDBSidebarMenuItem icon="sticky-note" textFontSize="14px">
-                        Explore
-                    </CDBSidebarMenuItem>
-                    <CDBSidebarMenuItem icon="credit-card" iconType="solid" textFontSize="14px">
-                        Care Products
-                    </CDBSidebarMenuItem>
-                    <CDBSidebarMenuItem icon="gamepad" iconType="solid" textFontSize="14px">
-                        Fun and Games
-                    </CDBSidebarMenuItem>
-                </CDBSidebarMenu>
-                <CDBSidebarMenu>
-                    <CDBSidebarSubMenu title="Store" icon="shopping-bag">
-                        <CDBSidebarMenuItem>Food </CDBSidebarMenuItem>
-                        <CDBSidebarMenuItem>Clothes </CDBSidebarMenuItem>
-                        <CDBSidebarSubMenu title="Accessories">
-                            <CDBSidebarMenuItem>Fitbit</CDBSidebarMenuItem>
-                            <CDBSidebarMenuItem>Cardio</CDBSidebarMenuItem>
-                            <CDBSidebarSubMenu title="Tickets">
-                                <CDBSidebarMenuItem>Counselling</CDBSidebarMenuItem>
-                                <CDBSidebarMenuItem>Postnatal</CDBSidebarMenuItem>
-                                <CDBSidebarMenuItem>Yoga</CDBSidebarMenuItem>
-                            </CDBSidebarSubMenu>
-                        </CDBSidebarSubMenu>
-                    </CDBSidebarSubMenu>
-                </CDBSidebarMenu>
-            </CDBSidebarContent>
+                <CDBSidebarContent className="sidebar-content" >
+                    <div class="form-group has-search">
+                        <span class="fa fa-search form-control-feedback"></span>
+                        <input type="text" class="form-control" placeholder="Search" />
+                    </div>
+                    <CDBSidebarMenu>
+                        <NavLink exact to="/" activeClassName="activeClicked">
+                            <CDBSidebarMenuItem icon="columns">Dashboard</CDBSidebarMenuItem>
+                        </NavLink>
+                        <NavLink exact to="/tables" activeClassName="activeClicked">
+                            <CDBSidebarMenuItem icon="table">Event Management</CDBSidebarMenuItem>
+                        </NavLink>
+                        <NavLink exact to="/profile" activeClassName="activeClicked">
+                            <CDBSidebarMenuItem icon="user">Professors</CDBSidebarMenuItem>
+                        </NavLink>
+                        <NavLink exact to="/analytics" activeClassName="activeClicked">
+                            <CDBSidebarMenuItem icon="chart-line">Analytics</CDBSidebarMenuItem>
+                        </NavLink>
 
-            <CDBSidebarCTA theme="overlay" image={<Image />} text="Sign up Pro Here"></CDBSidebarCTA>
-            <CDBSidebarFooter style={{ textAlign: 'center' }}>
-                <div
-                    className="sidebar-btn-wrapper"
-                    style={{ padding: '20px 5px' }}
-                >
-                    Sidebar Footer
-                </div>
-            </CDBSidebarFooter>
-        </CDBSidebar>
-    )
+                        <NavLink exact to="/hero404" target="_blank" activeClassName="activeClicked">
+                            <CDBSidebarMenuItem icon="exclamation-circle">404 page</CDBSidebarMenuItem>
+                        </NavLink>
+                    </CDBSidebarMenu>
+                </CDBSidebarContent>
+
+                <CDBSidebarFooter style={{ textAlign: 'center' }}>
+                    <div
+                        style={{
+                            padding: '20px 5px',
+                        }}
+                    >
+                        Sidebar Footer
+                    </div>
+                </CDBSidebarFooter>
+            </CDBSidebar>
+        </div>
+    );
 };
 
 export default Sidebar;
