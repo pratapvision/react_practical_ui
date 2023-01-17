@@ -21,3 +21,8 @@
     pointer-events: none;
     color: #aaa;
 }
+.side-back-pro{
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+}
