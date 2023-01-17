@@ -4,10 +4,10 @@
 }
 
 .has-search .form-control {
-    padding-left: 2.375rem;
-    width: auto;
+    padding-left: 4.375rem;
+    /* width: auto; */
     margin-right: 20px;
-    margin-left: 20px;
+    /* margin-left: 20px; */
 }
 
 .has-search .form-control-feedback {
