@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Create from './Create'
 import './table.css'
+
 // import profile_icon from '../../../'
 
 const Table = () => {
 
-    const Data = [
+    const Static = [
         {
             id: '1',
             name: 'Sarah Smith',
@@ -15,7 +17,30 @@ const Table = () => {
             date: '12/5/2011'
         }
     ]
-    console.log('Data', Data)
+
+    const [Data, setData] = useState(Static)
+
+
+    const handleUpdateState = (data, operation) => {
+        if (operation === 1) {
+            setData(prevState => ({
+                Data: prevState.Data.filter(user => {
+                    if (user.id === data.id)
+                        return Object.assign(user, data)
+                    else
+                        return user
+
+                })
+            }))
+            return
+        }
+
+        var new_user = Data.concat(data)
+        setData({
+            Data: new_user
+        })
+
+    }
     return (
         <div className="card mt-4">
             <div className="card-header">
@@ -87,6 +112,7 @@ const Table = () => {
                     </div>
                 </div>
             </div>
+            <Create updateState={handleUpdateState} />
         </div >
     )
 }
