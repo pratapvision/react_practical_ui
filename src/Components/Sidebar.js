@@ -11,6 +11,7 @@ import { NavLink } from 'react-router-dom';
 
 import '../Components/sidebar.css'
 import Navbar from './Nav';
+import Table from './Table/Table';
 
 const Sidebar = () => {
     return (
@@ -34,28 +35,28 @@ const Sidebar = () => {
                         <input type="text" class="form-control" placeholder="Search" />
                     </div> */}
                         <CDBSidebarMenu>
-                            <NavLink exact to="/" activeClassName="activeClicked">
+                            <NavLink to="/" activeClassName="activeClicked">
                                 <CDBSidebarMenuItem icon="columns">Dashboard</CDBSidebarMenuItem>
                             </NavLink>
-                            <NavLink exact to="/tables" activeClassName="activeClicked">
+                            <NavLink to="/tables" activeClassName="activeClicked">
                                 <CDBSidebarMenuItem icon="table">Event Management</CDBSidebarMenuItem>
                             </NavLink>
-                            <NavLink exact to="/profile" activeClassName="activeClicked" >
+                            <NavLink to="/profile" activeClassName="activeClicked" >
                                 <CDBSidebarMenuItem icon="user" className='side-back-pro'>Professors</CDBSidebarMenuItem>
                             </NavLink>
-                            <NavLink exact to="/analytics" activeClassName="activeClicked">
+                            <NavLink to="/analytics" activeClassName="activeClicked">
                                 <CDBSidebarMenuItem icon="user">Students</CDBSidebarMenuItem>
                             </NavLink>
-                            <NavLink exact to="/analytics" activeClassName="activeClicked">
+                            <NavLink to="/analytics" activeClassName="activeClicked">
                                 <CDBSidebarMenuItem icon="chart-line">Courses</CDBSidebarMenuItem>
                             </NavLink>
-                            <NavLink exact to="/analytics" activeClassName="activeClicked">
+                            <NavLink to="/analytics" activeClassName="activeClicked">
                                 <CDBSidebarMenuItem icon="book">Library</CDBSidebarMenuItem>
                             </NavLink>
-                            <NavLink exact to="/analytics" activeClassName="activeClicked">
+                            <NavLink to="/analytics" activeClassName="activeClicked">
                                 <CDBSidebarMenuItem icon="chart-line">Department</CDBSidebarMenuItem>
                             </NavLink>
-                            <NavLink exact to="/analytics" activeClassName="activeClicked">
+                            <NavLink to="/analytics" activeClassName="activeClicked">
                                 <CDBSidebarMenuItem icon="chart-line">Staff</CDBSidebarMenuItem>
                             </NavLink>
 
@@ -69,14 +70,19 @@ const Sidebar = () => {
                                 marginBottom: '50px'
                             }}
                         >
-                            <img src="/henna-beker.png" alt="image" height="80px" width="80px" /><br />
+                            <img src="/henna-beker.png" alt="image" height="60px" width="60px" /><br />
                             <h4><b>Henna Bakar's</b></h4>
                             <span>HennaBaker's@gmail.com</span><br />
-                            <img src="/set-img.png" alt="image" height="40px" style={{ marginRight: "15px" }} />
-                            <img src="/logoutt.png" alt="image" height="40px" />
+                            <img src="/set-img.png" alt="image" height="40px" style={{ margin: "5px" }} />
+                            <img src="/logout.png" alt="image" height="40px" style={{ margin: "5px" }} />
                         </div>
                     </CDBSidebarFooter>
                 </CDBSidebar>
+                <main style={{ width: "100%" }}>
+                    {/* <main> */}
+                    <Navbar />
+                    <Table />
+                </main>
             </div >
         </>
 
