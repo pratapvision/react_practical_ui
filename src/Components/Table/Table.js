@@ -66,8 +66,6 @@ const Table = () => {
                     <label className='me-3' style={{ fontSize: "20px" }}>Search : </label>
                     <input className='rounded border p-1' type="text" />
                 </div>
-                {/* <div> */}
-                {/* </div> */}
                 <div className='float-right title-side-drop p-3' >
                     <spam className="color-white">Show</spam>
                     <spam className="color-white drop-ten">10</spam>

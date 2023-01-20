@@ -15,6 +15,9 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
+import ClarutyEmail from '../../assest/Header/ClarityEmail.png'
+import ClarutyNotification from '../../assest/Header/ClarityNotification.png'
+import EnglishIcon from '../../assest/Header/EnglishIcon.png'
 
 import '../Nav/index.css'
 
@@ -167,10 +170,10 @@ export default function Navbar() {
                 <div className='float-right'>
                     {/* <i className="fa fa-refresh header-icon" aria-hidden="true" ></i> */}
                     {/* <i className="fa fa-times header-icon" aria-hidden="true" ></i> */}
-                    <img src="/english_icon.png" className='me-3' alt="image" />
+                    <img src={EnglishIcon} className='me-3' alt="image" />
                     <spam className="header-english me-3">English</spam>
-                    <img className='me-3' src="/clarity_notification.png" alt="image" />
-                    <img className='me-3' src="/clarity_email.png" alt="image" />
+                    <img className='me-3' src={ClarutyNotification} alt="image" />
+                    <img className='me-3' src={ClarutyEmail} alt="image" />
                     <img src="/profile_icon.png" className='me-2' alt="image" />
                     <span className="header-profile-name">Clay Johnson</span>
                     <i className="fa fa-angle-down header-icon prof-drop-icon" aria-hidden="true" ></i>

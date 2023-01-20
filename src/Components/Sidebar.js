@@ -8,6 +8,8 @@ import {
     CDBSidebarMenuItem,
 } from 'cdbreact';
 import { NavLink } from 'react-router-dom';
+import setImg from '../assest/Sidebar/setImg.png'
+import logout from '../assest/Sidebar/logout.png'
 
 import '../Components/sidebar.css'
 import Navbar from './Nav';
@@ -73,8 +75,8 @@ const Sidebar = () => {
                             <img src="/henna-beker.png" className='resp-img' alt="image" height="60px" width="60px" /><br />
                             <h4 className='resp-user-name'><b>Henna Bakar</b></h4>
                             {/* <span className='text-justify resp-user-name'>HennaBaker's@gmail.com</span><br /> */}
-                            <img src="/set-img.png" alt="image" className='m-2' />
-                            <img src="/logout.png" alt="image" className='m-2' />
+                            <img src={setImg} alt="image" className='m-2' />
+                            <img src={logout} alt="image" className='m-2' />
                         </div>
                     </CDBSidebarFooter>
                 </CDBSidebar>
