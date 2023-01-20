@@ -16,7 +16,7 @@ import Table from './Table/Table';
 const Sidebar = () => {
     return (
         <>
-            <div style={{ display: 'flex', height: '100vh', overflow: 'scroll initial' }}>
+            <div className='d-flex' style={{ height: "100vh", position: 'relative', overflow: 'auto' }}>
                 <CDBSidebar textColor="#000" backgroundColor="#fff">
                     <CDBSidebarHeader prefix={<i className="fa fa-bars" />}>
                         <span style={{ marginRight: "10px" }}> <img src="/vision-logo.png" alt="image" /></span>
@@ -70,15 +70,15 @@ const Sidebar = () => {
                                 marginBottom: '50px'
                             }}
                         >
-                            <img src="/henna-beker.png" alt="image" height="60px" width="60px" /><br />
-                            <h4><b>Henna Bakar's</b></h4>
-                            <span>HennaBaker's@gmail.com</span><br />
-                            <img src="/set-img.png" alt="image" height="40px" style={{ margin: "5px" }} />
-                            <img src="/logout.png" alt="image" height="40px" style={{ margin: "5px" }} />
+                            <img src="/henna-beker.png" className='resp-img' alt="image" height="60px" width="60px" /><br />
+                            <h4 className='resp-user-name'><b>Henna Bakar</b></h4>
+                            {/* <span className='text-justify resp-user-name'>HennaBaker's@gmail.com</span><br /> */}
+                            <img src="/set-img.png" alt="image" className='m-2' />
+                            <img src="/logout.png" alt="image" className='m-2' />
                         </div>
                     </CDBSidebarFooter>
                 </CDBSidebar>
-                <main style={{ width: "100%" }}>
+                <main style={{ width: "100%", backgroundColor: "#F9F9FB" }}>
                     {/* <main> */}
                     <Navbar />
                     <Table />

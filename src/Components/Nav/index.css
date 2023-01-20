@@ -7,3 +7,21 @@
     font-size: 24px;
     font: Nunito;
 }
+
+.header-english{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.header-profile-name{
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.prof-drop-icon{
+    background-color: #F9F9FB;
+    padding: 15px;
+    border-radius: 50%;
+    margin-left: 10px;
+    margin-right: 10px;
+}

@@ -1,22 +1,30 @@
 import React, { useState } from 'react'
-import Create from './Create'
-import './table.css'
+import Create from './Create/Create'
+import Delete from './Delete/Delete';
+import Edit from './Edit/Edit';
 
-// import profile_icon from '../../../'
+import './table.css'
+import { Static } from './Data';
+
 
 const Table = () => {
 
-    const Static = [
-        {
-            id: '1',
-            name: 'Sarah Smith',
-            img: '/profile_icon.png',
-            dept: 'Mechanical',
-            deg: 'M.E',
-            mobile: '9898989899',
-            date: '12/5/2011'
-        }
-    ]
+    const [addShow, setAddShow] = useState(false);
+    const [editShow, setEditShow] = useState(false);
+    const [deleteShow, setDeleteShow] = useState(false);
+
+    const handleAddClose = () => setAddShow(false);
+    const handleAddShow = () => setAddShow(true);
+
+    const handleEditClose = () => setEditShow(false);
+    const handleEditShow = () => setEditShow(true);
+
+    const handleDeleteClose = () => setDeleteShow(false);
+    const handleDeleteShow = () => setDeleteShow(true);
+
+
+
+
 
     const [Data, setData] = useState(Static)
 
@@ -42,8 +50,8 @@ const Table = () => {
 
     }
     return (
-        <div className="card mt-4">
-            <div className="card-header">
+        <div className="card mt-2">
+            <div className="card-header p-3">
                 <h4 className="card-title float-left"> All Professors </h4>
                 <div className='float-right'>
                     <i className="fa fa-refresh header-icon" aria-hidden="true" ></i>
@@ -53,14 +61,14 @@ const Table = () => {
             </div >
             <div className="card-header">
                 <div className='float-left'>
-                    <button type="button" className="btn btn-dark" data-toggle="modal" data-target="#addModal"> <b>+</b> Add User </button>
-                    <i className="fa fa-search" aria-hidden="true" style={{ margin: "0px 10px 0px 30px" }}></i>
-                    <span>Search : </span>
-                    <input style={{ borderRadius: "10px", borderColor: "#fff" }} type="text" />
+                    <button type="button" className="btn btn-dark p-3 me-3" data-toggle="modal" data-target="#addModal" onClick={handleAddShow}> <b>+</b> Add User </button>
+                    <i className="fa fa-search me-2 fa-lg" aria-hidden="true" ></i>
+                    <label className='me-3' style={{ fontSize: "20px" }}>Search : </label>
+                    <input className='rounded border p-1' type="text" />
                 </div>
                 {/* <div> */}
                 {/* </div> */}
-                <div className='float-right title-side-drop' >
+                <div className='float-right title-side-drop p-3' >
                     <spam className="color-white">Show</spam>
                     <spam className="color-white drop-ten">10</spam>
                     <i className="fa fa-angle-down color-white drop-icon" aria-hidden="true"></i>
@@ -68,8 +76,8 @@ const Table = () => {
                 </div>
             </div>
             <div className="card-body">
-                <div className="col-md-12">
-                    <table className="table table-bordered">
+                <div className="col-md-12  overflow-auto">
+                    <table className="table table-bordered" >
                         <thead>
                             <tr>
                                 <th></th>
@@ -92,27 +100,29 @@ const Table = () => {
                                     <td> {user?.date} </td>
                                     <td>
                                         {/* <button className="btn btn-info btn-sm mr-2" data-toggle="modal" data-target="#editModal"> Edit </button> */}
-                                        <i className="fa fa-edit edit-icon" aria-hidden="true" ></i>
-                                        <i className="fa fa-trash delete-icon" aria-hidden="true" ></i>
+                                        <i className="fa fa-edit edit-icon" aria-hidden="true" onClick={handleEditShow}></i>
+                                        <i className="fa fa-trash delete-icon" aria-hidden="true" onClick={handleDeleteShow} ></i>
                                         {/* <button className="btn btn-danger btn-sm" > Delete </button> */}
                                     </td>
                                 </tr>
                             )}
                         </tbody>
                     </table>
-                    <div>
-                        <div className='float-left pagi-show'>
-                            <strong>Showing 1 to 10 of 10 entires</strong>
-                        </div>
-                        <div className='float-right'>
-                            <i className="fa fa-less-than pagi-icon" aria-hidden="true"></i>
-                            <strong>01 </strong>
-                            <i className="fa fa-greater-than pagi-icon" aria-hidden="true"></i>
-                        </div>
+                </div>
+                <div>
+                    <div className='float-left pagi-show'>
+                        <strong>Showing 1 to 10 of 10 entires</strong>
+                    </div>
+                    <div className='float-right'>
+                        <i className="fa fa-less-than pagi-icon" aria-hidden="true"></i>
+                        <strong>01 </strong>
+                        <i className="fa fa-greater-than pagi-icon" aria-hidden="true"></i>
                     </div>
                 </div>
             </div>
-            <Create updateState={handleUpdateState} />
+            <Create addShow={addShow} handleAddClose={handleAddClose} />
+            <Edit editShow={editShow} handleEditClose={handleEditClose} />
+            <Delete deleteShow={deleteShow} handleDeleteClose={handleDeleteClose} />
         </div >
     )
 }
