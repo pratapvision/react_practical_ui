@@ -37,28 +37,28 @@ const Sidebar = () => {
                         <input type="text" class="form-control" placeholder="Search" />
                     </div> */}
                         <CDBSidebarMenu>
-                            <NavLink to="/" activeClassName="activeClicked">
+                            <NavLink to="/" className={({ isActive }) => (isActive ? "active-style" : 'none')}>
                                 <CDBSidebarMenuItem icon="columns">Dashboard</CDBSidebarMenuItem>
                             </NavLink>
-                            <NavLink to="/tables" activeClassName="activeClicked">
+                            <NavLink to="/tables" className={({ isActive }) => (isActive ? "active-style" : 'none')}>
                                 <CDBSidebarMenuItem icon="table">Event Management</CDBSidebarMenuItem>
                             </NavLink>
-                            <NavLink to="/profile" activeClassName="activeClicked" >
+                            <NavLink to="/profile" className={({ isActive }) => (isActive ? "active-style" : 'none')} >
                                 <CDBSidebarMenuItem icon="user" className='side-back-pro'>Professors</CDBSidebarMenuItem>
                             </NavLink>
-                            <NavLink to="/analytics" activeClassName="activeClicked">
+                            <NavLink to="/analytics" className={({ isActive }) => (isActive ? "active-style" : 'none')}>
                                 <CDBSidebarMenuItem icon="user">Students</CDBSidebarMenuItem>
                             </NavLink>
-                            <NavLink to="/analytics" activeClassName="activeClicked">
+                            <NavLink to="/analytics" className={({ isActive }) => (isActive ? "active-style" : 'none')}>
                                 <CDBSidebarMenuItem icon="chart-line">Courses</CDBSidebarMenuItem>
                             </NavLink>
-                            <NavLink to="/analytics" activeClassName="activeClicked">
+                            <NavLink to="/analytics" className={({ isActive }) => (isActive ? "active-style" : 'none')}>
                                 <CDBSidebarMenuItem icon="book">Library</CDBSidebarMenuItem>
                             </NavLink>
-                            <NavLink to="/analytics" activeClassName="activeClicked">
+                            <NavLink to="/analytics" className={({ isActive }) => (isActive ? "active-style" : 'none')}>
                                 <CDBSidebarMenuItem icon="chart-line">Department</CDBSidebarMenuItem>
                             </NavLink>
-                            <NavLink to="/analytics" activeClassName="activeClicked">
+                            <NavLink to="/analytics" className={({ isActive }) => (isActive ? "active-style" : 'none')}>
                                 <CDBSidebarMenuItem icon="chart-line">Staff</CDBSidebarMenuItem>
                             </NavLink>
 

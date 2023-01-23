@@ -165,13 +165,13 @@ export default function Navbar() {
             <div className="card-header border-0 bg-white" >
                 <div className="card-title float-left">
                     <h4 className='font-weight-bold'> Education Dashboard </h4>
-                    <spam className="float-left">Welcome, Henna Baker's</spam>
+                    <label className="float-left">Welcome, Henna Baker's</label>
                 </div>
                 <div className='float-right'>
                     {/* <i className="fa fa-refresh header-icon" aria-hidden="true" ></i> */}
                     {/* <i className="fa fa-times header-icon" aria-hidden="true" ></i> */}
                     <img src={EnglishIcon} className='me-3' alt="image" />
-                    <spam className="header-english me-3">English</spam>
+                    <label className="header-english me-3">English</label>
                     <img className='me-3' src={ClarutyNotification} alt="image" />
                     <img className='me-3' src={ClarutyEmail} alt="image" />
                     <img src="/profile_icon.png" className='me-2' alt="image" />

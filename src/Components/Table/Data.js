@@ -55,51 +55,51 @@ export const Static = [
         mobile: '6524156484',
         date: '27/12/2008'
     },
-    {
-        id: '6',
-        name: 'Pasty Graham',
-        img: NamePesty,
-        dept: 'Mathematics',
-        deg: 'M.Com, B.Ed',
-        mobile: '8686454548',
-        date: '25/01/2015'
-    },
-    {
-        id: '7',
-        name: 'Teresa West',
-        img: NameTeresa,
-        dept: 'Science',
-        deg: 'M.E',
-        mobile: '8955554544',
-        date: '24/06/2016'
-    },
-    {
-        id: '8',
-        name: 'Vera Larson',
-        img: NameVera,
-        dept: 'Computer',
-        deg: 'M.Com, B.Ed',
-        mobile: '7885784568',
-        date: '18/03/2012'
-    },
-    {
-        id: '9',
-        name: 'Garbrilla Harris',
-        img: NameGabria,
-        dept: 'Music',
-        deg: 'B.A',
-        mobile: '6958415515',
-        date: '15/05/2012'
-    },
-    {
-        id: '10',
-        name: 'Vera Larson',
-        img: NameVera,
-        dept: 'Computer',
-        deg: 'M.Com, B.Ed',
-        mobile: '7885784568',
-        date: '18/03/2012'
-    },
+    // {
+    //     id: '6',
+    //     name: 'Pasty Graham',
+    //     img: NamePesty,
+    //     dept: 'Mathematics',
+    //     deg: 'M.Com, B.Ed',
+    //     mobile: '8686454548',
+    //     date: '25/01/2015'
+    // },
+    // {
+    //     id: '7',
+    //     name: 'Teresa West',
+    //     img: NameTeresa,
+    //     dept: 'Science',
+    //     deg: 'M.E',
+    //     mobile: '8955554544',
+    //     date: '24/06/2016'
+    // },
+    // {
+    //     id: '8',
+    //     name: 'Vera Larson',
+    //     img: NameVera,
+    //     dept: 'Computer',
+    //     deg: 'M.Com, B.Ed',
+    //     mobile: '7885784568',
+    //     date: '18/03/2012'
+    // },
+    // {
+    //     id: '9',
+    //     name: 'Garbrilla Harris',
+    //     img: NameGabria,
+    //     dept: 'Music',
+    //     deg: 'B.A',
+    //     mobile: '6958415515',
+    //     date: '15/05/2012'
+    // },
+    // {
+    //     id: '10',
+    //     name: 'Vera Larson',
+    //     img: NameVera,
+    //     dept: 'Computer',
+    //     deg: 'M.Com, B.Ed',
+    //     mobile: '7885784568',
+    //     date: '18/03/2012'
+    // },
     // {
     //     id: '',
     //     name: '',

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Create from './Create/Create'
 import Delete from './Delete/Delete';
 import Edit from './Edit/Edit';
@@ -6,28 +6,36 @@ import Edit from './Edit/Edit';
 import './table.css'
 import { Static } from './Data';
 
-
 const Table = () => {
 
     const [addShow, setAddShow] = useState(false);
     const [editShow, setEditShow] = useState(false);
     const [deleteShow, setDeleteShow] = useState(false);
 
+    const [editData, setEditData] = useState('')
+
     const handleAddClose = () => setAddShow(false);
     const handleAddShow = () => setAddShow(true);
 
     const handleEditClose = () => setEditShow(false);
-    const handleEditShow = () => setEditShow(true);
+    const handleEditShow = (user) => {
+        setEditData(user)
+        setEditShow(true);
+    }
 
     const handleDeleteClose = () => setDeleteShow(false);
     const handleDeleteShow = () => setDeleteShow(true);
 
-
-
-
-
     const [Data, setData] = useState(Static)
 
+    useEffect(() => {
+        localStorage.setItem('TableData', JSON.stringify(Data));
+
+        const items = JSON.parse(localStorage.getItem('TableData'));
+        if (items) {
+            setData(items);
+        }
+    }, []);
 
     const handleUpdateState = (data, operation) => {
         if (operation === 1) {
@@ -67,10 +75,10 @@ const Table = () => {
                     <input className='rounded border p-1' type="text" />
                 </div>
                 <div className='float-right title-side-drop p-3' >
-                    <spam className="color-white">Show</spam>
-                    <spam className="color-white drop-ten">10</spam>
+                    <label className="color-white">Show</label>
+                    <label className="color-white drop-ten">10</label>
                     <i className="fa fa-angle-down color-white drop-icon" aria-hidden="true"></i>
-                    <spam className="color-white entires">entires</spam>
+                    <label className="color-white entires">entires</label>
                 </div>
             </div>
             <div className="card-body">
@@ -98,7 +106,7 @@ const Table = () => {
                                     <td> {user?.date} </td>
                                     <td>
                                         {/* <button className="btn btn-info btn-sm mr-2" data-toggle="modal" data-target="#editModal"> Edit </button> */}
-                                        <i className="fa fa-edit edit-icon" aria-hidden="true" onClick={handleEditShow}></i>
+                                        <i className="fa fa-edit edit-icon" aria-hidden="true" onClick={() => handleEditShow(user)}></i>
                                         <i className="fa fa-trash delete-icon" aria-hidden="true" onClick={handleDeleteShow} ></i>
                                         {/* <button className="btn btn-danger btn-sm" > Delete </button> */}
                                     </td>
@@ -119,7 +127,7 @@ const Table = () => {
                 </div>
             </div>
             <Create addShow={addShow} handleAddClose={handleAddClose} />
-            <Edit editShow={editShow} handleEditClose={handleEditClose} />
+            <Edit editShow={editShow} editData={editData} handleEditClose={handleEditClose} />
             <Delete deleteShow={deleteShow} handleDeleteClose={handleDeleteClose} />
         </div >
     )
