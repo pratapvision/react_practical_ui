@@ -12,9 +12,9 @@ const Edit = ({ editShow, handleEditClose, editData }) => {
 
     const initialValues = {
         name: editData?.name,
-        department: editData?.dept,
-        degree: editData?.deg,
-        number: editData?.mobile,
+        department: editData?.department,
+        degree: editData?.degree,
+        number: editData?.number,
         joining_date: moment(editData?.joining_date).toDate()
     }
 

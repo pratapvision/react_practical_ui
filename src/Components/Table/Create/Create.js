@@ -6,7 +6,6 @@ import './create.css'
 const Create = ({ addShow, handleAddClose }) => {
 
     let items = JSON.parse(localStorage.getItem('TableData'));
-    console.log('items1', items)
 
     const initialValues = {
         img: '',
@@ -18,14 +17,8 @@ const Create = ({ addShow, handleAddClose }) => {
     }
 
     const onSubmit = (value) => {
-        // alert(JSON.stringify(value, null, 2));
-        console.log('value', value)
-        console.log('itemsBefore', items)
         let DataPush = items.push(value);
-        console.log('itemsAfter', items)
-        alert(items)
-        console.log('DAta', DataPush)
-        localStorage.setItem(JSON.stringify("TableData", items))
+        localStorage.setItem('TableData', JSON.stringify(items));
 
     }
     return (

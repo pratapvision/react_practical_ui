@@ -26,10 +26,11 @@ const Table = () => {
     const handleDeleteClose = () => setDeleteShow(false);
     const handleDeleteShow = () => setDeleteShow(true);
 
-    const [Data, setData] = useState(Static)
+    const [Data, setData] = useState(JSON.parse(localStorage.getItem('TableData')))
+    console.log('Data', Data)
 
     useEffect(() => {
-        localStorage.setItem('TableData', JSON.stringify(Data));
+        localStorage.setItem('TableData', JSON.stringify(Static));
 
         const items = JSON.parse(localStorage.getItem('TableData'));
         if (items) {
@@ -100,10 +101,10 @@ const Table = () => {
                                 <tr key={i}>
                                     <td> <img src={user?.img} height="40px" width="40px" /> </td>
                                     <td> {user?.name} </td>
-                                    <td> {user?.dept} </td>
-                                    <td> {user?.deg} </td>
-                                    <td> {user?.mobile} </td>
-                                    <td> {user?.date} </td>
+                                    <td> {user?.department} </td>
+                                    <td> {user?.degree} </td>
+                                    <td> {user?.number} </td>
+                                    <td> {user?.joining_date} </td>
                                     <td>
                                         {/* <button className="btn btn-info btn-sm mr-2" data-toggle="modal" data-target="#editModal"> Edit </button> */}
                                         <i className="fa fa-edit edit-icon" aria-hidden="true" onClick={() => handleEditShow(user)}></i>
