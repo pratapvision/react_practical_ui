@@ -8,7 +8,6 @@ import '../Create/create.css'
 const Edit = ({ editShow, handleEditClose, editData }) => {
 
     const id = useParams()
-    console.log('editData', editData)
 
     const initialValues = {
         name: editData?.name,

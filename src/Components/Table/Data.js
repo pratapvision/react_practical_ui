@@ -17,7 +17,7 @@ export const Static = [
         department: 'Mechanical',
         degree: 'M.E',
         number: '9898989899',
-        joining_date: '12/5/2011'
+        joining_date: '2011-05-12'
     },
     {
         id: '2',
@@ -26,7 +26,7 @@ export const Static = [
         department: 'Computer',
         degree: 'M.Com, B.Ed',
         number: '8565565555',
-        joining_date: '25/04/2012'
+        joining_date: '2012-04-25'
     },
     {
         id: '3',
@@ -35,26 +35,26 @@ export const Static = [
         department: 'Science',
         degree: 'B.Sc, M.Sc',
         number: '7855524545',
-        joining_date: '02/08/2018'
+        joining_date: '2018-08-02'
     },
-    {
-        id: '4',
-        name: 'Zoe Castro',
-        img: NameZeo,
-        department: 'Mathematics',
-        degree: 'M.Com, B.Ed',
-        number: '98656565655',
-        joining_date: '20/09/2010'
-    },
-    {
-        id: '5',
-        name: 'Peter',
-        img: NamePeter,
-        department: 'Mechanical',
-        degree: 'M.E',
-        number: '6524156484',
-        joining_date: '27/12/2008'
-    },
+    // {
+    //     id: '4',
+    //     name: 'Zoe Castro',
+    //     img: NameZeo,
+    //     department: 'Mathematics',
+    //     degree: 'M.Com, B.Ed',
+    //     number: '98656565655',
+    //     joining_date: '20/09/2010'
+    // },
+    // {
+    //     id: '5',
+    //     name: 'Peter',
+    //     img: NamePeter,
+    //     department: 'Mechanical',
+    //     degree: 'M.E',
+    //     number: '6524156484',
+    //     joining_date: '27/12/2008'
+    // },
     // {
     //     id: '6',
     //     name: 'Pasty Graham',

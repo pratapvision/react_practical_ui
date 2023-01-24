@@ -13,6 +13,7 @@ const Table = () => {
     const [deleteShow, setDeleteShow] = useState(false);
 
     const [editData, setEditData] = useState('')
+    const [deleteData, setDeleteData] = useState('')
 
     const handleAddClose = () => setAddShow(false);
     const handleAddShow = () => setAddShow(true);
@@ -24,40 +25,42 @@ const Table = () => {
     }
 
     const handleDeleteClose = () => setDeleteShow(false);
-    const handleDeleteShow = () => setDeleteShow(true);
+    const handleDeleteShow = (user) => {
+        setDeleteData(user?.id)
+        setDeleteShow(true);
+    }
 
     const [Data, setData] = useState(JSON.parse(localStorage.getItem('TableData')))
-    console.log('Data', Data)
+
 
     useEffect(() => {
         localStorage.setItem('TableData', JSON.stringify(Static));
-
         const items = JSON.parse(localStorage.getItem('TableData'));
         if (items) {
             setData(items);
         }
     }, []);
 
-    const handleUpdateState = (data, operation) => {
-        if (operation === 1) {
-            setData(prevState => ({
-                Data: prevState.Data.filter(user => {
-                    if (user.id === data.id)
-                        return Object.assign(user, data)
-                    else
-                        return user
+    // const handleUpdateState = (data, operation) => {
+    //     if (operation === 1) {
+    //         setData(prevState => ({
+    //             Data: prevState.Data.filter(user => {
+    //                 if (user.id === data.id)
+    //                     return Object.assign(user, data)
+    //                 else
+    //                     return user
 
-                })
-            }))
-            return
-        }
+    //             })
+    //         }))
+    //         return
+    //     }
 
-        var new_user = Data.concat(data)
-        setData({
-            Data: new_user
-        })
+    //     var new_user = Data.concat(data)
+    //     setData({
+    //         Data: new_user
+    //     })
 
-    }
+    // }
     return (
         <div className="card mt-2">
             <div className="card-header p-3">
@@ -87,7 +90,7 @@ const Table = () => {
                     <table className="table table-bordered" >
                         <thead>
                             <tr>
-                                <th></th>
+                                {/* <th></th> */}
                                 <th> Name <i className="fa fa-filter" aria-hidden="true" ></i> </th>
                                 <th> Department <i className="fa fa-filter" aria-hidden="true" ></i> </th>
                                 <th> Degree <i className="fa fa-filter" aria-hidden="true" ></i> </th>
@@ -97,9 +100,9 @@ const Table = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {Data?.map((user, i) =>
+                            {Data !== null ? Data?.map((user, i) =>
                                 <tr key={i}>
-                                    <td> <img src={user?.img} height="40px" width="40px" /> </td>
+                                    {/* <td> <img src={user?.img} height="40px" width="40px" /> </td> */}
                                     <td> {user?.name} </td>
                                     <td> {user?.department} </td>
                                     <td> {user?.degree} </td>
@@ -108,11 +111,11 @@ const Table = () => {
                                     <td>
                                         {/* <button className="btn btn-info btn-sm mr-2" data-toggle="modal" data-target="#editModal"> Edit </button> */}
                                         <i className="fa fa-edit edit-icon" aria-hidden="true" onClick={() => handleEditShow(user)}></i>
-                                        <i className="fa fa-trash delete-icon" aria-hidden="true" onClick={handleDeleteShow} ></i>
+                                        <i className="fa fa-trash delete-icon" aria-hidden="true" onClick={() => handleDeleteShow(user)} ></i>
                                         {/* <button className="btn btn-danger btn-sm" > Delete </button> */}
                                     </td>
                                 </tr>
-                            )}
+                            ) : 'No'}
                         </tbody>
                     </table>
                 </div>
@@ -129,7 +132,7 @@ const Table = () => {
             </div>
             <Create addShow={addShow} handleAddClose={handleAddClose} />
             <Edit editShow={editShow} editData={editData} handleEditClose={handleEditClose} />
-            <Delete deleteShow={deleteShow} handleDeleteClose={handleDeleteClose} />
+            <Delete deleteShow={deleteShow} id={deleteData} handleDeleteClose={handleDeleteClose} />
         </div >
     )
 }
