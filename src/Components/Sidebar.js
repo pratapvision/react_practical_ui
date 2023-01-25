@@ -13,7 +13,8 @@ import logout from '../assest/Sidebar/logout.png'
 
 import '../Components/sidebar.css'
 import Navbar from './Nav';
-import Table from './Table/Table';
+// import Table from './Table/Table';
+import TableName from './Table/Table';
 
 const Sidebar = () => {
     return (
@@ -83,7 +84,7 @@ const Sidebar = () => {
                 <main style={{ width: "100%", backgroundColor: "#F9F9FB" }}>
                     {/* <main> */}
                     <Navbar />
-                    <Table />
+                    <TableName />
                 </main>
             </div >
         </>
