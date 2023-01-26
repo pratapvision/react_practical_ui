@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap'
+
 const Delete = ({ deleteOpen, deleteClose, onDeleteProduct }) => {
 
     return (

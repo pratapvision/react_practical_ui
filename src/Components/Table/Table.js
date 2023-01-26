@@ -3,26 +3,20 @@ import { FaChevronDown, FaPlus, FaRedo, FaTimes } from 'react-icons/fa'
 import {
     Button,
     Col,
-    Form,
-    FormGroup,
     Input,
     InputGroup,
     InputGroupText,
-    Label,
-    Modal,
-    ModalBody,
-    ModalFooter,
-    ModalHeader,
     Row,
     Table
 } from 'reactstrap'
 import ls from 'local-storage'
 
 import './table.css'
+import Delete from './Delete/Delete'
+import AddEditForm from './AddEditForm/AddEditForm'
 
 const TableName = () => {
     const [productData, setProductData] = useState([])
-    console.log('productData', productData)
 
     const [myProduct, setMyProduct] = useState({
         id: Date.now(),
@@ -40,11 +34,12 @@ const TableName = () => {
     const [deleteOpen, setDeleteOpen] = useState(false)
 
     const [deleteId, setDeleteId] = useState(null)
-    console.log('deleteId', deleteId)
 
     const [formErrors, setFormErrors] = useState({})
     const [isSubmitting, setIsSubmitting] = useState(false);
 
+    const [searchedVal, setSearchedVal] = useState("");
+    console.log('searchedVal', searchedVal)
 
     const toggleModal = () => setModal(!modal)
     const deleteClose = () => setDeleteOpen(!deleteOpen)
@@ -131,7 +126,6 @@ const TableName = () => {
     }
 
     const onDeleteProduct = (id) => {
-        // console.log('onDeleteProdcutid', id)
         productData.splice(productData.findIndex((element) => element.id === deleteId), 1)
         ls.set("productData", productData);
         setDeleteOpen(false)
@@ -193,7 +187,7 @@ const TableName = () => {
                         <InputGroupText className="bg-transparent border-0 h-100">
                             <i className="fa fa-search me-2 fa-lg" aria-hidden="true" ></i>   Search:
                         </InputGroupText>
-                        <Input className="bg-transparent border-1 pl-0 py-2 h-100" />
+                        <Input onChange={(e) => setSearchedVal(e.target.value)} className="bg-transparent border-1 pl-0 py-2 h-100" />
                     </InputGroup>
                 </Col>
                 <Col className='py-3 me-5'>
@@ -222,7 +216,12 @@ const TableName = () => {
                         </thead>
                         <tbody>
                             {
-                                productData.length !== 0 ? productData.map((item, index) => {
+                                productData.length !== 0 ? productData.filter(
+                                    (user) => {
+                                        return user.productName.toString().toLowerCase().includes(searchedVal.toString().toLowerCase()) ||
+                                            user.productDescription.toString().toLowerCase().includes(searchedVal.toString().toLowerCase())
+                                    }
+                                ).map((item, index) => {
                                     return (
                                         <tr key={index}>
                                             <td>{index + 1}</td>
@@ -245,169 +244,6 @@ const TableName = () => {
                 </Col>
             </Row>
 
-            <Modal isOpen={deleteOpen} toggle={deleteClose}>
-                <ModalHeader toggle={deleteClose}>Delete</ModalHeader>
-                <ModalBody>
-                    Are you sure want to delete ?
-                </ModalBody>
-                <ModalFooter>
-                    <Button color="btn btn-outline-success" onClick={deleteClose}>
-                        No
-                    </Button>
-                    <Button color="btn btn-outline-danger" onClick={onDeleteProduct}>
-                        Yes
-                    </Button>
-                </ModalFooter>
-            </Modal>
-
-            <Modal isOpen={modal} toggle={toggleModal}>
-                <ModalHeader toggle={onCancel}>Product Form</ModalHeader>
-                <ModalBody>
-                    <Form onSubmit={handleSubmit}>
-                        <Row className=' align-items-center pt-1'>
-                            <Col lg={12}>
-                                <Label for='productName'>Product Name</Label>
-                                <Input
-                                    type='text'
-                                    id="productName"
-                                    name='productName'
-                                    placeholder='Product Name'
-                                    value={myProduct.productName}
-                                    onChange={onChangeInput}
-                                />
-                                {formErrors.productName && (<small className="text-danger">{formErrors.productName}</small>)}
-                            </Col>
-                            <Col lg={12} className=' align-items-center pt-1'>
-                                <FormGroup>
-                                    <Label for="productDescription">Description</Label>
-                                    <Input
-                                        type="textarea"
-                                        id="productDescription"
-                                        name="productDescription"
-                                        maxLength={250}
-                                        rows="3"
-                                        value={myProduct.productDescription}
-                                        onChange={onChangeInput}
-                                        placeholder="Product Description"
-                                    />
-                                    {formErrors.productDescription && (<small className="text-danger">{formErrors.productDescription}</small>)}
-                                </FormGroup>
-                            </Col>
-                            <Col lg={12}>
-                                <FormGroup>
-                                    <Label for="productCategory">
-                                        Select Category
-                                    </Label>
-                                    <Input
-                                        type="select"
-                                        id="productCategory"
-                                        name="productCategory"
-                                        value={myProduct.productCategory}
-                                        onChange={onChangeInput}
-                                    >
-                                        <option>Man</option>
-                                        <option>Woman</option>
-                                    </Input>
-                                </FormGroup>
-                            </Col>
-                            <Col lg={12}>
-                                <FormGroup>
-                                    <Label for="productPrice">Product Price</Label>
-                                    <Input
-                                        type="number"
-                                        id="productPrice"
-                                        name="productPrice"
-                                        value={myProduct.productPrice}
-                                        onChange={onChangeInput}
-                                        placeholder="Product Price"
-                                    />
-                                    {formErrors.productPrice && (<small className="text-danger">{formErrors.productPrice}</small>)}
-                                </FormGroup>
-                            </Col>
-                            <Col lg={12}>
-                                <Label>Cloth Size</Label>
-                                <FormGroup>
-                                    <Row className='align-items-center pt-1'>
-                                        <Col lg={3} md={2}>
-                                            <Input
-                                                name="inStock"
-                                                type="checkbox"
-                                                value='Small'
-                                                checked={myProduct.size.indexOf("Small") !== -1 ? true : false}
-                                                onChange={onCheckBoxChange}
-                                            />
-                                            {' '}
-                                            <Label check>Small</Label>
-                                        </Col>
-                                        <Col lg={3} md={2}>
-                                            <Input
-                                                name="inStock"
-                                                type="checkbox"
-                                                value='Medium'
-                                                checked={myProduct.size.indexOf("Medium") !== -1 ? true : false}
-                                                onChange={onCheckBoxChange}
-                                            />
-                                            {' '}
-                                            <Label check>Medium</Label>
-                                        </Col>
-                                        <Col lg={3} md={2}>
-                                            <Input
-                                                name="inStock"
-                                                type="checkbox"
-                                                value='Large'
-                                                checked={myProduct.size.indexOf("Large") !== -1 ? true : false}
-                                                onChange={onCheckBoxChange}
-                                            />
-                                            {' '}
-                                            <Label check>Large</Label>
-                                        </Col>
-                                    </Row>
-                                    {formErrors.size && (<small className="text-danger">{formErrors.size}</small>)}
-                                </FormGroup>
-                            </Col>
-                            <Col lg={12}>
-                                <Label>Stock</Label>
-                                <FormGroup>
-                                    <Row className='align-items-center pt-1'>
-                                        <Col lg={3} md={4}>
-                                            <Input
-                                                name="inStock"
-                                                type="radio"
-                                                value='In Stock'
-                                                checked={myProduct.inStock === 'In Stock' ? true : false}
-                                                onChange={onChangeInput}
-                                            />
-                                            {' '}
-                                            <Label check>In Stock</Label>
-                                        </Col>
-                                        <Col lg={4} md={4}>
-                                            <Input
-                                                name="inStock"
-                                                type="radio"
-                                                value='Out of Stock'
-                                                checked={myProduct.inStock === 'Out of Stock' ? true : false}
-                                                onChange={onChangeInput}
-                                            />
-                                            {' '}
-                                            <Label check>Out Of Stock</Label>
-                                        </Col>
-                                    </Row>
-                                    {formErrors.inStock && (<small className="text-danger">{formErrors.inStock}</small>)}
-                                </FormGroup>
-                            </Col>
-                        </Row>
-
-                        <ModalFooter>
-                            <Button color="btn btn-outline-danger" onClick={onCancel}>
-                                Cancel
-                            </Button>
-                            <Button type='submit' color='btn btn-outline-success'>
-                                Save
-                            </Button>
-                        </ModalFooter>
-                    </Form>
-                </ModalBody>
-            </Modal>
             <div>
                 <div className='float-left pagi-show px-3'>
                     <strong>Showing 1 to 10 of 10 entires</strong>
@@ -418,6 +254,19 @@ const TableName = () => {
                     <i className="fa fa-greater-than pagi-icon" aria-hidden="true"></i>
                 </div>
             </div>
+
+            <AddEditForm
+                modal={modal}
+                toggleModal={toggleModal}
+                onCancel={onCancel}
+                handleSubmit={handleSubmit}
+                myProduct={myProduct}
+                formErrors={formErrors}
+                onChangeInput={onChangeInput}
+                onCheckBoxChange={onCheckBoxChange}
+            />
+
+            <Delete deleteOpen={deleteOpen} deleteClose={deleteClose} onDeleteProduct={onDeleteProduct} />
         </div>
     )
 }
