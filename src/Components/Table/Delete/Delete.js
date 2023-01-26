@@ -1,35 +1,21 @@
 import React, { useState } from 'react'
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-
-const Delete = ({ deleteShow, handleDeleteClose, id }) => {
-    // console.log('id', id)
-
-    // const [delData, setDelData] = useState(JSON.parse(localStorage.getItem("TableData")))
-
-    // console.log('delData', delData)
-
-    // const deleteId = (id) => {
-    //     const deleteTask = delData.filter((task) => task.id !== id)
-    //     console.log('deleteTask', deleteTask)
-    //     setDelData(deleteTask)
-    //     localStorage.setItem("TableData", JSON.stringify(deleteTask))
-    // }
+import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap'
+const Delete = ({ deleteOpen, deleteClose, onDeleteProduct }) => {
 
     return (
-        <Modal show={deleteShow} onHide={handleDeleteClose}>
-            <Modal.Header closeButton>
-                <Modal.Title>Delete</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>Are you sure want to delete ?</Modal.Body>
-            <Modal.Footer>
-                <Button variant="btn btn-outline-success" onClick={handleDeleteClose}>
+        <Modal isOpen={deleteOpen} toggle={deleteClose}>
+            <ModalHeader toggle={deleteClose}>Delete</ModalHeader>
+            <ModalBody>
+                Are you sure want to delete ?
+            </ModalBody>
+            <ModalFooter>
+                <Button color="btn btn-outline-success" onClick={deleteClose}>
                     No
                 </Button>
-                <Button variant="btn btn-outline-danger" onClick={handleDeleteClose} >
+                <Button color="btn btn-outline-danger" onClick={onDeleteProduct}>
                     Yes
                 </Button>
-            </Modal.Footer>
+            </ModalFooter>
         </Modal>
     )
 }

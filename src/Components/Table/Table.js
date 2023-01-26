@@ -22,12 +22,13 @@ import './table.css'
 
 const TableName = () => {
     const [productData, setProductData] = useState([])
+    console.log('productData', productData)
 
     const [myProduct, setMyProduct] = useState({
         id: Date.now(),
         productName: '',
-        category: '',
-        price: '',
+        productCategory: '',
+        productPrice: '',
         inStock: '',
         size: [],
         productDescription: ''
@@ -37,6 +38,9 @@ const TableName = () => {
 
     const [editId, setEditId] = useState(null)
     const [deleteOpen, setDeleteOpen] = useState(false)
+
+    const [deleteId, setDeleteId] = useState(null)
+    console.log('deleteId', deleteId)
 
     const [formErrors, setFormErrors] = useState({})
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -51,11 +55,11 @@ const TableName = () => {
         if (!values.productName) {
             errors.productName = "Please Enter Product name"
         }
-        if (!values.category) {
-            errors.category = "Please Select Category"
-        }
-        if (!values.price) {
-            errors.price = "Please Enter Product Price"
+        // if (!values.productCategory) {
+        //     errors.productCategory = "Please Select Category"
+        // }
+        if (!values.productPrice) {
+            errors.productPrice = "Please Enter Product Price"
         }
         if (!values.inStock) {
             errors.inStock = "Please Select Anyone"
@@ -121,12 +125,14 @@ const TableName = () => {
         }
     }, [modal])
 
-    const onDelete = () => {
+    const onDelete = (id) => {
+        setDeleteId(id)
         setDeleteOpen(true)
     }
 
     const onDeleteProduct = (id) => {
-        productData.splice(productData.findIndex((element) => element.id === id), 1)
+        // console.log('onDeleteProdcutid', id)
+        productData.splice(productData.findIndex((element) => element.id === deleteId), 1)
         ls.set("productData", productData);
         setDeleteOpen(false)
         getLocalStorage();
@@ -142,8 +148,8 @@ const TableName = () => {
         setMyProduct({
             id: Date.now(),
             productName: '',
-            category: '',
-            price: '',
+            productCategory: '',
+            productPrice: '',
             inStock: '',
             size: [],
             productDescription: ''
@@ -222,8 +228,8 @@ const TableName = () => {
                                             <td>{index + 1}</td>
                                             <td>{item.productName}</td>
                                             <td>{item.productDescription}</td>
-                                            <td>{item.category}</td>
-                                            <td>{item.price}</td>
+                                            <td>{item.productCategory}</td>
+                                            <td>{item.productPrice}</td>
                                             <td>{item.size.join(", ")}</td>
                                             <td>{item.inStock}</td>
                                             <td className='text-center'>
@@ -289,14 +295,14 @@ const TableName = () => {
                             </Col>
                             <Col lg={12}>
                                 <FormGroup>
-                                    <Label for="category">
+                                    <Label for="productCategory">
                                         Select Category
                                     </Label>
                                     <Input
                                         type="select"
-                                        id="category"
-                                        name="category"
-                                        value={myProduct.category}
+                                        id="productCategory"
+                                        name="productCategory"
+                                        value={myProduct.productCategory}
                                         onChange={onChangeInput}
                                     >
                                         <option>Man</option>
@@ -306,16 +312,16 @@ const TableName = () => {
                             </Col>
                             <Col lg={12}>
                                 <FormGroup>
-                                    <Label for="price">Product Price</Label>
+                                    <Label for="productPrice">Product Price</Label>
                                     <Input
                                         type="number"
-                                        id="price"
-                                        name="price"
-                                        value={myProduct.price}
+                                        id="productPrice"
+                                        name="productPrice"
+                                        value={myProduct.productPrice}
                                         onChange={onChangeInput}
                                         placeholder="Product Price"
                                     />
-                                    {formErrors.price && (<small className="text-danger">{formErrors.price}</small>)}
+                                    {formErrors.productPrice && (<small className="text-danger">{formErrors.productPrice}</small>)}
                                 </FormGroup>
                             </Col>
                             <Col lg={12}>
