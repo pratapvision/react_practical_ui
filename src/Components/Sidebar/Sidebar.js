@@ -8,13 +8,14 @@ import {
     CDBSidebarMenuItem,
 } from 'cdbreact';
 import { NavLink } from 'react-router-dom';
-import setImg from '../assest/Sidebar/setImg.png'
-import logout from '../assest/Sidebar/logout.png'
+import setImg from '../../assest/Sidebar/setImg.png'
+import logout from '../../assest/Sidebar/logout.png'
+// import hennaBekar from '../../assest/Sidebar/hennaBekar.png'
+import hennaBekar from '../../assest/Sidebar/hennaBeker.png'
 
-import '../Components/sidebar.css'
-import Navbar from './Nav';
-// import Table from './Table/Table';
-import TableName from './Table/Table';
+import './sidebar.css'
+import Navbar from '../Nav';
+import TableName from '../Table/Table';
 
 const Sidebar = () => {
     return (
@@ -73,7 +74,7 @@ const Sidebar = () => {
                                 marginBottom: '50px'
                             }}
                         >
-                            <img src="/henna-beker.png" className='resp-img' alt="image" height="60px" width="60px" /><br />
+                            <img src={hennaBekar} className='resp-img' alt="image" height="60px" width="60px" /><br />
                             <h4 className='resp-user-name'><b>Henna Bakar</b></h4>
                             {/* <span className='text-justify resp-user-name'>HennaBaker's@gmail.com</span><br /> */}
                             <img src={setImg} alt="image" className='m-2' />
