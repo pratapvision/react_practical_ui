@@ -9,6 +9,7 @@ import {
     Row,
     Table
 } from 'reactstrap'
+import { CSVLink, CSVDownload } from "react-csv";
 import ls from 'local-storage'
 
 import './table.css'
@@ -16,8 +17,9 @@ import Delete from './Delete/Delete'
 import AddEditForm from './AddEditForm/AddEditForm'
 import Pagination from './Pagination/Pagination'
 import { useMemo } from 'react'
+import useSortableData from './Sorting/useSortableData'
 
-let PageSize = 2;
+let PageSize = 10;
 
 const TableName = () => {
     const [productData, setProductData] = useState([])
@@ -49,6 +51,15 @@ const TableName = () => {
 
     const toggleModal = () => setModal(!modal)
     const deleteClose = () => setDeleteOpen(!deleteOpen)
+
+    const { items, requestSort, sortConfig } = useSortableData(paginatedData)
+
+    const getClassNamesFor = (name) => {
+        if (!sortConfig) {
+            return;
+        }
+        return sortConfig.key === name ? sortConfig.direction : undefined;
+    };
 
     let errors = {}
 
@@ -217,6 +228,11 @@ const TableName = () => {
                         <label className="color-white drop-ten">10</label>
                         <i className="fa fa-angle-down color-white drop-icon" aria-hidden="true"></i>
                         <label className="color-white entires">entires</label>
+                        {/* <Button className='text-white bg-dark px-3 p-3'>
+                            <CSVLink data={paginatedData}>
+                                Export
+                            </CSVLink>
+                        </Button> */}
                     </div>
                 </Col>
             </Row>
@@ -226,13 +242,61 @@ const TableName = () => {
                         <thead>
                             <tr>
                                 <th>No.</th>
-                                <th>Product Name <i className="fa fa-filter" aria-hidden="true" ></i></th>
-                                <th>Description <i className="fa fa-filter" aria-hidden="true" ></i></th>
-                                <th>Category <i className="fa fa-filter" aria-hidden="true" ></i></th>
-                                <th>Product Price <i className="fa fa-filter" aria-hidden="true" ></i></th>
-                                <th>Cloth Size <i className="fa fa-filter" aria-hidden="true" ></i></th>
-                                <th>In stock <i className="fa fa-filter" aria-hidden="true" ></i></th>
-                                <th>Actions <i className="fa fa-filter" aria-hidden="true" ></i></th>
+                                <th>
+                                    <label className='me-3'>
+                                        Product Name
+                                    </label>
+                                    <label onClick={() => requestSort('productName')} className={getClassNamesFor('productName')} >
+                                        <i className="fa fa-sort" aria-hidden="true" />
+                                    </label>
+                                    {/* <i className="fa fa-filter" aria-hidden="true" /> */}
+                                </th>
+                                <th>
+                                    <label className='me-3'>
+                                        Description
+                                    </label>
+                                    <label onClick={() => requestSort('productDescription')} className={getClassNamesFor('productDescription')} >
+                                        <i className="fa fa-sort" aria-hidden="true" />
+                                    </label>
+                                    {/* Description <i className="fa fa-filter" aria-hidden="true" /> */}
+                                </th>
+                                <th>
+                                    <label className='me-3'>
+                                        Category
+                                    </label>
+                                    <label onClick={() => requestSort('productCategory')} className={getClassNamesFor('productCategory')} >
+                                        <i className="fa fa-sort" aria-hidden="true" />
+                                    </label>
+                                    {/* Category <i className="fa fa-filter" aria-hidden="true" /> */}
+                                </th>
+                                <th>
+                                    <label className='me-3'>
+                                        Product Price
+                                    </label>
+                                    <label onClick={() => requestSort('productPrice')} className={getClassNamesFor('productPrice')} >
+                                        <i className="fa fa-sort" aria-hidden="true" />
+                                    </label>
+                                    {/* Product Price <i className="fa fa-filter" aria-hidden="true" /> */}
+                                </th>
+                                <th>
+                                    <label className='me-3'>
+                                        Cloth Size
+                                    </label>
+                                    <label onClick={() => requestSort('size')} className={getClassNamesFor('size')} >
+                                        <i className="fa fa-sort" aria-hidden="true" />
+                                    </label>
+                                    {/* Cloth Size <i className="fa fa-filter" aria-hidden="true" /> */}
+                                </th>
+                                <th>
+                                    <label className='me-3'>
+                                        In stock
+                                    </label>
+                                    <label onClick={() => requestSort('inStock')} className={getClassNamesFor('inStock')} >
+                                        <i className="fa fa-sort" aria-hidden="true" />
+                                    </label>
+                                    {/* In stock <i className="fa fa-filter" aria-hidden="true" /> */}
+                                </th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -256,7 +320,7 @@ const TableName = () => {
                                 }) : <div className='text-center'>No Data Found</div>
                             } */}
                             {
-                                productData.length ? paginatedData
+                                productData.length ? items
                                     .filter((user) => {
                                         return user.productName.toString().toLowerCase().includes(searchedVal.toString().toLowerCase()) ||
                                             user.productDescription.toString().toLowerCase().includes(searchedVal.toString().toLowerCase())
@@ -304,7 +368,7 @@ const TableName = () => {
                 onCheckBoxChange={onCheckBoxChange}
             />
             <Delete deleteOpen={deleteOpen} deleteClose={deleteClose} onDeleteProduct={onDeleteProduct} />
-        </div>
+        </div >
     )
 }
 

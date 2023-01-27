@@ -36,42 +36,47 @@ const Pagination = (props) => {
 
     return (
         <div>
-            <ul
-                className={classnames('pagination-container', { [className]: className })}
-            >
-                <li
-                    className={classnames('pagination-item', {
-                        disabled: currentPage === 1
-                    })}
-                    onClick={onPrevious}
+            <div className='float-left pagi-show px-3'>
+                {/* <strong>Showing {currentPage} to 10 of {totalCount} entires</strong> */}
+            </div>
+            <div className='float-right px-3'>
+                <ul
+                    className={classnames('pagination-container', { [className]: className })}
                 >
-                    <div className="arrow left" />
-                </li>
-                {paginationRange.map(pageNumber => {
-                    if (pageNumber === DOTS) {
-                        return <li className="pagination-item dots">&#8230;</li>;
-                    }
+                    <li
+                        className={classnames('pagination-item', {
+                            disabled: currentPage === 1
+                        })}
+                        onClick={onPrevious}
+                    >
+                        <div className="arrow left" />
+                    </li>
+                    {paginationRange.map(pageNumber => {
+                        if (pageNumber === DOTS) {
+                            return <li className="pagination-item dots">&#8230;</li>;
+                        }
 
-                    return (
-                        <li
-                            className={classnames('pagination-item', {
-                                selected: pageNumber === currentPage
-                            })}
-                            onClick={() => onPageChange(pageNumber)}
-                        >
-                            {pageNumber}
-                        </li>
-                    );
-                })}
-                <li
-                    className={classnames('pagination-item', {
-                        disabled: currentPage === lastPage
+                        return (
+                            <li key={pageNumber}
+                                className={classnames('pagination-item', {
+                                    selected: pageNumber === currentPage
+                                })}
+                                onClick={() => onPageChange(pageNumber)}
+                            >
+                                {pageNumber}
+                            </li>
+                        );
                     })}
-                    onClick={onNext}
-                >
-                    <div className="arrow right" />
-                </li>
-            </ul>
+                    <li
+                        className={classnames('pagination-item', {
+                            disabled: currentPage === lastPage
+                        })}
+                        onClick={onNext}
+                    >
+                        <div className="arrow right" />
+                    </li>
+                </ul>
+            </div>
 
             {/* <div className='float-left pagi-show px-3'>
                 <strong>Showing 1 to 10 of 10 entires</strong>
