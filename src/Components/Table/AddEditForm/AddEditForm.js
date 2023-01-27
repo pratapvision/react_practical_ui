@@ -62,6 +62,7 @@ const AddEditForm = ({ modal, toggleModal, onCancel, handleSubmit, myProduct, fo
                                     value={myProduct.productCategory}
                                     onChange={onChangeInput}
                                 >
+                                    <option disabled="disabled" hidden>Select Category</option>
                                     <option>Man</option>
                                     <option>Woman</option>
                                 </Input>
