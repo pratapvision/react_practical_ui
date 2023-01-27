@@ -77,15 +77,6 @@ const Pagination = (props) => {
                     </li>
                 </ul>
             </div>
-
-            {/* <div className='float-left pagi-show px-3'>
-                <strong>Showing 1 to 10 of 10 entires</strong>
-            </div>
-            <div className='float-right px-3'>
-                <i className="fa fa-less-than pagi-icon" aria-hidden="true" onClick={onPrevious}></i>
-                <strong>01 </strong>
-                <i className="fa fa-greater-than pagi-icon" aria-hidden="true"></i>
-            </div> */}
         </div>
     )
 }

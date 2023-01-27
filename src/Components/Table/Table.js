@@ -10,6 +10,8 @@ import {
     Table
 } from 'reactstrap'
 import { CSVLink } from "react-csv";
+import { jsPDF } from "jspdf";
+import autoTable from 'jspdf-autotable'
 import ls from 'local-storage'
 
 import './table.css'
@@ -61,6 +63,32 @@ const TableName = () => {
         return sortConfig.key === name ? sortConfig.direction : undefined;
     };
 
+    const exportPDF = () => {
+        const unit = "pt";
+        const size = "A4";
+        const orientation = "portrait";
+
+        const marginLeft = 40;
+        const doc = new jsPDF(orientation, unit, size);
+
+        doc.setFontSize(15);
+
+        const title = "Product Table";
+        const headers = [["Product Name", "Product Description", "Product Category", "Product Price", "Size", "InStock"]];
+
+        const data = paginatedData?.map(elt => [elt?.productName, elt?.productDescription, elt?.productCategory, elt?.productPrice, elt?.size, elt?.inStock]);
+
+        let content = {
+            startY: 50,
+            head: headers,
+            body: data
+        };
+
+        doc.text(title, marginLeft, 40);
+        doc.autoTable(content);
+        doc.save("report.pdf")
+    }
+
     let errors = {}
 
     const validate = (values) => {
@@ -110,7 +138,6 @@ const TableName = () => {
         const data = productData
         setPaginatedData(data.slice(firstPageIndex, lastPageIndex))
     })
-
 
     useEffect(() => {
         getLocalStorage()
@@ -236,6 +263,7 @@ const TableName = () => {
                         </CSVLink>
                         {/* </Button> */}
                     </div>
+                    <button className='float-right title-side-drop p-3 me-3 text-white' onClick={exportPDF}>Export to PDF</button>
                 </Col>
             </Row>
             <Row className="card-body">

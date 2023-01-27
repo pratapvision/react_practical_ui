@@ -14,7 +14,16 @@ import {
 } from 'reactstrap'
 import './addEditForm.css'
 
-const AddEditForm = ({ modal, toggleModal, onCancel, handleSubmit, myProduct, formErrors, onChangeInput, onCheckBoxChange }) => {
+const AddEditForm = ({
+    modal,
+    toggleModal,
+    onCancel,
+    handleSubmit,
+    myProduct,
+    formErrors,
+    onChangeInput,
+    onCheckBoxChange
+}) => {
 
     return (
         <Modal isOpen={modal} toggle={toggleModal}>

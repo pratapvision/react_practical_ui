@@ -16,6 +16,8 @@
     "cdbreact": "^1.5.4",
     "classnames": "^2.3.2",
     "formik": "^2.2.9",
+    "jspdf": "^2.5.1",
+    "jspdf-autotable": "^3.5.28",
     "local-storage": "^2.0.0",
     "material-react-table": "^1.5.9",
     "moment": "^2.29.4",
