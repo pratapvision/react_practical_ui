@@ -14,9 +14,14 @@ import ls from 'local-storage'
 import './table.css'
 import Delete from './Delete/Delete'
 import AddEditForm from './AddEditForm/AddEditForm'
+import Pagination from './Pagination/Pagination'
+import { useMemo } from 'react'
+
+let PageSize = 2;
 
 const TableName = () => {
     const [productData, setProductData] = useState([])
+    const [paginatedData, setPaginatedData] = useState([])
 
     const [myProduct, setMyProduct] = useState({
         id: Date.now(),
@@ -39,7 +44,8 @@ const TableName = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     const [searchedVal, setSearchedVal] = useState("");
-    console.log('searchedVal', searchedVal)
+
+    const [currentPage, setCurrentPage] = useState(1);
 
     const toggleModal = () => setModal(!modal)
     const deleteClose = () => setDeleteOpen(!deleteOpen)
@@ -87,6 +93,13 @@ const TableName = () => {
         }
     }
 
+    const currentTableData = (() => {
+        const firstPageIndex = (currentPage - 1) * PageSize;
+        const lastPageIndex = firstPageIndex + PageSize;
+        const data = productData
+        setPaginatedData(data.slice(firstPageIndex, lastPageIndex))
+    })
+
     const handleSubmit = (e) => {
         e.preventDefault()
         setFormErrors(validate(myProduct))
@@ -100,11 +113,13 @@ const TableName = () => {
             getLocalStorage()
             toggleModal()
             resetForm()
+            // currentTableData()
             setEditId(null)
         } else {
             setProductData([...productData, myProduct])
             toggleModal()
             resetForm()
+            // currentTableData()
         }
     }
 
@@ -119,6 +134,12 @@ const TableName = () => {
             Object.keys(formErrors).forEach((i) => formErrors[i] = '')
         }
     }, [modal])
+
+    useEffect(() => {
+        currentTableData()
+    }, [productData, currentPage])
+
+
 
     const onDelete = (id) => {
         setDeleteId(id)
@@ -215,13 +236,27 @@ const TableName = () => {
                             </tr>
                         </thead>
                         <tbody>
+                            {/* {
+                                productData.length ? paginatedData?.map((item, index) => {
+                                    return (
+                                        <tr key={index}>
+                                            <td>{index + 1}</td>
+                                            <td>{item.productName}</td>
+                                            <td>{item.productDescription}</td>
+                                            <td>{item.productCategory}</td>
+                                            <td>{item.productPrice}</td>
+                                            <td>{item.size.join(", ")}</td>
+                                            <td>{item.inStock}</td>
+                                            <td className='text-center'>
+                                                <i className="fa fa-edit edit-icon" aria-hidden="true" onClick={() => onEdit(item.id)}></i>
+                                                <i className="fa fa-trash delete-icon" aria-hidden="true" onClick={() => onDelete(item.id)} />
+                                            </td>
+                                        </tr>
+                                    )
+                                }) : <div className='text-center'>No Data Found</div>
+                            } */}
                             {
-                                productData.length !== 0 ? productData.filter(
-                                    (user) => {
-                                        return user.productName.toString().toLowerCase().includes(searchedVal.toString().toLowerCase()) ||
-                                            user.productDescription.toString().toLowerCase().includes(searchedVal.toString().toLowerCase())
-                                    }
-                                ).map((item, index) => {
+                                productData.length ? paginatedData?.map((item, index) => {
                                     return (
                                         <tr key={index}>
                                             <td>{index + 1}</td>
@@ -243,16 +278,14 @@ const TableName = () => {
                     </Table>
                 </Col>
             </Row>
-
             <div>
-                <div className='float-left pagi-show px-3'>
-                    <strong>Showing 1 to 10 of 10 entires</strong>
-                </div>
-                <div className='float-right px-3'>
-                    <i className="fa fa-less-than pagi-icon" aria-hidden="true"></i>
-                    <strong>01 </strong>
-                    <i className="fa fa-greater-than pagi-icon" aria-hidden="true"></i>
-                </div>
+                <Pagination
+                    className="pagination-bar"
+                    currentPage={currentPage}
+                    totalCount={productData?.length}
+                    pageSize={PageSize}
+                    onPageChange={page => setCurrentPage(page)}
+                />
             </div>
 
             <AddEditForm
@@ -265,7 +298,6 @@ const TableName = () => {
                 onChangeInput={onChangeInput}
                 onCheckBoxChange={onCheckBoxChange}
             />
-
             <Delete deleteOpen={deleteOpen} deleteClose={deleteClose} onDeleteProduct={onDeleteProduct} />
         </div>
     )
