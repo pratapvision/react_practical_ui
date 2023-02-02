@@ -29,6 +29,7 @@ const TableName = () => {
 
     const [myProduct, setMyProduct] = useState({
         id: Date.now(),
+        // image: [],
         productName: '',
         productCategory: '',
         productPrice: '',
@@ -36,6 +37,9 @@ const TableName = () => {
         size: [],
         productDescription: ''
     })
+    console.log('productData', productData)
+    console.log('paginatedData', paginatedData)
+    console.log('myProduct', myProduct)
 
     const [modal, setModal] = useState(false)
 
@@ -117,6 +121,26 @@ const TableName = () => {
     const onChangeInput = (e) => {
         setMyProduct({ ...myProduct, [e.target.name]: e.target.value })
     }
+
+    // const getBase64 = (file) => {
+    //     return new Promise((resolve, reject) => {
+    //         const reader = new FileReader();
+    //         reader.onload = () => resolve(reader.result);
+    //         reader.onerror = error => reject(error);
+    //         reader.readAsDataURL(file);
+    //     });
+    // }
+
+    // const imageUpload = (e) => {
+    //     // const file = e.target.files[0];
+    //     // getBase64(file).then(base64 => {
+    //     //     base64(myProduct.image)
+    //     // })
+    //     setMyProduct({
+    //         ...myProduct,
+    //         image: [getBase64(e.target.files[0]).then(base6 => { productData.image([base6]) })]
+    //     })
+    // }
 
     const onCheckBoxChange = (e) => {
         if (e.target.checked) {
@@ -258,8 +282,8 @@ const TableName = () => {
                         <i className="fa fa-angle-down color-white drop-icon" aria-hidden="true"></i>
                         <label className="color-white entires">entires</label> */}
                         {/* <Button className='text-white bg-dark px-3 p-3'> */}
-                        <CSVLink className='text-white' data={paginatedData}>
-                            Export
+                        <CSVLink className='text-white text-decoration-none' data={paginatedData}>
+                            Export to Excel
                         </CSVLink>
                         {/* </Button> */}
                     </div>
@@ -298,6 +322,7 @@ const TableName = () => {
                 formErrors={formErrors}
                 onChangeInput={onChangeInput}
                 onCheckBoxChange={onCheckBoxChange}
+            // imageUpload={imageUpload}
             />
             <Delete
                 deleteOpen={deleteOpen}
@@ -307,6 +332,5 @@ const TableName = () => {
         </div >
     )
 }
-
 
 export default TableName

@@ -22,7 +22,8 @@ const AddEditForm = ({
     myProduct,
     formErrors,
     onChangeInput,
-    onCheckBoxChange
+    onCheckBoxChange,
+    // imageUpload
 }) => {
 
     return (
@@ -32,6 +33,13 @@ const AddEditForm = ({
                 <Form onSubmit={handleSubmit}>
                     <Row className=' align-items-center pt-1'>
                         <Col lg={12}>
+                            {/* <Input
+                                type='file'
+                                id="image"
+                                name='image'
+                                // value={myProduct.productName}
+                                onChange={imageUpload}
+                            /> */}
                             <Label for='productName'>Product Name</Label>
                             <Input
                                 type='text'
