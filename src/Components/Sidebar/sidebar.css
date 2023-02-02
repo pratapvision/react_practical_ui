@@ -3,6 +3,11 @@
     margin: 30% auto;
 }
 
+.side-nav-link{
+    color: black;
+    background-color: white;
+}
+
 .has-search .form-control {
     padding-left: 4.375rem;
     /* width: auto; */
@@ -27,26 +32,33 @@
     border-radius: 5px;
 }
 
+.nav-link{
+    color: black;
+}
+
+.nav-link:hover{
+    color: white;
+}
+
 @media only screen and (max-width: 600px) {
 
-    .resp-img{
-        width: 40px;
-        height: 40px;
-    }
-    .resp-user-name{
-        font-size: 10px;
-        text-align: justify;
+    
+    .has-search .form-control-feedback {
+        margin-top: 10px;
     }
 }
 
 @media only screen and (max-width: 768px) {
 
-    .resp-img{
+    /* .resp-img{
         width: 20px;
         height: 20px;
     }
     .resp-user-name{
         font-size: 10px;
         text-align: justify;
+    } */
+    .has-search .form-control-feedback {
+        margin-top: 10px;
     }
 }

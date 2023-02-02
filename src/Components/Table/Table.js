@@ -37,9 +37,6 @@ const TableName = () => {
         size: [],
         productDescription: ''
     })
-    console.log('productData', productData)
-    console.log('paginatedData', paginatedData)
-    console.log('myProduct', myProduct)
 
     const [modal, setModal] = useState(false)
 
@@ -57,6 +54,8 @@ const TableName = () => {
 
     const toggleModal = () => setModal(!modal)
     const deleteClose = () => setDeleteOpen(!deleteOpen)
+
+    const [toggleTable, setToggleTable] = useState(true)
 
     const { items, requestSort, sortConfig } = useSortableData(paginatedData)
 
@@ -248,15 +247,15 @@ const TableName = () => {
 
 
     return (
-        <div className='card mt-2'>
-            <Row className="card-header p-3">
+        <div className='shadow p-3 mb-3 bg-white rounded'>
+            <Row className="card-header p-3 border-bottom">
                 <Col>
                     <h4 className="card-title float-left"> All Professors </h4>
                 </Col>
                 <Col>
                     <div className='h-100 d-flex align-items-center justify-content-end gap-3'>
                         <FaRedo size='17px' role='button' />
-                        <FaChevronDown size='20px' role='button' />
+                        <FaChevronDown size='20px' role='button' onClick={() => setToggleTable(!toggleTable)} />
                         <FaTimes size='20px' role='button' />
                     </div>
                 </Col>
@@ -290,28 +289,31 @@ const TableName = () => {
                     <button className='float-right title-side-drop p-3 me-3 text-white' onClick={exportPDF}>Export to PDF</button>
                 </Col>
             </Row>
-            <Row className="card-body">
-                <Col className="col-md-12  overflow-auto">
-                    <CustomTable
-                        requestSort={requestSort}
-                        getClassNamesFor={getClassNamesFor}
-                        productData={productData}
-                        items={items}
-                        searchedVal={searchedVal}
-                        onEdit={onEdit}
-                        onDelete={onDelete}
-                    />
-                </Col>
-            </Row>
-            <div>
-                <Pagination
-                    className="pagination-bar"
-                    currentPage={currentPage}
-                    totalCount={productData?.length}
-                    pageSize={PageSize}
-                    onPageChange={page => setCurrentPage(page)}
-                />
-            </div>
+            {toggleTable && (
+
+                <Row className="card-body">
+                    <Col className="col-md-12  overflow-auto">
+                        <CustomTable
+                            requestSort={requestSort}
+                            getClassNamesFor={getClassNamesFor}
+                            productData={productData}
+                            items={items}
+                            searchedVal={searchedVal}
+                            onEdit={onEdit}
+                            onDelete={onDelete}
+                        />
+                    </Col>
+                    <div>
+                        <Pagination
+                            className="pagination-bar"
+                            currentPage={currentPage}
+                            totalCount={productData?.length}
+                            pageSize={PageSize}
+                            onPageChange={page => setCurrentPage(page)}
+                        />
+                    </div>
+                </Row>
+            )}
 
             <AddEditForm
                 modal={modal}

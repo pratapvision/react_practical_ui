@@ -1,6 +1,3 @@
-.sidebar-header{
-    width: 289.5%;
-}
 
 .text-color{
     color: black;
@@ -24,4 +21,11 @@
     border-radius: 50%;
     margin-left: 10px;
     margin-right: 10px;
+}
+
+.leftSide{
+    float: left;
+}
+.rightSide{
+    float: right;
 }
