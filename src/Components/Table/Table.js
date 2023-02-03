@@ -98,9 +98,6 @@ const TableName = () => {
         if (!values.productName) {
             errors.productName = "Please Enter Product name"
         }
-        // if (!values.productCategory) {
-        //     errors.productCategory = "Please Select Category"
-        // }
         if (!values.productPrice) {
             errors.productPrice = "Please Enter Product Price"
         }

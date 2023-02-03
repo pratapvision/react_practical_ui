@@ -82,9 +82,12 @@ const Sidebar = ({ isOpen, toggle }) => {
 
                     <NavItem className='pb-2'>
                         <NavLink tag={Link} to={"/course"}>
-                            <div className='float-left'>
+                            <div className='float-left me-4'>
                                 <FontAwesomeIcon icon={faBook} className="me-2" />
                                 Course
+                            </div>
+                            <div className='sidebar-new'>
+                                new
                             </div>
                             <div className='float-right'>
                                 <FaAngleDown />

@@ -40,6 +40,18 @@
     color: white;
 }
 
+.sidebar-new{
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    float: left;
+    padding: 0px 5px;
+}
+.sidebar-new:hover{
+    background-color: white;
+    color: black;
+}
+
 @media only screen and (max-width: 600px) {
 
     

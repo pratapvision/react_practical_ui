@@ -4,12 +4,23 @@ import { FaChevronDown, FaPlus, FaRedo, FaTimes, FaPrint, FaFilePdf, FaFileDownl
 
 import '../index.css'
 import SportCustomTable from './SportCustomTable'
+import StudentAEForm from './Form/StudentAEForm'
 
 const SportStudentList = () => {
     const [modal, setModal] = useState(false)
     const [toggleTable, setToggleTable] = useState(true)
 
     const toggleModal = () => setModal(!modal)
+
+    const onCancel = () => {
+        // resetForm()
+        toggleModal()
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+    }
+
     return (
         <div className='pt-2 card-group mt-3'>
             <div className=' card shadow-sm px-2 me-3 bg-white rounded'>
@@ -53,6 +64,12 @@ const SportStudentList = () => {
                         </div>
                     </div>
                 )}
+                <StudentAEForm
+                    modal={modal}
+                    toggleModal={toggleModal}
+                    onCancel={onCancel}
+                    handleSubmit={handleSubmit}
+                />
             </div>
         </div >
     )
