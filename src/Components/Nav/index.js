@@ -28,7 +28,7 @@ const NavbarHead = ({ toggleSidebar }) => {
         <Navbar
             color="light"
             light
-            className="navbar shadow-sm p-2 mb-3 bg-white rounded"
+            className="navbar p-2 mb-3 bg-white rounded"
             expand="md"
         >
             <Button color="" onClick={toggleSidebar}>
@@ -36,7 +36,7 @@ const NavbarHead = ({ toggleSidebar }) => {
             </Button>
             <NavbarToggler onClick={toggleTopbar} />
             <Collapse isOpen={topbarIsOpen} navbar>
-                <div className="card-title mx-3 leftSide">
+                {/* <div className="card-title mx-3 leftSide">
                     <h4 className='font-weight-bold'> Education Dashboard </h4>
                     <label className="float-left">Welcome, Henna Baker's</label>
                 </div>
@@ -47,8 +47,24 @@ const NavbarHead = ({ toggleSidebar }) => {
                     <img className='me-3' src={ClarutyEmail} alt="image" />
                     <img src="/profile_icon.png" className='me-2' alt="image" />
                     <span className="header-profile-name">Clay Johnson</span>
-                    <i className="fa fa-angle-down header-icon prof-drop-icon" aria-hidden="true" ></i>
-                </div >
+                </div > */}
+
+                <div className='card-body'>
+                    <div className='float-left'>
+                        <h4 className='font-weight-bold'> Education Dashboard </h4>
+                        <label className="float-left">Welcome, Henna Baker's!</label>
+                    </div>
+                    <div className='float-right'>
+                        <img src={EnglishIcon} className='me-3' alt="image" />
+                        <label className="header-english me-3">English</label>
+                        <img className='me-3' src={ClarutyNotification} alt="image" />
+                        <img className='me-3' src={ClarutyEmail} alt="image" />
+                        <img src="/profile_icon.png" className='me-2' alt="image" />
+                        <span className="header-profile-name">Clay Johnson</span>
+                        <i className="fa fa-angle-down header-icon prof-drop-icon" aria-hidden="true" ></i>
+
+                    </div>
+                </div>
             </Collapse>
         </Navbar>
     );

@@ -14,30 +14,30 @@ const HeadingCards = () => {
         {
             name: 'Total Student',
             img: TotalStudent,
-            number: <p className='heading-card-number-one'>2000</p>,
+            number: <label className='heading-card-number-one'>2000</label>,
             progress: <ProgressBar bgcolor="#3F8DFD" progress='30' height={7} />
         },
         {
             name: 'New Student',
             img: NewStudent,
-            number: <p className='heading-card-number-two'>500</p>,
+            number: <label className='heading-card-number-two'>500</label>,
             progress: <ProgressBar bgcolor="#803FFD" progress='60' height={7} />
         },
         {
             name: 'Total Course',
             img: TotalCourse,
-            number: <p className='heading-card-number-three'>40</p>,
+            number: <label className='heading-card-number-three'>40</label>,
             progress: <ProgressBar bgcolor="#C73FFD" progress='50' height={7} />
         },
         {
             name: 'Visitors Member',
             img: Visitors,
-            number: <p className='heading-card-number-four'>2000</p>,
+            number: <label className='heading-card-number-four'>2000</label>,
             progress: <ProgressBar bgcolor="#FD683F" progress='85' height={7} />
         },
     ]
     return (
-        <div className='pt-2 card-group '>
+        <div className='card-group '>
             {Data?.map((val, i) => (
                 <div key={i} className=' card shadow-sm px-2 me-3 bg-white rounded'>
                     <div className='card-body'>

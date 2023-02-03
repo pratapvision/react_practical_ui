@@ -247,90 +247,87 @@ const TableName = () => {
 
 
     return (
-        <div className='shadow p-3 mb-3 bg-white rounded'>
-            <Row className="card-header p-3 border-bottom">
-                <Col>
-                    <h4 className="card-title float-left"> All Professors </h4>
-                </Col>
-                <Col>
-                    <div className='h-100 d-flex align-items-center justify-content-end gap-3'>
-                        <FaRedo size='17px' role='button' />
-                        <FaChevronDown size='20px' role='button' onClick={() => setToggleTable(!toggleTable)} />
-                        <FaTimes size='20px' role='button' />
+        <div className='bg-light rounded p-3 mb-3 pb-3'>
+            <div className='card shadow-sm px-2 me-3 bg-white rounded'>
+                <div className='card-body border-bottom'>
+                    <div className='float-left'>
+                        <h4 className="card-title float-left"> All Professors </h4>
                     </div>
-                </Col>
-            </Row>
-            <Row>
-                <Col lg={2} className='py-3'>
-                    <Button className='text-white bg-dark px-3 p-3' onClick={toggleModal}>
-                        <FaPlus /> Add New
-                    </Button>
-                </Col>
-                <Col lg={3} md={7} className='py-3'>
-                    <InputGroup className="py-2">
-                        <InputGroupText className="bg-transparent border-0 h-100">
-                            <i className="fa fa-search me-2 fa-lg" aria-hidden="true" ></i>   Search:
-                        </InputGroupText>
-                        <Input onChange={(e) => setSearchedVal(e.target.value)} className="bg-transparent border-1 pl-0 py-2 h-100" />
-                    </InputGroup>
-                </Col>
-                <Col className='py-3 me-5'>
-                    <div className='float-right title-side-drop p-3' >
-                        {/* <label className="color-white">Show</label>
-                        <label className="color-white drop-ten">10</label>
-                        <i className="fa fa-angle-down color-white drop-icon" aria-hidden="true"></i>
-                        <label className="color-white entires">entires</label> */}
-                        {/* <Button className='text-white bg-dark px-3 p-3'> */}
-                        <CSVLink className='text-white text-decoration-none' data={paginatedData}>
-                            Export to Excel
-                        </CSVLink>
-                        {/* </Button> */}
+                    <div className='float-right'>
+                        <FaRedo size='17px' role='button' className='me-3' />
+                        <FaChevronDown size='20px' role='button' className='me-3' onClick={() => setToggleTable(!toggleTable)} />
+                        <FaTimes size='20px' role='button' className='me-3' />
                     </div>
-                    <button className='float-right title-side-drop p-3 me-3 text-white' onClick={exportPDF}>Export to PDF</button>
-                </Col>
-            </Row>
-            {toggleTable && (
-                <Row className="card-body">
-                    <Col className="col-md-12  overflow-auto">
-                        <CustomTable
-                            requestSort={requestSort}
-                            getClassNamesFor={getClassNamesFor}
-                            productData={productData}
-                            items={items}
-                            searchedVal={searchedVal}
-                            onEdit={onEdit}
-                            onDelete={onDelete}
-                        />
-                    </Col>
-                    <div>
-                        <Pagination
-                            className="pagination-bar"
-                            currentPage={currentPage}
-                            totalCount={productData?.length}
-                            pageSize={PageSize}
-                            onPageChange={page => setCurrentPage(page)}
-                        />
+                </div>
+                <div className='card-body'>
+                    <div className='float-left d-flex'>
+                        <div>
+                            <Button className='text-white bg-dark px-3 p-3' onClick={toggleModal}>
+                                <FaPlus /> Add New
+                            </Button>
+                        </div>
+                        <div>
+                            <InputGroup className="py-2">
+                                <InputGroupText className="bg-transparent border-0 h-100">
+                                    <i className="fa fa-search me-2 fa-lg" aria-hidden="true" ></i>   Search:
+                                </InputGroupText>
+                                <Input onChange={(e) => setSearchedVal(e.target.value)} className="bg-transparent border-1 pl-0 py-2 h-100" />
+                            </InputGroup>
+                        </div>
                     </div>
-                </Row>
-            )}
+                    <div className='float-right'>
+                        <div className='float-right title-side-drop p-3' >
+                            <CSVLink className='text-white text-decoration-none' data={paginatedData}>
+                                Export to Excel
+                            </CSVLink>
+                        </div>
+                        <button className='float-right title-side-drop p-3 me-3 text-white' onClick={exportPDF}>Export to PDF</button>
+                    </div>
+                </div>
 
-            <AddEditForm
-                modal={modal}
-                toggleModal={toggleModal}
-                onCancel={onCancel}
-                handleSubmit={handleSubmit}
-                myProduct={myProduct}
-                formErrors={formErrors}
-                onChangeInput={onChangeInput}
-                onCheckBoxChange={onCheckBoxChange}
-            // imageUpload={imageUpload}
-            />
-            <Delete
-                deleteOpen={deleteOpen}
-                deleteClose={deleteClose}
-                onDeleteProduct={onDeleteProduct}
-            />
-        </div >
+                {toggleTable && (
+                    <Row className="card-body">
+                        <Col className="col-md-12  overflow-auto">
+                            <CustomTable
+                                requestSort={requestSort}
+                                getClassNamesFor={getClassNamesFor}
+                                productData={productData}
+                                items={items}
+                                searchedVal={searchedVal}
+                                onEdit={onEdit}
+                                onDelete={onDelete}
+                            />
+                        </Col>
+                        <div>
+                            <Pagination
+                                className="pagination-bar"
+                                currentPage={currentPage}
+                                totalCount={productData?.length}
+                                pageSize={PageSize}
+                                onPageChange={page => setCurrentPage(page)}
+                            />
+                        </div>
+                    </Row>
+                )}
+
+                <AddEditForm
+                    modal={modal}
+                    toggleModal={toggleModal}
+                    onCancel={onCancel}
+                    handleSubmit={handleSubmit}
+                    myProduct={myProduct}
+                    formErrors={formErrors}
+                    onChangeInput={onChangeInput}
+                    onCheckBoxChange={onCheckBoxChange}
+                // imageUpload={imageUpload}
+                />
+                <Delete
+                    deleteOpen={deleteOpen}
+                    deleteClose={deleteClose}
+                    onDeleteProduct={onDeleteProduct}
+                />
+            </div >
+        </div>
     )
 }
 

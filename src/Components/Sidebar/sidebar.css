@@ -59,6 +59,6 @@
         text-align: justify;
     } */
     .has-search .form-control-feedback {
-        margin-top: 10px;
+        margin-top: 0px;
     }
 }
