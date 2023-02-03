@@ -290,7 +290,6 @@ const TableName = () => {
                 </Col>
             </Row>
             {toggleTable && (
-
                 <Row className="card-body">
                     <Col className="col-md-12  overflow-auto">
                         <CustomTable
