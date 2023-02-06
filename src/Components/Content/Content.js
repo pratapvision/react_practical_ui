@@ -7,7 +7,7 @@ import Navbar from "../Nav";
 
 const TableName = lazy(() => import('../Table/Table'))
 const Dashboard = lazy(() => import('../../pages/dashboard/index.js'))
-const EventManagement = lazy(() => import('../Table/Table'))
+const EventManagement = lazy(() => import('../../pages/eventManagement/index.js'))
 const Professors = lazy(() => import('../Table/Table'))
 const Student = lazy(() => import('../Table/Table'))
 const Course = lazy(() => import('../Table/Table'))
@@ -24,7 +24,7 @@ const Content = ({ sidebarIsOpen, toggleSidebar }) => (
         <Routes>
             <Route exact path="/" element={<TableName />} />
             <Route exact path="/dashboard" element={<Dashboard />} />
-            <Route exact path="/event-management" element={<TableName />} />
+            <Route exact path="/event-management" element={<EventManagement />} />
             <Route exact path="/professors" element={<TableName />} />
             <Route exact path="/student" element={<TableName />} />
             <Route exact path="/course" element={<TableName />} />

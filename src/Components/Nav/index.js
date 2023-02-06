@@ -28,7 +28,7 @@ const NavbarHead = ({ toggleSidebar }) => {
         <Navbar
             color="light"
             light
-            className="navbar p-2 mb-3 bg-white rounded"
+            className="navbar p-2 mb-2 bg-white rounded"
             expand="md"
         >
             <Button color="" onClick={toggleSidebar}>
@@ -62,7 +62,6 @@ const NavbarHead = ({ toggleSidebar }) => {
                         <img src="/profile_icon.png" className='me-2' alt="image" />
                         <span className="header-profile-name">Clay Johnson</span>
                         <i className="fa fa-angle-down header-icon prof-drop-icon" aria-hidden="true" ></i>
-
                     </div>
                 </div>
             </Collapse>
