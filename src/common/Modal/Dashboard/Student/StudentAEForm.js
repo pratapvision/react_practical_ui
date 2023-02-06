@@ -12,7 +12,7 @@ import {
     ModalHeader,
     Row
 } from 'reactstrap'
-import './StudentAEForm.css'
+import '../../submitButton.css'
 
 const StudentAEForm = ({
     modal,

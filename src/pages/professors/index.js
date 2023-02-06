@@ -13,17 +13,16 @@ import { CSVLink } from "react-csv";
 import { jsPDF } from "jspdf";
 import autoTable from 'jspdf-autotable'
 import ls from 'local-storage'
-
-import './table.css'
-import Delete from './Delete/Delete'
-import AddEditForm from './AddEditForm/AddEditForm'
-import Pagination from './Pagination/Pagination'
-import useSortableData from './Sorting/useSortableData'
-import CustomTable from './CustomTable';
+import Delete from '../../common/Delete/Delete'
+import AddEditForm from '../../common/Modal/Professors/AddEditForm/AddEditForm'
+import Pagination from '../../common/Pagination/Pagination'
+import useSortableData from '../../common/Sorting/useSortableData';
+import CustomTable from './CustomTable/CustomTable';
+import './index.css'
 
 let PageSize = 10;
 
-const TableName = () => {
+const Professors = () => {
     const [productData, setProductData] = useState([])
     const [paginatedData, setPaginatedData] = useState([])
 
@@ -328,4 +327,4 @@ const TableName = () => {
     )
 }
 
-export default TableName
+export default Professors

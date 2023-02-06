@@ -4,7 +4,7 @@ import { FaChevronDown, FaPlus, FaRedo, FaTimes, FaPrint, FaFilePdf, FaFileDownl
 
 import '../index.css'
 import SportCustomTable from './SportCustomTable'
-import StudentAEForm from './Form/StudentAEForm'
+import StudentAEForm from '../../../common/Modal/Dashboard/Student/StudentAEForm'
 
 const SportStudentList = () => {
     const [modal, setModal] = useState(false)

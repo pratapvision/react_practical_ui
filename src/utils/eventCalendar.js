@@ -8,13 +8,13 @@ let todayStr = new Date().toISOString().replace(/T.*$/, '')
 export const INITIAL_EVENTS = [
     {
         id: createEventId(),
-        title: 'All-day event',
+        title: 'All day event',
         start: todayStr
     },
-    {
-        id: createEventId(),
-        start: todayStr + 'T12:00'
-    },
+    // {
+    //     id: createEventId(),
+    //     start: todayStr + 'T12:00'
+    // },
     {
         id: createEventId(),
         title: 'Match',

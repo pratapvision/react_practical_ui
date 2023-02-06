@@ -12,7 +12,7 @@ import {
     ModalHeader,
     Row
 } from 'reactstrap'
-import './addEditForm.css'
+import '../../submitButton.css'
 
 const AddEditForm = ({
     modal,

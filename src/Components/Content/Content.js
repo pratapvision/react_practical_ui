@@ -5,15 +5,14 @@ import { Routes, Route } from "react-router-dom";
 
 import Navbar from "../Nav";
 
-const TableName = lazy(() => import('../Table/Table'))
 const Dashboard = lazy(() => import('../../pages/dashboard/index.js'))
 const EventManagement = lazy(() => import('../../pages/eventManagement/index.js'))
-const Professors = lazy(() => import('../Table/Table'))
-const Student = lazy(() => import('../Table/Table'))
-const Course = lazy(() => import('../Table/Table'))
-const Library = lazy(() => import('../Table/Table'))
-const Department = lazy(() => import('../Table/Table'))
-const Staff = lazy(() => import('../Table/Table'))
+const Professors = lazy(() => import('../../pages/professors/index.js'))
+const Student = lazy(() => import('../../pages/student/index.js'))
+// const Course = lazy(() => import('../Table/Table'))
+// const Library = lazy(() => import('../Table/Table'))
+// const Department = lazy(() => import('../Table/Table'))
+// const Staff = lazy(() => import('../Table/Table'))
 
 const Content = ({ sidebarIsOpen, toggleSidebar }) => (
     <Container
@@ -22,15 +21,15 @@ const Content = ({ sidebarIsOpen, toggleSidebar }) => (
     >
         <Navbar toggleSidebar={toggleSidebar} />
         <Routes>
-            <Route exact path="/" element={<TableName />} />
+            <Route exact path="/" element={<Dashboard />} />
             <Route exact path="/dashboard" element={<Dashboard />} />
             <Route exact path="/event-management" element={<EventManagement />} />
-            <Route exact path="/professors" element={<TableName />} />
-            <Route exact path="/student" element={<TableName />} />
-            <Route exact path="/course" element={<TableName />} />
+            <Route exact path="/professors" element={<Professors />} />
+            <Route exact path="/student" element={<Student />} />
+            {/*<Route exact path="/course" element={<TableName />} />
             <Route exact path="/library" element={<TableName />} />
             <Route exact path="/department" element={<TableName />} />
-            <Route exact path="/staff" element={<TableName />} />
+            <Route exact path="/staff" element={<TableName />} /> */}
         </Routes>
     </Container>
 );

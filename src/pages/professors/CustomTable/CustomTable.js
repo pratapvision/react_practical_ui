@@ -68,25 +68,6 @@ const CustomTable = ({
                 </tr>
             </thead>
             <tbody>
-                {/* {
-                                productData.length ? paginatedData?.map((item, index) => {
-                                    return (
-                                        <tr key={index}>
-                                            <td>{index + 1}</td>
-                                            <td>{item.productName}</td>
-                                            <td>{item.productDescription}</td>
-                                            <td>{item.productCategory}</td>
-                                            <td>{item.productPrice}</td>
-                                            <td>{item.size.join(", ")}</td>
-                                            <td>{item.inStock}</td>
-                                            <td className='text-center'>
-                                                <i className="fa fa-edit edit-icon" aria-hidden="true" onClick={() => onEdit(item.id)}></i>
-                                                <i className="fa fa-trash delete-icon" aria-hidden="true" onClick={() => onDelete(item.id)} />
-                                            </td>
-                                        </tr>
-                                    )
-                                }) : <div className='text-center'>No Data Found</div>
-                            } */}
                 {
                     productData.length ? items
                         .filter((user) => {
