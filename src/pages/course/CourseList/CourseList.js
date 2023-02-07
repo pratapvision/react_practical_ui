@@ -115,7 +115,7 @@ const CourseList = () => {
                                     <label>{val?.username}</label>
                                 </div>
                                 <div className='float-right me-4'>
-                                    <i className="fa fa-clock-o fs-4" style={{ color: '#E252BE' }}></i>
+                                    <i className="fa fa-user-o fs-4" style={{ color: '#E252BE' }}></i>
                                     <label>{val?.studentNumber}</label>
                                 </div>
                             </div>

@@ -2,12 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { FaChevronDown, FaPlus, FaRedo, FaTimes } from 'react-icons/fa'
 import {
     Button,
-    Col,
     Input,
     InputGroup,
     InputGroupText,
-    Row,
-    Table
 } from 'reactstrap'
 import ls from 'local-storage'
 

@@ -1,5 +1,4 @@
 import React from 'react'
-import { FaAngleDown } from 'react-icons/fa'
 import { Table } from 'reactstrap'
 
 const StudentCustomTable = ({
@@ -65,7 +64,7 @@ const StudentCustomTable = ({
                         })
                         .map((item, index) => {
                             return (
-                                <tr key={index}>
+                                <tr key={index} className='text-center'>
                                     <td>{index + 1}</td>
                                     <td>{item.studentName}</td>
                                     <td>{item.studentDepartment}</td>

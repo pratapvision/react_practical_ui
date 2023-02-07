@@ -7,7 +7,6 @@ import {
     InputGroup,
     InputGroupText,
     Row,
-    Table
 } from 'reactstrap'
 import { CSVLink } from "react-csv";
 import { jsPDF } from "jspdf";
