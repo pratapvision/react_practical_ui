@@ -13,7 +13,7 @@ export const StyleWrapper = styled.div`
   }
 
   .fc .fc-toolbar-title{
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .fc .fc-button{
@@ -82,8 +82,8 @@ const Calender = () => {
 
   }
   return (
-    <div className=''>
-      <h2>Calendar</h2>
+    <div className='card shadow-sm p-3 me-3 bg-white rounded'>
+      <h4>Calendar</h4>
       <StyleWrapper>
         <FullCalendar
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}

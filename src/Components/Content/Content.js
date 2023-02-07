@@ -9,7 +9,7 @@ const Dashboard = lazy(() => import('../../pages/dashboard/index.js'))
 const EventManagement = lazy(() => import('../../pages/eventManagement/index.js'))
 const Professors = lazy(() => import('../../pages/professors/index.js'))
 const Student = lazy(() => import('../../pages/student/index.js'))
-// const Course = lazy(() => import('../Table/Table'))
+const Course = lazy(() => import('../../pages/course/index.js'))
 // const Library = lazy(() => import('../Table/Table'))
 // const Department = lazy(() => import('../Table/Table'))
 // const Staff = lazy(() => import('../Table/Table'))
@@ -26,8 +26,8 @@ const Content = ({ sidebarIsOpen, toggleSidebar }) => (
             <Route exact path="/event-management" element={<EventManagement />} />
             <Route exact path="/professors" element={<Professors />} />
             <Route exact path="/student" element={<Student />} />
-            {/*<Route exact path="/course" element={<TableName />} />
-            <Route exact path="/library" element={<TableName />} />
+            <Route exact path="/course" element={<Course />} />
+            {/*<Route exact path="/library" element={<TableName />} />
             <Route exact path="/department" element={<TableName />} />
             <Route exact path="/staff" element={<TableName />} /> */}
         </Routes>
