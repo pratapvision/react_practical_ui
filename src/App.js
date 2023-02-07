@@ -6,6 +6,7 @@ import "./App.css";
 import Sidebar from './Components/Sidebar/Sidebar';
 import Content from './Components/Content/Content';
 import { Suspense } from "react";
+import { Spinner } from "reactstrap";
 
 function App() {
   const [sidebarIsOpen, setSidebarOpen] = useState(true);
@@ -14,7 +15,7 @@ function App() {
   return (
     <>
       <Router>
-        <Suspense fallback={<h2>Please Wait...</h2>}>
+        <Suspense fallback={<Spinner />}>
           <div className="App">
             <Sidebar toggle={toggleSidebar} isOpen={sidebarIsOpen} />
             <Content toggleSidebar={toggleSidebar} sidebarIsOpen={sidebarIsOpen} />

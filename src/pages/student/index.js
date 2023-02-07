@@ -66,16 +66,16 @@ const Student = () => {
 
     const validate = (values) => {
         if (!values.studentName) {
-            errors.studentName = "Please Enter studentName"
+            errors.studentName = "Please Enter Student Name"
         }
         if (!values.studentDepartment) {
-            errors.studentDepartment = "studentDepartment is required!"
+            errors.studentDepartment = "Please Enter Student Department"
         }
         if (!values.studentMobile) {
-            errors.studentMobile = "Please Enter studentMobile"
+            errors.studentMobile = "Please Enter Student Mobile"
         }
         if (!values.admissionDate) {
-            errors.admissionDate = "Please Enter admissionDate"
+            errors.admissionDate = "Please Select Admission Date"
         }
 
         return errors
@@ -121,14 +121,12 @@ const Student = () => {
     }, [studentData])
 
     const handleSubmit = (e) => {
-        console.log('ok', e)
         e.preventDefault()
         setFormErrors(validate(myStudent))
         setIsSubmitting(true)
     }
 
     const onSubmitFrom = (e) => {
-        console.log('okkkkkk')
         if (editId !== null) {
             setStudentData(studentData.splice(studentData.findIndex((element) => element.id === editId), 1, myStudent))
             ls.set("allStudentData", studentData)
@@ -208,8 +206,17 @@ const Student = () => {
                             </InputGroup>
                         </div>
                     </div>
-                    <div className='float-right'>
-                        <button className='float-right title-side-drop p-3 me-3 text-white'>Export to PDF</button>
+                    <div className=' d-flex float-right title-side-drop p-3 me-3 text-white'>
+                        <div className='me-2'>
+                            <label>Show</label>
+                        </div>
+                        <div className='me-2 border-bottom'>
+                            <label>{studentData?.length}</label>
+                        </div>
+                        <div>
+                            <label>entires</label>
+                        </div>
+                        {/* <button className='float-right title-side-drop p-3 me-3 text-white'>Export to PDF</button> */}
                     </div>
                 </div>
                 {toggleTable && (

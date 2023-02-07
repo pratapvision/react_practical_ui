@@ -24,7 +24,6 @@ const AllStudentAE = ({
     onChangeInput,
     // imageUpload
 }) => {
-    console.log("ok", formErrors)
 
     return (
         <Modal isOpen={modal} toggle={toggleModal}>
@@ -40,12 +39,12 @@ const AllStudentAE = ({
                                 // value={myProduct.productName}
                                 onChange={imageUpload}
                             /> */}
-                            <Label for='studentName'>studentName</Label>
+                            <Label for='studentName'>Student Name</Label>
                             <Input
                                 type='text'
                                 id="studentName"
                                 name='studentName'
-                                placeholder='Product Name'
+                                placeholder='Student Name'
                                 value={myStudent.studentName}
                                 onChange={onChangeInput}
                             />
@@ -53,7 +52,7 @@ const AllStudentAE = ({
                         </Col>
                         <Col lg={12} className=' align-items-center pt-1'>
                             <FormGroup>
-                                <Label for="studentDepartment">Description</Label>
+                                <Label for="studentDepartment">Student Department</Label>
                                 <Input
                                     type="text"
                                     id="studentDepartment"
@@ -62,7 +61,7 @@ const AllStudentAE = ({
                                     rows="3"
                                     value={myStudent.studentDepartment}
                                     onChange={onChangeInput}
-                                    placeholder="studentDepartment"
+                                    placeholder="Student Department"
                                 />
                                 {formErrors.studentDepartment && (<small className="text-danger">{formErrors.studentDepartment}</small>)}
                             </FormGroup>
@@ -70,14 +69,14 @@ const AllStudentAE = ({
 
                         <Col lg={12}>
                             <FormGroup>
-                                <Label for="studentMobile">studentMobile</Label>
+                                <Label for="studentMobile">Student Mobile</Label>
                                 <Input
                                     type="number"
                                     id="studentMobile"
                                     name="studentMobile"
                                     value={myStudent.studentMobile}
                                     onChange={onChangeInput}
-                                    placeholder="Product Price"
+                                    placeholder="Student Mobile"
                                 />
                                 {formErrors.studentMobile && (<small className="text-danger">{formErrors.studentMobile}</small>)}
                             </FormGroup>
@@ -85,7 +84,7 @@ const AllStudentAE = ({
 
                         <Col lg={12}>
                             <FormGroup>
-                                <Label for="admissionDate">admissionDate</Label>
+                                <Label for="admissionDate">Admission Date</Label>
                                 <Input
                                     type="date"
                                     id="admissionDate"

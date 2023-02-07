@@ -271,13 +271,24 @@ const Professors = () => {
                             </InputGroup>
                         </div>
                     </div>
-                    <div className='float-right'>
-                        <div className='float-right title-side-drop p-3' >
+                    <div className='d-flex float-right'>
+                        <div className='float-right title-side-drop p-3 me-3' >
                             <CSVLink className='text-white text-decoration-none' data={paginatedData}>
                                 Export to Excel
                             </CSVLink>
                         </div>
                         <button className='float-right title-side-drop p-3 me-3 text-white' onClick={exportPDF}>Export to PDF</button>
+                        <div className='d-flex float-right title-side-drop p-3 me-3 text-white'>
+                            <div className='me-2'>
+                                <label>Show</label>
+                            </div>
+                            <div className='me-2 border-bottom'>
+                                <label>{productData?.length}</label>
+                            </div>
+                            <div>
+                                <label>entires</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
 

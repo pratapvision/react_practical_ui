@@ -76,7 +76,7 @@ const CustomTable = ({
                         })
                         .map((item, index) => {
                             return (
-                                <tr key={index}>
+                                <tr key={index} className='text-center'>
                                     <td>{index + 1}</td>
                                     <td>{item.productName}</td>
                                     <td>{item.productDescription}</td>

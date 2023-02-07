@@ -63,7 +63,6 @@ const Calender = () => {
   }
 
   const renderEventContent = (eventInfo) => {
-    console.log('check', eventInfo.timeText)
     return (
       <div style={{ backgroundColor: '#EB9E1D' }} className='p-1'>
         <i className='text-center'>{eventInfo.event.title}</i><br />

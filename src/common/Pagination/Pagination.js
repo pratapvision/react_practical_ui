@@ -37,12 +37,10 @@ const Pagination = (props) => {
     return (
         <div>
             <div className='float-left pagi-show px-3'>
-                {/* <strong>Showing {currentPage} to 10 of {totalCount} entires</strong> */}
+                <label className='fs-5'>Showing {currentPage} to 10 of {totalCount} entires</label>
             </div>
             <div className='float-right px-3'>
-                <ul
-                    className={classnames('pagination-container', { [className]: className })}
-                >
+                <ul className={classnames('pagination-container', { [className]: className })}>
                     <li
                         className={classnames('pagination-item', {
                             disabled: currentPage === 1
