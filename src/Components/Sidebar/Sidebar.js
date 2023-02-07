@@ -44,19 +44,19 @@ const Sidebar = ({ isOpen, toggle }) => {
             <hr />
             <div className="side-menu">
                 <Nav vertical className="list-unstyled pb-3">
-                    <NavItem>
+                    <NavItem className='mt-2'>
                         <NavLink tag={Link} to={"/dashboard"}>
                             <FontAwesomeIcon icon={faTable} className="me-2" />
                             Dashboard
                         </NavLink>
                     </NavItem>
-                    <NavItem>
+                    <NavItem className='mt-2'>
                         <NavLink tag={Link} to={"/event-management"}>
                             <FontAwesomeIcon icon={faCalendarCheck} className="me-2" />
                             Event Management
                         </NavLink>
                     </NavItem>
-                    <NavItem className='pb-2'>
+                    <NavItem className='pb-2 mt-2'>
                         <NavLink tag={Link} to={"/professors"}>
                             <div className='float-left'>
                                 <FontAwesomeIcon icon={faUser} className="me-2" />
@@ -67,8 +67,7 @@ const Sidebar = ({ isOpen, toggle }) => {
                             </div>
                         </NavLink>
                     </NavItem>
-
-                    <NavItem className='pb-2'>
+                    <NavItem className='pb-2 mt-2'>
                         <NavLink tag={Link} to={"/student"}>
                             <div className='float-left'>
                                 <FontAwesomeIcon icon={faUserCircle} className="me-2" />
@@ -80,7 +79,7 @@ const Sidebar = ({ isOpen, toggle }) => {
                         </NavLink>
                     </NavItem>
 
-                    <NavItem className='pb-2'>
+                    <NavItem className='pb-2 mt-2'>
                         <NavLink tag={Link} to={"/course"}>
                             <div className='float-left me-4'>
                                 <FontAwesomeIcon icon={faBook} className="me-2" />
@@ -95,7 +94,7 @@ const Sidebar = ({ isOpen, toggle }) => {
                         </NavLink>
                     </NavItem>
 
-                    <NavItem className='pb-2'>
+                    <NavItem className='pb-2 mt-2'>
                         <NavLink tag={Link} to={"/library"}>
                             <div className='float-left'>
                                 <FontAwesomeIcon icon={faBookOpen} className="me-2" />
@@ -107,7 +106,7 @@ const Sidebar = ({ isOpen, toggle }) => {
                         </NavLink>
                     </NavItem>
 
-                    <NavItem className='pb-2'>
+                    <NavItem className='pb-2 mt-2'>
                         <NavLink tag={Link} to={"/department"}>
                             <div className='float-left'>
                                 <FontAwesomeIcon icon={faShoppingBag} className="me-2" />
@@ -119,7 +118,7 @@ const Sidebar = ({ isOpen, toggle }) => {
                         </NavLink>
                     </NavItem>
 
-                    <NavItem className='pb-2'>
+                    <NavItem className='pb-2 mt-2'>
                         <NavLink tag={Link} to={"/staff"}>
                             <div className='float-left'>
                                 <FontAwesomeIcon icon={faCheckCircle} className="me-2" />

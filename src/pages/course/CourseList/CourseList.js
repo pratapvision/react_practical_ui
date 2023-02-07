@@ -84,6 +84,7 @@ const CourseList = () => {
         },
 
     ]
+
     return (
         <div className='p-3 me-3 rounded'>
             <h4>All Courses</h4>

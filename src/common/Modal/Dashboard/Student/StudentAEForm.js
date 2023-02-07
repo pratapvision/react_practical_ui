@@ -19,8 +19,9 @@ const StudentAEForm = ({
     toggleModal,
     onCancel,
     handleSubmit,
+    mySportStudent,
     formErrors,
-    // imageUpload
+    onChangeInput,
 }) => {
 
     return (
@@ -31,46 +32,56 @@ const StudentAEForm = ({
                     <Row className=' align-items-center pt-1'>
                         <Col lg={12} className=' align-items-center pt-1'>
                             <FormGroup>
-                                <Label for='studentName'>Student Name</Label>
+                                <Label for='sportStudentName'>Sport Student Name</Label>
                                 <Input
                                     type='text'
-                                    id="studentName"
-                                    name='studentName'
+                                    id="sportStudentName"
+                                    name='sportStudentName'
                                     placeholder='Student Name'
-                                // value={myProduct.studentName}
-                                // onChange={onChangeInput}
+                                    value={mySportStudent.sportStudentName}
+                                    onChange={onChangeInput}
                                 />
+                                {formErrors.sportStudentName && (<small className="text-danger">{formErrors.sportStudentName}</small>)}
                             </FormGroup>
                         </Col>
                         <Col lg={12} className=' align-items-center pt-1'>
                             <FormGroup>
-                                <Label for='assignedCoach'>Assigned Coach</Label>
+                                <Label for='sportAssignCoach'>Assigned Coach</Label>
                                 <Input
                                     type='text'
-                                    id="assignedCoach"
-                                    name='assignedCoach'
+                                    id="sportAssignCoach"
+                                    name='sportAssignCoach'
                                     placeholder='Assigned Coach'
+                                    value={mySportStudent.sportAssignCoach}
+                                    onChange={onChangeInput}
                                 />
+                                {formErrors.sportAssignCoach && (<small className="text-danger">{formErrors.sportAssignCoach}</small>)}
                             </FormGroup>
                         </Col>
                         <Col lg={12} className=' align-items-center pt-1'>
                             <FormGroup>
-                                <Label for='date'>Date</Label>
+                                <Label for='sportStudentDate'>Sport Student Date</Label>
                                 <Input
                                     type='date'
-                                    id="date"
-                                    name='date'
+                                    id="sportStudentDate"
+                                    name='sportStudentDate'
+                                    value={mySportStudent.sportStudentDate}
+                                    onChange={onChangeInput}
                                 />
+                                {formErrors.sportStudentDate && (<small className="text-danger">{formErrors.sportStudentDate}</small>)}
                             </FormGroup>
                         </Col>
                         <Col lg={12} className=' align-items-center pt-1'>
                             <FormGroup>
-                                <Label for='time'>Time</Label>
+                                <Label for='sportStudentTime'>Time</Label>
                                 <Input
                                     type='time'
-                                    id="time"
-                                    name='time'
+                                    id="sportStudentTime"
+                                    name='sportStudentTime'
+                                    value={mySportStudent.sportStudentTime}
+                                    onChange={onChangeInput}
                                 />
+                                {formErrors.sportStudentTime && (<small className="text-danger">{formErrors.sportStudentTime}</small>)}
                             </FormGroup>
                         </Col>
                     </Row>

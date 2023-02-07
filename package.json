@@ -39,6 +39,7 @@
     "react-router": "^6.6.2",
     "react-router-dom": "^6.6.2",
     "react-scripts": "5.0.1",
+    "react-to-print": "^2.14.11",
     "reactstrap": "^9.1.5",
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"

@@ -65,7 +65,7 @@ const StudentCustomTable = ({
                         })
                         .map((item, index) => {
                             return (
-                                <tr key={index} className='text-center'>
+                                <tr key={index}>
                                     <td>{index + 1}</td>
                                     <td>{item.studentName}</td>
                                     <td>{item.studentDepartment}</td>
