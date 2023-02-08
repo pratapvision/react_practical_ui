@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { Button, Col, Row, Toast } from 'react-bootstrap'
+import emailIcon from '../../../assest/Header/ClarityEmail.png'
+
 import '../index.css'
 
 const EmailModal = ({ toggleEmailModal, emailModal }) => {
@@ -10,14 +12,16 @@ const EmailModal = ({ toggleEmailModal, emailModal }) => {
                     <Toast show={emailModal} onClose={toggleEmailModal}>
                         <Toast.Header>
                             <img
-                                src="holder.js/20x20?text=%20"
+                                src={emailIcon}
                                 className="rounded me-2"
-                                alt=""
+                                alt="emailIcon"
                             />
                             <strong className="me-auto">Email</strong>
-                            <small>11 mins ago</small>
+                            <small>47 mins ago</small>
                         </Toast.Header>
-                        <Toast.Body>Email Check</Toast.Body>
+                        <Toast.Body className='text-center bg-light'>
+                            <p>Message 1</p>
+                        </Toast.Body>
                     </Toast>
                 </Col>
             </Row>
