@@ -254,66 +254,68 @@ const Professors = () => {
                         <FaTimes size='20px' role='button' className='me-3' />
                     </div>
                 </div>
-                <div className='card-body'>
-                    <div className='float-left d-flex'>
-                        <div>
-                            <Button className='text-white bg-dark px-3 p-3' onClick={toggleModal}>
-                                <FaPlus /> Add New
-                            </Button>
-                        </div>
-                        <div>
-                            <InputGroup className="py-2">
-                                <InputGroupText className="bg-transparent border-0 h-100">
-                                    <i className="fa fa-search me-2 fa-lg" aria-hidden="true" ></i>   Search:
-                                </InputGroupText>
-                                <Input onChange={(e) => setSearchedVal(e.target.value)} className="bg-transparent border-1 pl-0 py-2 h-100" />
-                            </InputGroup>
-                        </div>
-                    </div>
-                    <div className='d-flex float-right'>
-                        <div className='float-right title-side-drop p-3 me-3' >
-                            <CSVLink className='text-white text-decoration-none' data={paginatedData}>
-                                Export to Excel
-                            </CSVLink>
-                        </div>
-                        <button className='float-right title-side-drop p-3 me-3 text-white' onClick={exportPDF}>Export to PDF</button>
-                        <div className='d-flex float-right title-side-drop p-3 me-3 text-white'>
-                            <div className='me-2'>
-                                <label>Show</label>
-                            </div>
-                            <div className='me-2 border-bottom'>
-                                <label>{productData?.length}</label>
-                            </div>
-                            <div>
-                                <label>entires</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 {toggleTable && (
-                    <Row className="card-body">
-                        <Col className="col-md-12  overflow-auto">
-                            <CustomTable
-                                requestSort={requestSort}
-                                getClassNamesFor={getClassNamesFor}
-                                productData={productData}
-                                items={items}
-                                searchedVal={searchedVal}
-                                onEdit={onEdit}
-                                onDelete={onDelete}
-                            />
-                        </Col>
-                        <div>
-                            <Pagination
-                                className="pagination-bar"
-                                currentPage={currentPage}
-                                totalCount={productData?.length}
-                                pageSize={PageSize}
-                                onPageChange={page => setCurrentPage(page)}
-                            />
+                    <>
+                        <div className='card-body'>
+                            <div className='float-left d-flex'>
+                                <div>
+                                    <Button className='text-white bg-dark px-3 p-3' onClick={toggleModal}>
+                                        <FaPlus /> Add New
+                                    </Button>
+                                </div>
+                                <div>
+                                    <InputGroup className="py-2">
+                                        <InputGroupText className="bg-transparent border-0 h-100">
+                                            <i className="fa fa-search me-2 fa-lg" aria-hidden="true" ></i>   Search:
+                                        </InputGroupText>
+                                        <Input onChange={(e) => setSearchedVal(e.target.value)} className="bg-transparent border-1 pl-0 py-2 h-100" />
+                                    </InputGroup>
+                                </div>
+                            </div>
+                            <div className='d-flex float-right'>
+                                <div className='float-right title-side-drop p-3 me-3' >
+                                    <CSVLink className='text-white text-decoration-none' data={paginatedData}>
+                                        Export to Excel
+                                    </CSVLink>
+                                </div>
+                                <button className='float-right title-side-drop p-3 me-3 text-white' onClick={exportPDF}>Export to PDF</button>
+                                <div className='d-flex float-right title-side-drop p-3 me-3 text-white'>
+                                    <div className='me-2'>
+                                        <label>Show</label>
+                                    </div>
+                                    <div className='me-2 border-bottom'>
+                                        <label>{productData?.length}</label>
+                                    </div>
+                                    <div>
+                                        <label>entires</label>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </Row>
+                        <Row className="card-body">
+                            <Col className="col-md-12  overflow-auto">
+                                <CustomTable
+                                    requestSort={requestSort}
+                                    getClassNamesFor={getClassNamesFor}
+                                    productData={productData}
+                                    items={items}
+                                    searchedVal={searchedVal}
+                                    onEdit={onEdit}
+                                    onDelete={onDelete}
+                                />
+                            </Col>
+                            <div>
+                                <Pagination
+                                    className="pagination-bar"
+                                    currentPage={currentPage}
+                                    totalCount={productData?.length}
+                                    pageSize={PageSize}
+                                    onPageChange={page => setCurrentPage(page)}
+                                />
+                            </div>
+                        </Row>
+                    </>
                 )}
 
                 <AddEditForm

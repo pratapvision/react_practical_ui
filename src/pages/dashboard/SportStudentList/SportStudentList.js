@@ -204,51 +204,53 @@ const SportStudentList = () => {
                         <FaTimes size='20px' role='button' className='me-3' />
                     </div>
                 </div>
-                <div className='card-body'>
-                    <div className='float-left'>
-                        <Button className='text-white bg-dark px-3 p-3' onClick={toggleModal}>
-                            <FaPlus /> Add New
-                        </Button>
-                    </div>
-                    <div className='float-right'>
-                        <div className='d-flex'>
-                            <div className='px-3 mt-3'>
-                                <FaFilePdf onClick={exportPDF} size="30px" />
-                            </div>
-                            <div className='px-3 mt-3'>
-                                <CSVLink className=' text-decoration-none' data={paginatedData}>
-                                    <FaFileExcel size="30px" />
-                                </CSVLink>
-                            </div>
-                            <div className='text-black bg-light px-3 p-3 rounded'>
-                                <b className='me-3 fs-5'>Print</b>
-                                <FaPrint color='#FD683F' size="25px" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 {toggleTable && (
-                    <div className='card-body'>
-                        <div className="col-md-12 overflow-auto">
-                            <SportCustomTable
-                                requestSort={requestSort}
-                                getClassNamesFor={getClassNamesFor}
-                                sportStudentData={sportStudentData}
-                                items={items}
-                                onEdit={onEdit}
-                                onDelete={onDelete}
-                            />
+                    <>
+                        <div className='card-body'>
+                            <div className='float-left'>
+                                <Button className='text-white bg-dark px-3 p-3' onClick={toggleModal}>
+                                    <FaPlus /> Add New
+                                </Button>
+                            </div>
+                            <div className='float-right'>
+                                <div className='d-flex'>
+                                    <div className='px-3 mt-3'>
+                                        <FaFilePdf onClick={exportPDF} size="30px" />
+                                    </div>
+                                    <div className='px-3 mt-3'>
+                                        <CSVLink className=' text-decoration-none' data={paginatedData}>
+                                            <FaFileExcel size="30px" />
+                                        </CSVLink>
+                                    </div>
+                                    <div className='text-black bg-light px-3 p-3 rounded'>
+                                        <b className='me-3 fs-5'>Print</b>
+                                        <FaPrint color='#FD683F' size="25px" />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <Pagination
-                                className="pagination-bar"
-                                currentPage={currentPage}
-                                totalCount={sportStudentData?.length}
-                                pageSize={PageSize}
-                                onPageChange={page => setCurrentPage(page)}
-                            />
+                        <div className='card-body'>
+                            <div className="col-md-12 overflow-auto">
+                                <SportCustomTable
+                                    requestSort={requestSort}
+                                    getClassNamesFor={getClassNamesFor}
+                                    sportStudentData={sportStudentData}
+                                    items={items}
+                                    onEdit={onEdit}
+                                    onDelete={onDelete}
+                                />
+                            </div>
+                            <div>
+                                <Pagination
+                                    className="pagination-bar"
+                                    currentPage={currentPage}
+                                    totalCount={sportStudentData?.length}
+                                    pageSize={PageSize}
+                                    onPageChange={page => setCurrentPage(page)}
+                                />
+                            </div>
                         </div>
-                    </div>
+                    </>
                 )}
                 <StudentAEForm
                     modal={modal}

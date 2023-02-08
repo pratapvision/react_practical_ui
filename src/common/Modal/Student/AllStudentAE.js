@@ -24,7 +24,6 @@ const AllStudentAE = ({
     onChangeInput,
     // imageUpload
 }) => {
-    console.log("ok", formErrors)
 
     return (
         <Modal isOpen={modal} toggle={toggleModal}>

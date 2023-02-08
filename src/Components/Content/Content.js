@@ -10,9 +10,9 @@ const EventManagement = lazy(() => import('../../pages/eventManagement/index.js'
 const Professors = lazy(() => import('../../pages/professors/index.js'))
 const Student = lazy(() => import('../../pages/student/index.js'))
 const Course = lazy(() => import('../../pages/course/index.js'))
-// const Library = lazy(() => import('../Table/Table'))
-// const Department = lazy(() => import('../Table/Table'))
-// const Staff = lazy(() => import('../Table/Table'))
+const Department = lazy(() => import('../../pages/department/index.js'))
+const Library = lazy(() => import('../../pages/library/index.js'))
+const Staff = lazy(() => import('../../pages/staff/index.js'))
 
 const Content = ({ sidebarIsOpen, toggleSidebar }) => (
     <Container
@@ -27,9 +27,9 @@ const Content = ({ sidebarIsOpen, toggleSidebar }) => (
             <Route exact path="/professors" element={<Professors />} />
             <Route exact path="/student" element={<Student />} />
             <Route exact path="/course" element={<Course />} />
-            {/*<Route exact path="/library" element={<TableName />} />
-            <Route exact path="/department" element={<TableName />} />
-            <Route exact path="/staff" element={<TableName />} /> */}
+            <Route exact path="/department" element={<Department />} />
+            <Route exact path="/library" element={<Library />} />
+            <Route exact path="/staff" element={<Staff />} />
         </Routes>
     </Container>
 );

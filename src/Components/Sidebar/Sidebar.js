@@ -34,7 +34,7 @@ const Sidebar = ({ isOpen, toggle }) => {
                 </span>
                 <div className='text-center mt-4 px-3'>
                     <img src={visionLogo} alt="image" className='me-2' />
-                    <div><spam className='fs-6'> Vision Education Hub</spam></div>
+                    <div><label className='fs-6'> Vision Education Hub</label></div>
                 </div>
                 <div className="form-group has-search mt-4 px-3">
                     <span className="fa fa-search form-control-feedback"></span>
