@@ -6,45 +6,6 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import '../index.css'
 
-const TableData = [
-    {
-        studentName: 'John Wick',
-        assignCoach: 'Harris',
-        date: '12/05/2022',
-        time: '11:15',
-        action: <>
-            <div className='rounded text-white p-2' style={{ backgroundColor: '#FD9C40' }}>Action <FaAngleDown /></div>
-        </>
-    },
-    {
-        studentName: 'John Wick',
-        assignCoach: 'Harris',
-        date: '12/05/2022',
-        time: '11:15',
-        action: <>
-            <div className='rounded text-white p-2' style={{ backgroundColor: '#3F8DFD' }}>Action <FaAngleDown /></div>
-        </>
-    },
-    {
-        studentName: 'John Wick',
-        assignCoach: 'Harris',
-        date: '12/05/2022',
-        time: '11:15',
-        action: <>
-            <div className='rounded text-white p-2' style={{ backgroundColor: '#FF6E6E' }}>Action <FaAngleDown /></div>
-        </>
-    },
-    {
-        studentName: 'John Wick',
-        assignCoach: 'Harris',
-        date: '12/05/2022',
-        time: '11:15',
-        action: <>
-            <div className='rounded text-white p-2' style={{ backgroundColor: '#333340' }}>Action <FaAngleDown /></div>
-        </>
-    },
-]
-
 const SportCustomTable = ({
     requestSort,
     getClassNamesFor,
