@@ -23,7 +23,7 @@ import NotificationModal from "../../common/NavBar/Notification/NotificationModa
 import EmailModal from "../../common/NavBar/Email/EmailModal";
 
 const NavbarHead = ({ toggleSidebar }) => {
-    const [topbarIsOpen, setTopbarOpen] = useState(true);
+    const [topBarIsOpen, setTopBarOpen] = useState(true);
 
     //navigation popup
     const [notificationModal, setNotificationModal] = useState(false)
@@ -31,7 +31,7 @@ const NavbarHead = ({ toggleSidebar }) => {
 
     const toggleNotificationModal = () => setNotificationModal(!notificationModal);
     const toggleEmailModal = () => setEmailModal(!emailModal);
-    const toggleTopbar = () => setTopbarOpen(!topbarIsOpen);
+    const toggleTopBar = () => setTopBarOpen(!topBarIsOpen);
 
     return (
         <div>
@@ -44,8 +44,8 @@ const NavbarHead = ({ toggleSidebar }) => {
                 <Button color="" onClick={toggleSidebar}>
                     <FontAwesomeIcon icon={faAlignLeft} />
                 </Button>
-                <NavbarToggler onClick={toggleTopbar} />
-                <Collapse isOpen={topbarIsOpen} navbar>
+                <NavbarToggler onClick={toggleTopBar} />
+                <Collapse isOpen={topBarIsOpen} navbar>
                     {/* <div className="card-title mx-3 leftSide">
                     <h4 className='font-weight-bold'> Education Dashboard </h4>
                     <label className="float-left">Welcome, Henna Baker's</label>
