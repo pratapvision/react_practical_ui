@@ -20,14 +20,17 @@ import notificationIcon from '../../assest/Header/ClarityNotification.png'
 import EnglishIcon from '../../assest/Header/EnglishIcon.png'
 import './index.css'
 import NotificationModal from "../../common/NavBar/Notification/NotificationModal";
+import EmailModal from "../../common/NavBar/Email/EmailModal";
 
 const NavbarHead = ({ toggleSidebar }) => {
     const [topbarIsOpen, setTopbarOpen] = useState(true);
 
-    //notification popup
+    //navigation popup
     const [notificationModal, setNotificationModal] = useState(false)
+    const [emailModal, setEmailModal] = useState(false)
 
     const toggleNotificationModal = () => setNotificationModal(!notificationModal);
+    const toggleEmailModal = () => setEmailModal(!emailModal);
     const toggleTopbar = () => setTopbarOpen(!topbarIsOpen);
 
     return (
@@ -65,13 +68,17 @@ const NavbarHead = ({ toggleSidebar }) => {
                             <img src={EnglishIcon} className='me-3 float-left mt-2' alt="image" />
                             <label className="header-english me-3 float-left mt-3">English</label>
                             <img className='me-3 float-left mt-2' src={notificationIcon} alt="image" onClick={toggleNotificationModal} style={{ cursor: 'pointer' }} />
-                            <img className='me-3 float-left mt-2' src={emailIcon} alt="image" />
+                            <img className='me-3 float-left mt-2' src={emailIcon} alt="image" onClick={toggleEmailModal} style={{ cursor: 'pointer' }} />
                             <img src="/profile_icon.png" className='me-2 float-left' alt="image" />
                             <span className="header-profile-name float-left mt-3">Clay Johnson</span>
                             <i className="fa fa-angle-down header-icon prof-drop-icon float-left mt-1" aria-hidden="true" ></i>
                             <NotificationModal
                                 toggleNotificationModal={toggleNotificationModal}
                                 notificationModal={notificationModal}
+                            />
+                            <EmailModal
+                                toggleEmailModal={toggleEmailModal}
+                                emailModal={emailModal}
                             />
                         </div>
                     </div>
