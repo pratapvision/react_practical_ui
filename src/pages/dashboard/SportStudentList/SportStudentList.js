@@ -1,22 +1,26 @@
-import React, { useState, useEffect } from 'react'
-import { Button } from 'reactstrap'
+import React, { useState, useEffect, useCallback, useRef } from 'react'
+import { Button, Spinner } from 'reactstrap'
 import { FaChevronDown, FaPlus, FaRedo, FaTimes, FaPrint, FaFilePdf, FaFileDownload, FaFileExcel } from 'react-icons/fa'
 import ls from 'local-storage'
 import { jsPDF } from "jspdf";
 import autoTable from 'jspdf-autotable'
+import { CSVLink } from 'react-csv';
+import ReactToPrint from 'react-to-print';
 
-import '../index.css'
 import SportCustomTable from './SportCustomTable'
 import StudentAEForm from '../../../common/Modal/Dashboard/Student/StudentAEForm'
 import Delete from '../../../common/Delete/Delete'
 import useSortableData from '../../../common/Sorting/useSortableData'
 import Pagination from '../../../common/Pagination/Pagination'
-import { CSVLink } from 'react-csv';
+
+import '../index.css'
 
 let PageSize = 5;
 
 const SportStudentList = () => {
 
+    const componentRef = useRef();
+    const onBeforeGetContentResolve = useRef(null);
 
     const [sportStudentData, setSportStudentData] = useState([])
     const [paginatedData, setPaginatedData] = useState([])
@@ -39,6 +43,8 @@ const SportStudentList = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     const [currentPage, setCurrentPage] = useState(1);
+
+    const [loading, setLoading] = useState(false);
 
     const toggleModal = () => setModal(!modal)
     const deleteClose = () => setDeleteOpen(!deleteOpen)
@@ -191,6 +197,19 @@ const SportStudentList = () => {
         doc.save("report.pdf")
     }
 
+    const handleOnBeforeGetContent = useCallback(() => {
+        setLoading(true);
+        return new Promise((resolve) => {
+            onBeforeGetContentResolve.current = resolve;
+
+            setTimeout(() => {
+                setLoading(false);
+                resolve();
+            }, 1000);
+        });
+    }, [setLoading]);
+
+
     return (
         <div className='pt-2 card-group mt-3'>
             <div className=' card shadow-sm px-2 me-3 bg-white rounded'>
@@ -223,8 +242,23 @@ const SportStudentList = () => {
                                         </CSVLink>
                                     </div>
                                     <div className='text-black bg-light px-3 p-3 rounded'>
-                                        <b className='me-3 fs-5'>Print</b>
-                                        <FaPrint color='#FD683F' size="25px" />
+                                        {loading ?
+                                            <>
+                                                <div className='text-center'>
+                                                    <Spinner />
+                                                </div>
+                                                <p className="indicator">Please Wait</p>
+                                            </>
+                                            :
+                                            <>
+                                                <b className='me-3 fs-5'>Print</b>
+                                                <ReactToPrint
+                                                    trigger={() => <FaPrint style={{ cursor: 'pointer' }} color='#FD683F' size="25px" />}
+                                                    content={() => componentRef.current}
+                                                    onBeforeGetContent={handleOnBeforeGetContent}
+                                                />
+                                            </>
+                                        }
                                     </div>
                                 </div>
                             </div>
@@ -232,6 +266,7 @@ const SportStudentList = () => {
                         <div className='card-body'>
                             <div className="col-md-12 overflow-auto">
                                 <SportCustomTable
+                                    ref={componentRef}
                                     requestSort={requestSort}
                                     getClassNamesFor={getClassNamesFor}
                                     sportStudentData={sportStudentData}
