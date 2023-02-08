@@ -14,9 +14,10 @@ import AddEditForm from '../../../common/Modal/Professors/AddEditForm/AddEditFor
 import useSortableData from '../../../common/Sorting/useSortableData';
 import Pagination from '../../../common/Pagination/Pagination'
 import '../index.css'
-import CustomTable from './CustomTable';
 import TableHeader from '../../../common/Table/TableHeader';
 import TableAdd from '../../../common/Table/TableAdd';
+import TableData from '../../../common/Table/TableData';
+import TableSearch from '../../../common/Table/TableSearch';
 
 let PageSize = 10;
 const ProfessorTable = () => {
@@ -252,14 +253,7 @@ const ProfessorTable = () => {
                     <div className='card-body'>
                         <div className='float-left d-flex'>
                             <TableAdd toggleModal={toggleModal} />
-                            <div>
-                                <InputGroup className="py-2">
-                                    <InputGroupText className="bg-transparent border-0 h-100">
-                                        <i className="fa fa-search me-2 fa-lg" aria-hidden="true" ></i>   Search:
-                                    </InputGroupText>
-                                    <Input onChange={(e) => setSearchedVal(e.target.value)} className="bg-transparent border-1 pl-0 py-2 h-100" />
-                                </InputGroup>
-                            </div>
+                            <TableSearch setSearchedVal={setSearchedVal} />
                         </div>
                         <div className='d-flex float-right'>
                             <div className='p-3 me-2' >
@@ -286,10 +280,11 @@ const ProfessorTable = () => {
                     </div>
                     <div className="card-body">
                         <div className="col-md-12  overflow-auto">
-                            <CustomTable
+                            <TableData
+                                name="professorTable"
                                 requestSort={requestSort}
                                 getClassNamesFor={getClassNamesFor}
-                                productData={productData}
+                                tableListingData={productData}
                                 items={items}
                                 searchedVal={searchedVal}
                                 onEdit={onEdit}

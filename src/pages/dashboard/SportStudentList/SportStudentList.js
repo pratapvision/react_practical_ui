@@ -14,7 +14,7 @@ import useSortableData from '../../../common/Sorting/useSortableData'
 import Pagination from '../../../common/Pagination/Pagination'
 
 import '../index.css'
-import TableHeader from '../../../common/TableHeader/TableHeader';
+import TableHeader from '../../../common/Table/TableHeader';
 import TableAdd from '../../../common/Table/TableAdd';
 
 let PageSize = 5;
@@ -261,6 +261,7 @@ const SportStudentList = () => {
                         <div className='card-body'>
                             <div className="col-md-12 overflow-auto">
                                 <SportCustomTable
+                                    name="sportTable"
                                     ref={componentRef}
                                     requestSort={requestSort}
                                     getClassNamesFor={getClassNamesFor}
@@ -269,6 +270,17 @@ const SportStudentList = () => {
                                     onEdit={onEdit}
                                     onDelete={onDelete}
                                 />
+
+                                {/* <TableData
+                                    name="sportTable"
+                                    ref={componentRef}
+                                    requestSort={requestSort}
+                                    getClassNamesFor={getClassNamesFor}
+                                    tableListingData={sportStudentData}
+                                    items={items}
+                                    onEdit={onEdit}
+                                    onDelete={onDelete}
+                                /> */}
                             </div>
                             <div>
                                 <Pagination

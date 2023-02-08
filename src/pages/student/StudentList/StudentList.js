@@ -8,13 +8,14 @@ import ls from 'local-storage'
 
 import HeadingCards from '../../dashboard/HeadingCards/HeadingCards'
 import useSortableData from '../../../common/Sorting/useSortableData'
-import StudentCustomTable from './StudentCustomTable'
 import Pagination from '../../../common/Pagination/Pagination'
 import AllStudentAE from '../../../common/Modal/Student/AllStudentAE'
 import Delete from '../../../common/Delete/Delete'
 import TableHeader from '../../../common/Table/TableHeader'
 import '../index.css'
 import TableAdd from '../../../common/Table/TableAdd'
+import TableData from '../../../common/Table/TableData'
+import TableSearch from '../../../common/Table/TableSearch'
 
 let PageSize = 10;
 
@@ -184,14 +185,7 @@ const StudentList = () => {
                     <div className='card-body'>
                         <div className='float-left d-flex'>
                             <TableAdd toggleModal={toggleModal} />
-                            <div>
-                                <InputGroup className="py-2">
-                                    <InputGroupText className="bg-transparent border-0 h-100">
-                                        <i className="fa fa-search me-2 fa-lg" aria-hidden="true" ></i>   Search:
-                                    </InputGroupText>
-                                    <Input onChange={(e) => setSearchedVal(e.target.value)} className="bg-transparent border-1 pl-0 py-2 h-100" />
-                                </InputGroup>
-                            </div>
+                            <TableSearch setSearchedVal={setSearchedVal} />
                         </div>
                         <div className=' d-flex float-right title-side-drop p-3 me-3 text-white'>
                             <div className='me-2'>
@@ -208,10 +202,11 @@ const StudentList = () => {
                     </div>
                     <div className='card-body'>
                         <div className="col-md-12 overflow-auto">
-                            <StudentCustomTable
+                            <TableData
+                                name="studentList"
                                 requestSort={requestSort}
                                 getClassNamesFor={getClassNamesFor}
-                                studentData={studentData}
+                                tableListingData={studentData}
                                 items={items}
                                 searchedVal={searchedVal}
                                 onEdit={onEdit}
