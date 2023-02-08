@@ -173,7 +173,6 @@ const StudentList = () => {
     }
 
     return (
-
         <div className='card shadow-sm px-2 me-3 bg-white rounded'>
             <div className='card-body border-bottom'>
                 <div className='float-left'>

@@ -55,13 +55,13 @@ const NavbarHead = ({ toggleSidebar }) => {
                         <label className="float-left">Welcome, Henna Baker's!</label>
                     </div>
                     <div className='float-right'>
-                        <img src={EnglishIcon} className='me-3' alt="image" />
-                        <label className="header-english me-3">English</label>
-                        <img className='me-3' src={ClarutyNotification} alt="image" />
-                        <img className='me-3' src={ClarutyEmail} alt="image" />
-                        <img src="/profile_icon.png" className='me-2' alt="image" />
-                        <span className="header-profile-name">Clay Johnson</span>
-                        <i className="fa fa-angle-down header-icon prof-drop-icon" aria-hidden="true" ></i>
+                        <img src={EnglishIcon} className='me-3 float-left mt-2' alt="image" />
+                        <label className="header-english me-3 float-left mt-3">English</label>
+                        <img className='me-3 float-left mt-2' src={ClarutyNotification} alt="image" />
+                        <img className='me-3 float-left mt-2' src={ClarutyEmail} alt="image" />
+                        <img src="/profile_icon.png" className='me-2 float-left' alt="image" />
+                        <span className="header-profile-name float-left mt-3">Clay Johnson</span>
+                        <i className="fa fa-angle-down header-icon prof-drop-icon float-left mt-1" aria-hidden="true" ></i>
                     </div>
                 </div>
             </Collapse>
