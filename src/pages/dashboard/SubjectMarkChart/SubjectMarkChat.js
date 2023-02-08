@@ -11,7 +11,7 @@ import {
 } from 'chart.js'
 import { Line } from 'react-chartjs-2'
 import { FaChevronDown, FaRedo, FaTimes } from 'react-icons/fa'
-import TableHeader from '../../../common/TableHeader/TableHeader'
+import TableHeader from '../../../common/Table/TableHeader'
 import charts from '../../../assest/Dashboard/charts.png'
 
 import '../index.css'

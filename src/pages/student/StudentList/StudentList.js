@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { FaChevronDown, FaPlus, FaRedo, FaTimes } from 'react-icons/fa'
 import {
-    Button,
     Input,
     InputGroup,
     InputGroupText,
@@ -14,8 +12,9 @@ import StudentCustomTable from './StudentCustomTable'
 import Pagination from '../../../common/Pagination/Pagination'
 import AllStudentAE from '../../../common/Modal/Student/AllStudentAE'
 import Delete from '../../../common/Delete/Delete'
-import TableHeader from '../../../common/TableHeader/TableHeader'
+import TableHeader from '../../../common/Table/TableHeader'
 import '../index.css'
+import TableAdd from '../../../common/Table/TableAdd'
 
 let PageSize = 10;
 
@@ -184,11 +183,7 @@ const StudentList = () => {
                 <>
                     <div className='card-body'>
                         <div className='float-left d-flex'>
-                            <div>
-                                <Button className='text-white bg-dark px-3 p-3' onClick={toggleModal}>
-                                    <FaPlus /> Add New
-                                </Button>
-                            </div>
+                            <TableAdd toggleModal={toggleModal} />
                             <div>
                                 <InputGroup className="py-2">
                                     <InputGroupText className="bg-transparent border-0 h-100">

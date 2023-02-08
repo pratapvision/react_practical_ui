@@ -15,6 +15,7 @@ import Pagination from '../../../common/Pagination/Pagination'
 
 import '../index.css'
 import TableHeader from '../../../common/TableHeader/TableHeader';
+import TableAdd from '../../../common/Table/TableAdd';
 
 let PageSize = 5;
 
@@ -223,9 +224,7 @@ const SportStudentList = () => {
                     <>
                         <div className='card-body'>
                             <div className='float-left'>
-                                <Button className='text-white bg-dark px-3 p-3' onClick={toggleModal}>
-                                    <FaPlus /> Add New
-                                </Button>
+                                <TableAdd toggleModal={toggleModal} />
                             </div>
                             <div className='float-right'>
                                 <div className='d-flex'>
