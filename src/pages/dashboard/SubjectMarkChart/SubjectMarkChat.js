@@ -11,6 +11,7 @@ import {
 } from 'chart.js'
 import { Line } from 'react-chartjs-2'
 import { FaChevronDown, FaRedo, FaTimes } from 'react-icons/fa'
+import TableHeader from '../../../common/TableHeader/TableHeader'
 import charts from '../../../assest/Dashboard/charts.png'
 
 import '../index.css'
@@ -51,17 +52,11 @@ const SubjectMarkChat = () => {
     return (
         <div className='pt-2 card-group mt-3'>
             <div className=' card shadow-sm px-2 me-3 bg-white rounded'>
-                <div className='card-body border-bottom'>
-                    <div className='float-left'>
-                        <h4 className="card-title float-left"> Subject Mark’s Chart </h4>
-                    </div>
-                    <div className='float-right'>
-                        <FaRedo size='17px' role='button' className='me-3' />
-                        <FaChevronDown size='20px' role='button' className='me-3' onClick={() => setToggleTable(!toggleTable)} />
-                        <FaTimes size='20px' role='button' className='me-3' />
-                    </div>
-                </div>
-
+                <TableHeader
+                    headerName='Subject Mark’s Chart'
+                    setToggleTable={setToggleTable}
+                    toggleTable={toggleTable}
+                />
                 {toggleTable && (
                     <div className='card-body'>
                         <div className="col-md-12 overflow-auto">

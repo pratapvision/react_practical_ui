@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react'
 import { Button, Spinner } from 'reactstrap'
-import { FaChevronDown, FaPlus, FaRedo, FaTimes, FaPrint, FaFilePdf, FaFileDownload, FaFileExcel } from 'react-icons/fa'
+import { FaPlus, FaPrint, FaFilePdf, FaFileExcel } from 'react-icons/fa'
 import ls from 'local-storage'
 import { jsPDF } from "jspdf";
 import autoTable from 'jspdf-autotable'
@@ -14,6 +14,7 @@ import useSortableData from '../../../common/Sorting/useSortableData'
 import Pagination from '../../../common/Pagination/Pagination'
 
 import '../index.css'
+import TableHeader from '../../../common/TableHeader/TableHeader';
 
 let PageSize = 5;
 
@@ -213,16 +214,11 @@ const SportStudentList = () => {
     return (
         <div className='pt-2 card-group mt-3'>
             <div className=' card shadow-sm px-2 me-3 bg-white rounded'>
-                <div className='card-body border-bottom'>
-                    <div className='float-left'>
-                        <h4 className="card-title float-left"> Sport Student List </h4>
-                    </div>
-                    <div className='float-right'>
-                        <FaRedo size='17px' role='button' className='me-3' />
-                        <FaChevronDown size='20px' role='button' className='me-3' onClick={() => setToggleTable(!toggleTable)} />
-                        <FaTimes size='20px' role='button' className='me-3' />
-                    </div>
-                </div>
+                <TableHeader
+                    headerName='Sport Student List'
+                    setToggleTable={setToggleTable}
+                    toggleTable={toggleTable}
+                />
                 {toggleTable && (
                     <>
                         <div className='card-body'>

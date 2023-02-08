@@ -14,6 +14,7 @@ import StudentCustomTable from './StudentCustomTable'
 import Pagination from '../../../common/Pagination/Pagination'
 import AllStudentAE from '../../../common/Modal/Student/AllStudentAE'
 import Delete from '../../../common/Delete/Delete'
+import TableHeader from '../../../common/TableHeader/TableHeader'
 import '../index.css'
 
 let PageSize = 10;
@@ -174,16 +175,11 @@ const StudentList = () => {
 
     return (
         <div className='card shadow-sm px-2 me-3 bg-white rounded'>
-            <div className='card-body border-bottom'>
-                <div className='float-left'>
-                    <h4 className="card-title float-left"> All Student </h4>
-                </div>
-                <div className='float-right'>
-                    <FaRedo size='17px' role='button' className='me-3' />
-                    <FaChevronDown size='20px' role='button' className='me-3' onClick={() => setToggleTable(!toggleTable)} />
-                    <FaTimes size='20px' role='button' className='me-3' />
-                </div>
-            </div>
+            <TableHeader
+                headerName='All Student'
+                setToggleTable={setToggleTable}
+                toggleTable={toggleTable}
+            />
             {toggleTable && (
                 <>
                     <div className='card-body'>

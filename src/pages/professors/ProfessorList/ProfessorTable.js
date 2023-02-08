@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { FaChevronDown, FaFileExcel, FaFilePdf, FaPlus, FaRedo, FaTimes } from 'react-icons/fa'
+import { FaFileExcel, FaFilePdf, FaPlus, } from 'react-icons/fa'
 import {
     Button,
     Input,
@@ -16,6 +16,7 @@ import useSortableData from '../../../common/Sorting/useSortableData';
 import Pagination from '../../../common/Pagination/Pagination'
 import '../index.css'
 import CustomTable from './CustomTable';
+import TableHeader from '../../../common/TableHeader/TableHeader';
 
 let PageSize = 10;
 const ProfessorTable = () => {
@@ -240,16 +241,11 @@ const ProfessorTable = () => {
 
     return (
         <div className='card shadow-sm px-2 me-3 bg-white rounded'>
-            <div className='card-body border-bottom'>
-                <div className='float-left'>
-                    <h4 className="card-title float-left"> All Professors </h4>
-                </div>
-                <div className='float-right'>
-                    <FaRedo size='17px' role='button' className='me-3' />
-                    <FaChevronDown size='20px' role='button' className='me-3' onClick={() => setToggleTable(!toggleTable)} />
-                    <FaTimes size='20px' role='button' className='me-3' />
-                </div>
-            </div>
+            <TableHeader
+                headerName=' All Professors'
+                setToggleTable={setToggleTable}
+                toggleTable={toggleTable}
+            />
 
             {toggleTable && (
                 <>
