@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { FaFileExcel, FaFilePdf, } from 'react-icons/fa'
 import { CSVLink } from "react-csv";
-import { jsPDF } from "jspdf";
 import autoTable from 'jspdf-autotable'
 import ls from 'local-storage'
 
 import useSortableData from '../../../utils/useSortableData';
+import { professorFormValidate } from '../../../utils/validation';
+import { exportProfessorPDF } from '../../../utils/exportPDF';
 
 import { TableData } from '../../../common/Table/TableData';
 import Delete from '../../../common/Delete/Delete';
@@ -16,7 +17,6 @@ import Buttons from '../../../common/Button/Buttons';
 import AddEditForm from '../../../common/Table/AddEditForm';
 
 import '../index.css'
-import { professorFormValidate } from '../../../utils/validation';
 
 let PageSize = 10;
 
@@ -63,32 +63,6 @@ const ProfessorTable = () => {
         }
         return sortConfig.key === name ? sortConfig.direction : undefined;
     };
-
-    const exportPDF = () => {
-        const unit = "pt";
-        const size = "A4";
-        const orientation = "portrait";
-
-        const marginLeft = 40;
-        const doc = new jsPDF(orientation, unit, size);
-
-        doc.setFontSize(15);
-
-        const title = "Product Table";
-        const headers = [["Product Name", "Product Description", "Product Category", "Product Price", "Size", "InStock"]];
-
-        const data = paginatedData?.map(elt => [elt?.productName, elt?.productDescription, elt?.productCategory, elt?.productPrice, elt?.size, elt?.inStock]);
-
-        let content = {
-            startY: 50,
-            head: headers,
-            body: data
-        };
-
-        doc.text(title, marginLeft, 40);
-        doc.autoTable(content);
-        doc.save("report.pdf")
-    }
 
     const onChangeInput = (e) => {
         setMyProduct({ ...myProduct, [e.target.name]: e.target.value })
@@ -240,7 +214,7 @@ const ProfessorTable = () => {
                                 </CSVLink>
                             </div>
                             <div className='p-3 me-3' style={{ cursor: 'pointer' }}>
-                                <FaFilePdf onClick={exportPDF} size="35px" />
+                                <FaFilePdf onClick={() => exportProfessorPDF(paginatedData)} size="35px" />
                             </div>
                             {/* <button className='float-right title-side-drop p-3 me-3 text-white' onClick={exportPDF}>Export to PDF</button> */}
                             <div className='d-flex float-right title-side-drop p-3 me-3 text-white'>

@@ -2,7 +2,6 @@ import React, { useState, useEffect, useCallback, useRef } from 'react'
 import { Spinner } from 'reactstrap'
 import { FaPrint, FaFilePdf, FaFileExcel } from 'react-icons/fa'
 import ls from 'local-storage'
-import { jsPDF } from "jspdf";
 import autoTable from 'jspdf-autotable'
 import { CSVLink } from 'react-csv';
 import ReactToPrint from 'react-to-print';
@@ -17,6 +16,7 @@ import AddEditForm from '../../../common/Table/AddEditForm';
 import { SportCustomTable } from '../../../common/Table/TableData';
 import useSortableData from '../../../utils/useSortableData';
 import { studentSportFormValidate } from '../../../utils/validation';
+import { exportSportStudentPDF } from '../../../utils/exportPDF';
 
 let PageSize = 5;
 
@@ -155,31 +155,31 @@ const SportStudentList = () => {
         toggleModal()
     }
 
-    const exportPDF = () => {
-        const unit = "pt";
-        const size = "A4";
-        const orientation = "portrait";
+    // const exportPDF = () => {
+    //     const unit = "pt";
+    //     const size = "A4";
+    //     const orientation = "portrait";
 
-        const marginLeft = 40;
-        const doc = new jsPDF(orientation, unit, size);
+    //     const marginLeft = 40;
+    //     const doc = new jsPDF(orientation, unit, size);
 
-        doc.setFontSize(15);
+    //     doc.setFontSize(15);
 
-        const title = "Sport Student List";
-        const headers = [["Student Name", "Assigned Coach", "Date", "Time"]];
+    //     const title = "Sport Student List";
+    //     const headers = [["Student Name", "Assigned Coach", "Date", "Time"]];
 
-        const data = paginatedData?.map(elt => [elt?.sportStudentName, elt?.sportAssignCoach, elt?.sportStudentDate, elt?.sportStudentTime]);
+    //     const data = paginatedData?.map(elt => [elt?.sportStudentName, elt?.sportAssignCoach, elt?.sportStudentDate, elt?.sportStudentTime]);
 
-        let content = {
-            startY: 50,
-            head: headers,
-            body: data
-        };
+    //     let content = {
+    //         startY: 50,
+    //         head: headers,
+    //         body: data
+    //     };
 
-        doc.text(title, marginLeft, 40);
-        doc.autoTable(content);
-        doc.save("report.pdf")
-    }
+    //     doc.text(title, marginLeft, 40);
+    //     doc.autoTable(content);
+    //     doc.save("report.pdf")
+    // }
 
     const handleOnBeforeGetContent = useCallback(() => {
         setLoading(true);
@@ -211,7 +211,7 @@ const SportStudentList = () => {
                             <div className='float-right'>
                                 <div className='d-flex'>
                                     <div className='px-3 mt-3'>
-                                        <FaFilePdf onClick={exportPDF} size="30px" style={{ cursor: 'pointer' }} />
+                                        <FaFilePdf onClick={() => exportSportStudentPDF(paginatedData)} size="30px" style={{ cursor: 'pointer' }} />
                                     </div>
                                     <div className='px-3 mt-3'>
                                         <CSVLink className=' text-decoration-none' data={paginatedData}>
