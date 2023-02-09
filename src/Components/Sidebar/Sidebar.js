@@ -15,12 +15,9 @@ import classNames from "classnames";
 import { Link } from "react-router-dom";
 import './sidebar.css'
 
-// import SubMenu from './SubMenu';
-
 import setImg from '../../assets/Sidebar/setImg.png'
 import logout from '../../assets/Sidebar/logout.png'
 import visionLogo from '../../assets/Sidebar/visionLogo.png'
-// import hennaBekar from '../../assets/Sidebar/hennaBekar.png'
 import hennaBekar from '../../assets/Sidebar/hennaBeker.png'
 import { FaAngleDown } from 'react-icons/fa';
 
@@ -137,12 +134,6 @@ const Sidebar = ({ isOpen, toggle }) => {
                         <img src={setImg} alt="image" className='m-2' />
                         <img src={logout} alt="image" className='m-2' />
                     </div>
-
-                    {/* <SubMenu title="Student" icon={faUser} items={submenus[1]} />
-                <SubMenu title="Course" icon={faUser} items={submenus[1]} />
-                <SubMenu title="Library" icon={faUser} items={submenus[1]} />
-                <SubMenu title="Department" icon={faUser} items={submenus[1]} />
-                <SubMenu title="Staff" icon={faUser} items={submenus[1]} /> */}
                 </Nav>
             </div>
         </div>

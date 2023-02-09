@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import ls from 'local-storage'
 
 import HeadingCards from '../../dashboard/HeadingCards/HeadingCards'
-import useSortableData from '../../../common/Sorting/useSortableData'
 import Pagination from '../../../common/Pagination/Pagination'
 import Delete from '../../../common/Delete/Delete'
 import TableHeader from '../../../common/Table/TableHeader'
@@ -11,6 +10,7 @@ import { TableData } from '../../../common/Table/TableData'
 import TableSearch from '../../../common/Table/TableSearch'
 import Buttons from '../../../common/Button/Buttons'
 import AddEditForm from '../../../common/Table/AddEditForm'
+import useSortableData from '../../../utils/useSortableData'
 
 let PageSize = 10;
 

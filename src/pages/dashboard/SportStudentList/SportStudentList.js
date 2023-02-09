@@ -8,7 +8,6 @@ import { CSVLink } from 'react-csv';
 import ReactToPrint from 'react-to-print';
 
 import Delete from '../../../common/Delete/Delete'
-import useSortableData from '../../../common/Sorting/useSortableData'
 import Pagination from '../../../common/Pagination/Pagination'
 
 import '../index.css'
@@ -16,6 +15,7 @@ import TableHeader from '../../../common/Table/TableHeader';
 import Buttons from '../../../common/Button/Buttons';
 import AddEditForm from '../../../common/Table/AddEditForm';
 import { SportCustomTable } from '../../../common/Table/TableData';
+import useSortableData from '../../../utils/useSortableData';
 
 let PageSize = 5;
 
