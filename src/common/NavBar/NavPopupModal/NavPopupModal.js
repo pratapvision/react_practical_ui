@@ -2,7 +2,6 @@ import React from 'react'
 import { Col, Row, Toast } from 'react-bootstrap'
 import notificationIcon from '../../../assets/Header/ClarityNotification.png'
 import emailIcon from '../../../assets/Header/ClarityEmail.png'
-import '../index.css'
 
 const NavPopupModal = (props) => {
     const {
