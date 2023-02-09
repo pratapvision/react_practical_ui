@@ -7,7 +7,6 @@ import autoTable from 'jspdf-autotable'
 import { CSVLink } from 'react-csv';
 import ReactToPrint from 'react-to-print';
 
-import SportCustomTable from './SportCustomTable'
 import Delete from '../../../common/Delete/Delete'
 import useSortableData from '../../../common/Sorting/useSortableData'
 import Pagination from '../../../common/Pagination/Pagination'
@@ -16,6 +15,7 @@ import '../index.css'
 import TableHeader from '../../../common/Table/TableHeader';
 import Buttons from '../../../common/Button/Buttons';
 import AddEditForm from '../../../common/Table/AddEditForm';
+import { SportCustomTable } from '../../../common/Table/TableData';
 
 let PageSize = 5;
 
@@ -229,7 +229,7 @@ const SportStudentList = () => {
                             <div className='float-right'>
                                 <div className='d-flex'>
                                     <div className='px-3 mt-3'>
-                                        <FaFilePdf onClick={exportPDF} size="30px" />
+                                        <FaFilePdf onClick={exportPDF} size="30px" style={{ cursor: 'pointer' }} />
                                     </div>
                                     <div className='px-3 mt-3'>
                                         <CSVLink className=' text-decoration-none' data={paginatedData}>
@@ -272,7 +272,7 @@ const SportStudentList = () => {
                                 />
 
                                 {/* <TableData
-                                    name="sportTable"
+                                    name="sportStudentTable"
                                     ref={componentRef}
                                     requestSort={requestSort}
                                     getClassNamesFor={getClassNamesFor}

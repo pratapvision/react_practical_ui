@@ -9,7 +9,7 @@ import useSortableData from '../../../common/Sorting/useSortableData';
 import Pagination from '../../../common/Pagination/Pagination'
 import '../index.css'
 import TableHeader from '../../../common/Table/TableHeader';
-import TableData from '../../../common/Table/TableData';
+import { TableData } from '../../../common/Table/TableData';
 import TableSearch from '../../../common/Table/TableSearch';
 import Buttons from '../../../common/Button/Buttons';
 import AddEditForm from '../../../common/Table/AddEditForm';

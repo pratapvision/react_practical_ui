@@ -18,7 +18,7 @@ import './index.css'
 const NavbarHead = ({ toggleSidebar }) => {
     const [topBarIsOpen, setTopBarOpen] = useState(true);
 
-    //navigation popup
+    //popup
     const [notificationModal, setNotificationModal] = useState(false)
     const [emailModal, setEmailModal] = useState(false)
 

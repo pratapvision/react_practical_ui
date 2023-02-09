@@ -7,7 +7,7 @@ import Pagination from '../../../common/Pagination/Pagination'
 import Delete from '../../../common/Delete/Delete'
 import TableHeader from '../../../common/Table/TableHeader'
 import '../index.css'
-import TableData from '../../../common/Table/TableData'
+import { TableData } from '../../../common/Table/TableData'
 import TableSearch from '../../../common/Table/TableSearch'
 import Buttons from '../../../common/Button/Buttons'
 import AddEditForm from '../../../common/Table/AddEditForm'
@@ -198,7 +198,7 @@ const StudentList = () => {
                     <div className='card-body'>
                         <div className="col-md-12 overflow-auto">
                             <TableData
-                                name="studentList"
+                                name="studentTable"
                                 requestSort={requestSort}
                                 getClassNamesFor={getClassNamesFor}
                                 tableListingData={studentData}
