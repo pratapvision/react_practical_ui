@@ -7,10 +7,8 @@ import {
     LineElement,
     Title,
     Tooltip,
-    Legend,
 } from 'chart.js'
-import { Line } from 'react-chartjs-2'
-import { FaChevronDown, FaRedo, FaTimes } from 'react-icons/fa'
+// import { Line } from 'react-chartjs-2'
 import TableHeader from '../../../common/Table/TableHeader'
 import charts from '../../../assets/Dashboard/charts.png'
 
@@ -22,23 +20,23 @@ const SubjectMarkChat = () => {
 
     const toggleModal = () => setModal(!modal)
 
-    const data = {
-        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
-        datasets: [
-            {
-                // label: "First dataset",
-                data: [500, 400, 500, 400, 250, 125],
-                fill: true,
-                borderColor: "#147AD6"
-            },
-            {
-                // label: "Second dataset",
-                data: [375, 500, 275, 400, 250, 0],
-                fill: false,
-                borderColor: "#EC6666"
-            }
-        ]
-    };
+    // const data = {
+    //     labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+    //     datasets: [
+    //         {
+    //             // label: "First dataset",
+    //             data: [500, 400, 500, 400, 250, 125],
+    //             fill: true,
+    //             borderColor: "#147AD6"
+    //         },
+    //         {
+    //             // label: "Second dataset",
+    //             data: [375, 500, 275, 400, 250, 0],
+    //             fill: false,
+    //             borderColor: "#EC6666"
+    //         }
+    //     ]
+    // };
 
     ChartJS.register(
         CategoryScale,

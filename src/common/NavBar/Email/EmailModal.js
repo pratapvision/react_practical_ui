@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Button, Col, Row, Toast } from 'react-bootstrap'
+import React from 'react'
+import { Col, Row, Toast } from 'react-bootstrap'
 import emailIcon from '../../../assets/Header/ClarityEmail.png'
 
 import '../index.css'
@@ -8,7 +8,7 @@ const EmailModal = ({ toggleEmailModal, emailModal }) => {
     return (
         <div className='navTopIcon'>
             <Row>
-                <Col className="mb-2 float-right mt-10">
+                <Col className="mb-2 float-right mt-10" style={{ marginLeft: '200px', float: 'right', width: '300px' }}>
                     <Toast show={emailModal} onClose={toggleEmailModal}>
                         <Toast.Header>
                             <img

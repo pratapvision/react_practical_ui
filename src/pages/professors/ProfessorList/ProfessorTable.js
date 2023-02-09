@@ -10,9 +10,9 @@ import useSortableData from '../../../common/Sorting/useSortableData';
 import Pagination from '../../../common/Pagination/Pagination'
 import '../index.css'
 import TableHeader from '../../../common/Table/TableHeader';
-import TableAdd from '../../../common/Table/TableAdd';
 import TableData from '../../../common/Table/TableData';
 import TableSearch from '../../../common/Table/TableSearch';
+import Buttons from '../../../common/Button/Buttons';
 
 let PageSize = 10;
 const ProfessorTable = () => {
@@ -247,7 +247,7 @@ const ProfessorTable = () => {
                 <>
                     <div className='card-body'>
                         <div className='float-left d-flex'>
-                            <TableAdd toggleModal={toggleModal} />
+                            <Buttons name="Add New" toggleModal={toggleModal} />
                             <TableSearch setSearchedVal={setSearchedVal} />
                         </div>
                         <div className='d-flex float-right'>

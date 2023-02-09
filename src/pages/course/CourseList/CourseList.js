@@ -6,6 +6,7 @@ import AspNet from '../../../assets/CouserList/aspnet.png'
 import flutter from '../../../assets/CouserList/flutter.png'
 import JavaScript from '../../../assets/CouserList/javascript.png'
 import UiUx from '../../../assets/CouserList/uiux.png'
+import Buttons from '../../../common/Button/Buttons'
 
 const CourseList = () => {
 
@@ -121,7 +122,7 @@ const CourseList = () => {
                             </div>
                         </div>
                         <div className='text-center'>
-                            <button className='text-white bg-dark px-5 p-2 rounded'>Read More</button>
+                            <Buttons name='Read More' />
                         </div>
                     </div>
                 ))}

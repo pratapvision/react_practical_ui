@@ -15,7 +15,7 @@ import classNames from "classnames";
 import { Link } from "react-router-dom";
 import './sidebar.css'
 
-import SubMenu from './SubMenu';
+// import SubMenu from './SubMenu';
 
 import setImg from '../../assets/Sidebar/setImg.png'
 import logout from '../../assets/Sidebar/logout.png'

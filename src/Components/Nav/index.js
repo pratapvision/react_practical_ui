@@ -6,15 +6,9 @@ import {
     Button,
     NavbarToggler,
     Collapse,
-    Nav,
-    NavItem,
-    NavLink,
 } from "reactstrap";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
-import MailIcon from '@mui/icons-material/Mail';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import MoreIcon from '@mui/icons-material/MoreVert';
 import emailIcon from '../../assets/Header/ClarityEmail.png'
 import notificationIcon from '../../assets/Header/ClarityNotification.png'
 import EnglishIcon from '../../assets/Header/EnglishIcon.png'
@@ -72,14 +66,16 @@ const NavbarHead = ({ toggleSidebar }) => {
                             <img src="/profile_icon.png" className='me-2 float-left' alt="image" />
                             <span className="header-profile-name float-left mt-3">Clay Johnson</span>
                             <i className="fa fa-angle-down header-icon prof-drop-icon float-left mt-1" aria-hidden="true" ></i>
-                            <NotificationModal
-                                toggleNotificationModal={toggleNotificationModal}
-                                notificationModal={notificationModal}
-                            />
-                            <EmailModal
-                                toggleEmailModal={toggleEmailModal}
-                                emailModal={emailModal}
-                            />
+                            <div>
+                                <NotificationModal
+                                    toggleNotificationModal={toggleNotificationModal}
+                                    notificationModal={notificationModal}
+                                />
+                                <EmailModal
+                                    toggleEmailModal={toggleEmailModal}
+                                    emailModal={emailModal}
+                                />
+                            </div>
                         </div>
                     </div>
                 </Collapse>

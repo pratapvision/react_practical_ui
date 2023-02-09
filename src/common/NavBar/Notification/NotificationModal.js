@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
-import { Button, Col, Row, Toast } from 'react-bootstrap'
+import React from 'react'
+import { Col, Row, Toast } from 'react-bootstrap'
 import notificationIcon from '../../../assets/Header/ClarityNotification.png'
 import '../index.css'
 
 const NotificationModal = ({ toggleNotificationModal, notificationModal }) => {
     return (
         <div className='navTopIcon'>
-            <Row>
-                <Col className="mb-2 float-right mt-10">
+            <Row >
+                <Col className="mb-2 float-right mt-10" style={{ marginLeft: '-80px', float: 'left' }}>
                     <Toast show={notificationModal} onClose={toggleNotificationModal}>
                         <Toast.Header>
                             <img

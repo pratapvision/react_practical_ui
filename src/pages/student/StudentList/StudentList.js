@@ -8,9 +8,9 @@ import AllStudentAE from '../../../common/Modal/Student/AllStudentAE'
 import Delete from '../../../common/Delete/Delete'
 import TableHeader from '../../../common/Table/TableHeader'
 import '../index.css'
-import TableAdd from '../../../common/Table/TableAdd'
 import TableData from '../../../common/Table/TableData'
 import TableSearch from '../../../common/Table/TableSearch'
+import Buttons from '../../../common/Button/Buttons'
 
 let PageSize = 10;
 
@@ -179,7 +179,7 @@ const StudentList = () => {
                 <>
                     <div className='card-body'>
                         <div className='float-left d-flex'>
-                            <TableAdd toggleModal={toggleModal} />
+                            <Buttons name='Add New' toggleModal={toggleModal} />
                             <TableSearch setSearchedVal={setSearchedVal} />
                         </div>
                         <div className=' d-flex float-right title-side-drop p-3 me-3 text-white'>
