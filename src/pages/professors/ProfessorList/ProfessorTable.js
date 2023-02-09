@@ -201,13 +201,13 @@ const ProfessorTable = () => {
                             <Buttons name="Add New" toggleModal={toggleModal} />
                             <TableSearch setSearchedVal={setSearchedVal} />
                         </div>
-                        <div className='d-flex float-right'>
-                            <div className='p-3 me-2' >
+                        <div className='float-right'>
+                            <div className='p-3 me-2 float-left' >
                                 <CSVLink className=' text-decoration-none' data={paginatedData}>
                                     <FaFileExcel size="35px" />
                                 </CSVLink>
                             </div>
-                            <div className='p-3 me-3' style={{ cursor: 'pointer' }}>
+                            <div className='p-3 me-3 float-left' style={{ cursor: 'pointer' }}>
                                 <FaFilePdf onClick={() => exportProfessorPDF(paginatedData)} size="35px" />
                             </div>
                             {/* <button className='float-right title-side-drop p-3 me-3 text-white' onClick={exportPDF}>Export to PDF</button> */}

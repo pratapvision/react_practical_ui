@@ -30,7 +30,7 @@ const Sidebar = ({ isOpen, toggle }) => {
                     &times;
                 </span>
                 <div className='text-center mt-4 px-3'>
-                    <img src={visionLogo} alt="image" className='me-2' />
+                    <img src={visionLogo} alt="" className='me-2' />
                     <div><label className='fs-6'> Vision Education Hub</label></div>
                 </div>
                 <div className="form-group has-search mt-4 px-3">
@@ -128,11 +128,11 @@ const Sidebar = ({ isOpen, toggle }) => {
                     </NavItem>
 
                     <div className='mt-5 px-3 text-center' >
-                        <img src={hennaBekar} className='resp-img' alt="image" height="100px" width="100px" />
+                        <img src={hennaBekar} className='resp-img' alt="" height="100px" width="100px" />
                         <h4 className='resp-user-name'><b>Henna Bakar</b></h4>
                         <span className='text-justify resp-user-name'>HennaBaker's@gmail.com</span><br />
-                        <img src={setImg} alt="image" className='m-2' />
-                        <img src={logout} alt="image" className='m-2' />
+                        <img src={setImg} alt="" className='m-2' />
+                        <img src={logout} alt="" className='m-2' />
                     </div>
                 </Nav>
             </div>
