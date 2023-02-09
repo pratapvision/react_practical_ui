@@ -47,7 +47,7 @@ const HeadingCards = () => {
                             <div>{val?.progress}</div>
                         </div>
                         <div style={{ float: 'right' }} className='mt-2'>
-                            <img src={val?.img} height="100px" width="100%" />
+                            <img src={val?.img} height="auto" width="100%" />
                         </div>
                     </div>
                 </div>
