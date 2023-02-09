@@ -102,13 +102,6 @@ const ProfessorTable = () => {
         }
     }
 
-    const currentTableData = (() => {
-        const firstPageIndex = (currentPage - 1) * PageSize;
-        const lastPageIndex = firstPageIndex + PageSize;
-        const data = productData
-        setPaginatedData(data.slice(firstPageIndex, lastPageIndex))
-    })
-
     useEffect(() => {
         getLocalStorage()
 
@@ -117,19 +110,20 @@ const ProfessorTable = () => {
         }
     }, [formErrors])
 
+    const currentTableData = (() => {
+        const firstPageIndex = (currentPage - 1) * PageSize;
+        const lastPageIndex = firstPageIndex + PageSize;
+        const data = productData
+        setPaginatedData(data.slice(firstPageIndex, lastPageIndex))
+    })
+
     useEffect(() => {
         if (!modal) {
             Object.keys(formErrors).forEach((i) => formErrors[i] = '')
         }
-    }, [modal])
-
-    useEffect(() => {
         currentTableData()
-    }, [productData, currentPage])
-
-    useEffect(() => {
         ls.set("productData", productData)
-    }, [productData])
+    }, [modal, productData, currentPage])
 
     const handleSubmit = (e) => {
         e.preventDefault()

@@ -6,17 +6,18 @@ import autoTable from 'jspdf-autotable'
 import { CSVLink } from 'react-csv';
 import ReactToPrint from 'react-to-print';
 
+import useSortableData from '../../../utils/useSortableData';
+import { studentSportFormValidate } from '../../../utils/validation';
+import { exportSportStudentPDF } from '../../../utils/exportPDF';
+
 import Delete from '../../../common/Delete/Delete'
 import Pagination from '../../../common/Pagination/Pagination'
-
-import '../index.css'
 import TableHeader from '../../../common/Table/TableHeader';
 import Buttons from '../../../common/Button/Buttons';
 import AddEditForm from '../../../common/Table/AddEditForm';
 import { SportCustomTable } from '../../../common/Table/TableData';
-import useSortableData from '../../../utils/useSortableData';
-import { studentSportFormValidate } from '../../../utils/validation';
-import { exportSportStudentPDF } from '../../../utils/exportPDF';
+
+import '../index.css'
 
 let PageSize = 5;
 
@@ -70,13 +71,6 @@ const SportStudentList = () => {
         }
     }
 
-    const currentTableData = (() => {
-        const firstPageIndex = (currentPage - 1) * PageSize;
-        const lastPageIndex = firstPageIndex + PageSize;
-        const data = sportStudentData
-        setPaginatedData(data.slice(firstPageIndex, lastPageIndex))
-    })
-
     useEffect(() => {
         getLocalStorage()
 
@@ -85,19 +79,20 @@ const SportStudentList = () => {
         }
     }, [formErrors])
 
+    const currentTableData = (() => {
+        const firstPageIndex = (currentPage - 1) * PageSize;
+        const lastPageIndex = firstPageIndex + PageSize;
+        const data = sportStudentData
+        setPaginatedData(data.slice(firstPageIndex, lastPageIndex))
+    })
+
     useEffect(() => {
         if (!modal) {
             Object.keys(formErrors).forEach((i) => formErrors[i] = '')
         }
-    }, [modal])
-
-    useEffect(() => {
         currentTableData()
-    }, [sportStudentData, currentPage])
-
-    useEffect(() => {
         ls.set("allSportStudentData", sportStudentData)
-    }, [sportStudentData])
+    }, [modal, sportStudentData, currentPage])
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -154,32 +149,6 @@ const SportStudentList = () => {
         resetForm()
         toggleModal()
     }
-
-    // const exportPDF = () => {
-    //     const unit = "pt";
-    //     const size = "A4";
-    //     const orientation = "portrait";
-
-    //     const marginLeft = 40;
-    //     const doc = new jsPDF(orientation, unit, size);
-
-    //     doc.setFontSize(15);
-
-    //     const title = "Sport Student List";
-    //     const headers = [["Student Name", "Assigned Coach", "Date", "Time"]];
-
-    //     const data = paginatedData?.map(elt => [elt?.sportStudentName, elt?.sportAssignCoach, elt?.sportStudentDate, elt?.sportStudentTime]);
-
-    //     let content = {
-    //         startY: 50,
-    //         head: headers,
-    //         body: data
-    //     };
-
-    //     doc.text(title, marginLeft, 40);
-    //     doc.autoTable(content);
-    //     doc.save("report.pdf")
-    // }
 
     const handleOnBeforeGetContent = useCallback(() => {
         setLoading(true);

@@ -4,7 +4,7 @@ import ls from 'local-storage'
 import useSortableData from '../../../utils/useSortableData'
 import { studentFormValidate } from '../../../utils/validation'
 
-import HeadingCards from '../../dashboard/HeadingCards/HeadingCards'
+// import HeadingCards from '../../dashboard/HeadingCards/HeadingCards'
 import Pagination from '../../../common/Pagination/Pagination'
 import Delete from '../../../common/Delete/Delete'
 import TableHeader from '../../../common/Table/TableHeader'
@@ -66,13 +66,6 @@ const StudentList = () => {
         }
     }
 
-    const currentTableData = (() => {
-        const firstPageIndex = (currentPage - 1) * PageSize;
-        const lastPageIndex = firstPageIndex + PageSize;
-        const data = studentData
-        setPaginatedData(data.slice(firstPageIndex, lastPageIndex))
-    })
-
     useEffect(() => {
         getLocalStorage()
 
@@ -81,19 +74,20 @@ const StudentList = () => {
         }
     }, [formErrors])
 
+    const currentTableData = (() => {
+        const firstPageIndex = (currentPage - 1) * PageSize;
+        const lastPageIndex = firstPageIndex + PageSize;
+        const data = studentData
+        setPaginatedData(data.slice(firstPageIndex, lastPageIndex))
+    })
+
     useEffect(() => {
         if (!modal) {
             Object.keys(formErrors).forEach((i) => formErrors[i] = '')
         }
-    }, [modal])
-
-    useEffect(() => {
         currentTableData()
-    }, [studentData, currentPage])
-
-    useEffect(() => {
         ls.set("allStudentData", studentData)
-    }, [studentData])
+    }, [modal, studentData, currentPage])
 
     const handleSubmit = (e) => {
         e.preventDefault()
