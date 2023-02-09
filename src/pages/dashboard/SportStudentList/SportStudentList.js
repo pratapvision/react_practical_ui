@@ -8,7 +8,6 @@ import { CSVLink } from 'react-csv';
 import ReactToPrint from 'react-to-print';
 
 import SportCustomTable from './SportCustomTable'
-import StudentAEForm from '../../../common/Modal/Dashboard/Student/StudentAEForm'
 import Delete from '../../../common/Delete/Delete'
 import useSortableData from '../../../common/Sorting/useSortableData'
 import Pagination from '../../../common/Pagination/Pagination'
@@ -16,6 +15,7 @@ import Pagination from '../../../common/Pagination/Pagination'
 import '../index.css'
 import TableHeader from '../../../common/Table/TableHeader';
 import Buttons from '../../../common/Button/Buttons';
+import AddEditForm from '../../../common/Table/AddEditForm';
 
 let PageSize = 5;
 
@@ -294,12 +294,13 @@ const SportStudentList = () => {
                         </div>
                     </>
                 )}
-                <StudentAEForm
+                <AddEditForm
+                    name='Add Sport Student Form'
                     modal={modal}
                     toggleModal={toggleModal}
                     onCancel={onCancel}
                     handleSubmit={handleSubmit}
-                    mySportStudent={mySportStudent}
+                    myFormData={mySportStudent}
                     formErrors={formErrors}
                     onChangeInput={onChangeInput}
                 />

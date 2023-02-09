@@ -4,13 +4,13 @@ import ls from 'local-storage'
 import HeadingCards from '../../dashboard/HeadingCards/HeadingCards'
 import useSortableData from '../../../common/Sorting/useSortableData'
 import Pagination from '../../../common/Pagination/Pagination'
-import AllStudentAE from '../../../common/Modal/Student/AllStudentAE'
 import Delete from '../../../common/Delete/Delete'
 import TableHeader from '../../../common/Table/TableHeader'
 import '../index.css'
 import TableData from '../../../common/Table/TableData'
 import TableSearch from '../../../common/Table/TableSearch'
 import Buttons from '../../../common/Button/Buttons'
+import AddEditForm from '../../../common/Table/AddEditForm'
 
 let PageSize = 10;
 
@@ -220,12 +220,13 @@ const StudentList = () => {
                     </div>
                 </>
             )}
-            <AllStudentAE
+            <AddEditForm
+                name='Add Student Form'
                 modal={modal}
                 toggleModal={toggleModal}
                 onCancel={onCancel}
                 handleSubmit={handleSubmit}
-                myStudent={myStudent}
+                myFormData={myStudent}
                 formErrors={formErrors}
                 onChangeInput={onChangeInput}
             />

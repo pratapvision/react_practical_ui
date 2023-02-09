@@ -12,9 +12,8 @@ import {
 import emailIcon from '../../assets/Header/ClarityEmail.png'
 import notificationIcon from '../../assets/Header/ClarityNotification.png'
 import EnglishIcon from '../../assets/Header/EnglishIcon.png'
+import NavPopupModal from "../../common/NavBar/NavPopupModal/NavPopupModal";
 import './index.css'
-import NotificationModal from "../../common/NavBar/Notification/NotificationModal";
-import EmailModal from "../../common/NavBar/Email/EmailModal";
 
 const NavbarHead = ({ toggleSidebar }) => {
     const [topBarIsOpen, setTopBarOpen] = useState(true);
@@ -67,13 +66,15 @@ const NavbarHead = ({ toggleSidebar }) => {
                             <span className="header-profile-name float-left mt-3">Clay Johnson</span>
                             <i className="fa fa-angle-down header-icon prof-drop-icon float-left mt-1" aria-hidden="true" ></i>
                             <div>
-                                <NotificationModal
-                                    toggleNotificationModal={toggleNotificationModal}
-                                    notificationModal={notificationModal}
+                                <NavPopupModal
+                                    name="Notification Modal"
+                                    toggleModal={toggleNotificationModal}
+                                    modal={notificationModal}
                                 />
-                                <EmailModal
-                                    toggleEmailModal={toggleEmailModal}
-                                    emailModal={emailModal}
+                                <NavPopupModal
+                                    name='Email Modal'
+                                    toggleModal={toggleEmailModal}
+                                    modal={emailModal}
                                 />
                             </div>
                         </div>

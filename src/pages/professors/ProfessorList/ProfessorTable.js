@@ -5,7 +5,6 @@ import { jsPDF } from "jspdf";
 import autoTable from 'jspdf-autotable'
 import ls from 'local-storage'
 import Delete from '../../../common/Delete/Delete';
-import AddEditForm from '../../../common/Modal/Professors/AddEditForm/AddEditForm';
 import useSortableData from '../../../common/Sorting/useSortableData';
 import Pagination from '../../../common/Pagination/Pagination'
 import '../index.css'
@@ -13,6 +12,7 @@ import TableHeader from '../../../common/Table/TableHeader';
 import TableData from '../../../common/Table/TableData';
 import TableSearch from '../../../common/Table/TableSearch';
 import Buttons from '../../../common/Button/Buttons';
+import AddEditForm from '../../../common/Table/AddEditForm';
 
 let PageSize = 10;
 const ProfessorTable = () => {
@@ -300,16 +300,18 @@ const ProfessorTable = () => {
             )}
 
             <AddEditForm
+                name="Add Professor Form"
                 modal={modal}
                 toggleModal={toggleModal}
                 onCancel={onCancel}
                 handleSubmit={handleSubmit}
-                myProduct={myProduct}
+                myFormData={myProduct}
                 formErrors={formErrors}
                 onChangeInput={onChangeInput}
                 onCheckBoxChange={onCheckBoxChange}
             // imageUpload={imageUpload}
             />
+
             <Delete
                 deleteOpen={deleteOpen}
                 deleteClose={deleteClose}
