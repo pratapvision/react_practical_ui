@@ -39,7 +39,7 @@ const CourseList = () => {
             studentNumber: 'Student 300+',
         },
         {
-            name: 'JavaScript Development Course',
+            name: 'JavaScript Development',
             img: JavaScript,
             like: '505',
             date: 'March 01',
@@ -91,32 +91,37 @@ const CourseList = () => {
             <h4>All Courses</h4>
             <div className='card-group'>
                 {Data?.map((val, i) => (
-                    <div key={i} className=' bg-white rounded-4 border pb-3 me-4 mt-4 p-4 ' style={{ width: "22rem", height: "32rem" }} >
+                    <div key={i} className=' bg-white rounded-4 border pb-3 me-4 mt-4 p-4 '  >
                         <div className=' text-center'>
                             <img src={val?.img} width="100%" />
                         </div>
-                        <div className='card-body p-3'>
-                            <div className='float-left' style={{ width: '12rem' }}>
-                                <h6 >{val?.name}</h6>
-                            </div>
-                            <div className='float-right' style={{ color: '#3F8DFD' }} >
-                                <i className="fa fa-heart-o me-2"></i>
-                                <p className='float-right'>{val?.like}</p>
-                            </div><br /><br />
+                        <div className='card-body'>
                             <div className='mt-3'>
+                                <div className='float-left'>
+                                    <h6 style={{ textAlign: 'justify' }}>{val?.name}</h6>
+                                </div>
+                                <div className='float-right' style={{ color: '#3F8DFD' }} >
+                                    <i className="fa fa-heart-o me-1"></i>
+                                    <p className='float-right'>{val?.like}</p>
+                                </div><br /><br />
+                            </div>
+                            <div className='mt-2'>
                                 <label className=''>{val?.date}</label>
                             </div><br /><br />
-                            <div className='d-flex text-center'>
-                                <div className='float-left me-4'>
+                            <div className='text-center'>
+                                <div className='float-left me-3'>
                                     <i className="fa fa-clock-o fs-4" style={{ color: '#2351DE' }}></i>
+                                    <br />
                                     <label>{val?.month}</label>
                                 </div>
-                                <div className='me-4'>
+                                <div className='float-left me-3'>
                                     <i className="fa fa-user-o fs-4" style={{ color: '#BB4ECB' }}></i>
+                                    <br />
                                     <label>{val?.username}</label>
                                 </div>
-                                <div className='float-right me-4'>
+                                <div className='float-left'>
                                     <i className="fa fa-user-o fs-4" style={{ color: '#E252BE' }}></i>
+                                    <br />
                                     <label>{val?.studentNumber}</label>
                                 </div>
                             </div>

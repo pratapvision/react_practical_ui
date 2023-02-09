@@ -8,7 +8,7 @@ const Buttons = (props) => {
     switch (name) {
         case "Read More":
             return (
-                <Button className='text-white bg-dark px-5 p-2 rounded'>{name}</Button>
+                <Button className='text-white bg-dark mt-3 mb-3 px-5 p-2 rounded w-100'>{name}</Button>
             )
 
         case "Add New":
