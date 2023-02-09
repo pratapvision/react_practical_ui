@@ -1,10 +1,10 @@
 import React from 'react'
 
 import ProgressBar from './Progress_bar'
-import TotalStudent from '../../../assest/Dashboard/TotalStudent.png'
-import NewStudent from '../../../assest/Dashboard/NewStudent.png'
-import TotalCourse from '../../../assest/Dashboard/TotalCourse.png'
-import Visitors from '../../../assest/Dashboard/Visitors.png'
+import TotalStudent from '../../../assets/Dashboard/TotalStudent.png'
+import NewStudent from '../../../assets/Dashboard/NewStudent.png'
+import TotalCourse from '../../../assets/Dashboard/TotalCourse.png'
+import Visitors from '../../../assets/Dashboard/Visitors.png'
 
 import '../index.css'
 

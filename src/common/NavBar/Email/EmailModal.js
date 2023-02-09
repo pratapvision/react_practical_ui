@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Button, Col, Row, Toast } from 'react-bootstrap'
-import emailIcon from '../../../assest/Header/ClarityEmail.png'
+import emailIcon from '../../../assets/Header/ClarityEmail.png'
 
 import '../index.css'
 

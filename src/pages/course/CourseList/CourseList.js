@@ -1,11 +1,11 @@
 import React from 'react'
 
-import PHP from '../../../assest/CouserList/php.png'
-import Android from '../../../assest/CouserList/android.png'
-import AspNet from '../../../assest/CouserList/aspnet.png'
-import flutter from '../../../assest/CouserList/flutter.png'
-import JavaScript from '../../../assest/CouserList/javascript.png'
-import UiUx from '../../../assest/CouserList/uiux.png'
+import PHP from '../../../assets/CouserList/php.png'
+import Android from '../../../assets/CouserList/android.png'
+import AspNet from '../../../assets/CouserList/aspnet.png'
+import flutter from '../../../assets/CouserList/flutter.png'
+import JavaScript from '../../../assets/CouserList/javascript.png'
+import UiUx from '../../../assets/CouserList/uiux.png'
 
 const CourseList = () => {
 

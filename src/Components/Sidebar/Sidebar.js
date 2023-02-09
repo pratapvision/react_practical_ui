@@ -17,11 +17,11 @@ import './sidebar.css'
 
 import SubMenu from './SubMenu';
 
-import setImg from '../../assest/Sidebar/setImg.png'
-import logout from '../../assest/Sidebar/logout.png'
-import visionLogo from '../../assest/Sidebar/visionLogo.png'
-// import hennaBekar from '../../assest/Sidebar/hennaBekar.png'
-import hennaBekar from '../../assest/Sidebar/hennaBeker.png'
+import setImg from '../../assets/Sidebar/setImg.png'
+import logout from '../../assets/Sidebar/logout.png'
+import visionLogo from '../../assets/Sidebar/visionLogo.png'
+// import hennaBekar from '../../assets/Sidebar/hennaBekar.png'
+import hennaBekar from '../../assets/Sidebar/hennaBeker.png'
 import { FaAngleDown } from 'react-icons/fa';
 
 

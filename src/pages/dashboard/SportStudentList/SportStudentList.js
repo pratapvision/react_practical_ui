@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react'
-import { Button, Spinner } from 'reactstrap'
-import { FaPlus, FaPrint, FaFilePdf, FaFileExcel } from 'react-icons/fa'
+import { Spinner } from 'reactstrap'
+import { FaPrint, FaFilePdf, FaFileExcel } from 'react-icons/fa'
 import ls from 'local-storage'
 import { jsPDF } from "jspdf";
 import autoTable from 'jspdf-autotable'

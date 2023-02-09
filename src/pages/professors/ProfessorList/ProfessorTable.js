@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { FaFileExcel, FaFilePdf, } from 'react-icons/fa'
-import {
-    Input,
-    InputGroup,
-    InputGroupText,
-} from 'reactstrap'
 import { CSVLink } from "react-csv";
 import { jsPDF } from "jspdf";
 import autoTable from 'jspdf-autotable'

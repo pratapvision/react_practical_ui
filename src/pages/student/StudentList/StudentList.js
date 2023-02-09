@@ -1,9 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import {
-    Input,
-    InputGroup,
-    InputGroupText,
-} from 'reactstrap'
 import ls from 'local-storage'
 
 import HeadingCards from '../../dashboard/HeadingCards/HeadingCards'

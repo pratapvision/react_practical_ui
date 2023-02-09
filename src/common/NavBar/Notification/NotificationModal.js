@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Button, Col, Row, Toast } from 'react-bootstrap'
-import notificationIcon from '../../../assest/Header/ClarityNotification.png'
+import notificationIcon from '../../../assets/Header/ClarityNotification.png'
 import '../index.css'
 
 const NotificationModal = ({ toggleNotificationModal, notificationModal }) => {

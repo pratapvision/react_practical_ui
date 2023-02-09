@@ -15,9 +15,9 @@ import { Link } from "react-router-dom";
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
-import emailIcon from '../../assest/Header/ClarityEmail.png'
-import notificationIcon from '../../assest/Header/ClarityNotification.png'
-import EnglishIcon from '../../assest/Header/EnglishIcon.png'
+import emailIcon from '../../assets/Header/ClarityEmail.png'
+import notificationIcon from '../../assets/Header/ClarityNotification.png'
+import EnglishIcon from '../../assets/Header/EnglishIcon.png'
 import './index.css'
 import NotificationModal from "../../common/NavBar/Notification/NotificationModal";
 import EmailModal from "../../common/NavBar/Email/EmailModal";

@@ -12,7 +12,7 @@ import {
 import { Line } from 'react-chartjs-2'
 import { FaChevronDown, FaRedo, FaTimes } from 'react-icons/fa'
 import TableHeader from '../../../common/Table/TableHeader'
-import charts from '../../../assest/Dashboard/charts.png'
+import charts from '../../../assets/Dashboard/charts.png'
 
 import '../index.css'
 
