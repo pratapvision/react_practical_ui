@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import ls from 'local-storage'
 
+import useSortableData from '../../../utils/useSortableData'
+import { studentFormValidate } from '../../../utils/validation'
+
 import HeadingCards from '../../dashboard/HeadingCards/HeadingCards'
 import Pagination from '../../../common/Pagination/Pagination'
 import Delete from '../../../common/Delete/Delete'
 import TableHeader from '../../../common/Table/TableHeader'
-import '../index.css'
 import { TableData } from '../../../common/Table/TableData'
 import TableSearch from '../../../common/Table/TableSearch'
 import Buttons from '../../../common/Button/Buttons'
 import AddEditForm from '../../../common/Table/AddEditForm'
-import useSortableData from '../../../utils/useSortableData'
+
+import '../index.css'
 
 let PageSize = 10;
 
@@ -53,25 +56,6 @@ const StudentList = () => {
         return sortConfig.key === name ? sortConfig.direction : undefined;
     };
 
-    let errors = {}
-
-    const validate = (values) => {
-        if (!values.studentName) {
-            errors.studentName = "Please Enter Student Name"
-        }
-        if (!values.studentDepartment) {
-            errors.studentDepartment = "Please Enter Student Department"
-        }
-        if (!values.studentMobile) {
-            errors.studentMobile = "Please Enter Student Mobile"
-        }
-        if (!values.admissionDate) {
-            errors.admissionDate = "Please Select Admission Date"
-        }
-
-        return errors
-    }
-
     const onChangeInput = (e) => {
         setMyStudent({ ...myStudent, [e.target.name]: e.target.value })
     }
@@ -113,7 +97,7 @@ const StudentList = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        setFormErrors(validate(myStudent))
+        setFormErrors(studentFormValidate(myStudent))
         setIsSubmitting(true)
     }
 

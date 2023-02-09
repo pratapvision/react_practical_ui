@@ -16,6 +16,7 @@ import Buttons from '../../../common/Button/Buttons';
 import AddEditForm from '../../../common/Table/AddEditForm';
 import { SportCustomTable } from '../../../common/Table/TableData';
 import useSortableData from '../../../utils/useSortableData';
+import { studentSportFormValidate } from '../../../utils/validation';
 
 let PageSize = 5;
 
@@ -59,25 +60,6 @@ const SportStudentList = () => {
         return sortConfig.key === name ? sortConfig.direction : undefined;
     };
 
-    let errors = {}
-
-    const validate = (values) => {
-        if (!values.sportStudentName) {
-            errors.sportStudentName = "Please Enter Student Name"
-        }
-        if (!values.sportAssignCoach) {
-            errors.sportAssignCoach = "Please Enter Sport Assign Coach"
-        }
-        if (!values.sportStudentDate) {
-            errors.sportStudentDate = "Please Select Date"
-        }
-        if (!values.sportStudentTime) {
-            errors.sportStudentTime = "Please Select Time"
-        }
-
-        return errors
-    }
-
     const onChangeInput = (e) => {
         setMySportStudent({ ...mySportStudent, [e.target.name]: e.target.value })
     }
@@ -119,7 +101,7 @@ const SportStudentList = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        setFormErrors(validate(mySportStudent))
+        setFormErrors(studentSportFormValidate(mySportStudent))
         setIsSubmitting(true)
     }
 
@@ -270,17 +252,6 @@ const SportStudentList = () => {
                                     onEdit={onEdit}
                                     onDelete={onDelete}
                                 />
-
-                                {/* <TableData
-                                    name="sportStudentTable"
-                                    ref={componentRef}
-                                    requestSort={requestSort}
-                                    getClassNamesFor={getClassNamesFor}
-                                    tableListingData={sportStudentData}
-                                    items={items}
-                                    onEdit={onEdit}
-                                    onDelete={onDelete}
-                                /> */}
                             </div>
                             <div>
                                 <Pagination

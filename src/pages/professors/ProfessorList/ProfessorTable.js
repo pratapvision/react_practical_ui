@@ -4,17 +4,22 @@ import { CSVLink } from "react-csv";
 import { jsPDF } from "jspdf";
 import autoTable from 'jspdf-autotable'
 import ls from 'local-storage'
+
+import useSortableData from '../../../utils/useSortableData';
+
+import { TableData } from '../../../common/Table/TableData';
 import Delete from '../../../common/Delete/Delete';
 import Pagination from '../../../common/Pagination/Pagination'
-import '../index.css'
 import TableHeader from '../../../common/Table/TableHeader';
-import { TableData } from '../../../common/Table/TableData';
 import TableSearch from '../../../common/Table/TableSearch';
 import Buttons from '../../../common/Button/Buttons';
 import AddEditForm from '../../../common/Table/AddEditForm';
-import useSortableData from '../../../utils/useSortableData';
+
+import '../index.css'
+import { professorFormValidate } from '../../../utils/validation';
 
 let PageSize = 10;
+
 const ProfessorTable = () => {
 
     const [productData, setProductData] = useState([])
@@ -83,28 +88,6 @@ const ProfessorTable = () => {
         doc.text(title, marginLeft, 40);
         doc.autoTable(content);
         doc.save("report.pdf")
-    }
-
-    let errors = {}
-
-    const validate = (values) => {
-        if (!values.productName) {
-            errors.productName = "Please Enter Product name"
-        }
-        if (!values.productPrice) {
-            errors.productPrice = "Please Enter Product Price"
-        }
-        if (!values.inStock) {
-            errors.inStock = "Please Select Anyone"
-        }
-        if ((values.size).length === 0) {
-            errors.size = "Please Select Cloth Size"
-        }
-        if (!values.productDescription) {
-            errors.productDescription = "Description is required!"
-        }
-
-        return errors
     }
 
     const onChangeInput = (e) => {
@@ -176,7 +159,7 @@ const ProfessorTable = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        setFormErrors(validate(myProduct))
+        setFormErrors(professorFormValidate(myProduct))
         setIsSubmitting(true)
     }
 
