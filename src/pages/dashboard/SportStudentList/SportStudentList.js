@@ -209,16 +209,16 @@ const SportStudentList = () => {
                                 <Buttons name="Add New" toggleModal={toggleModal} />
                             </div>
                             <div className='float-right'>
-                                <div className='d-flex'>
-                                    <div className='px-3 mt-3'>
+                                <div className=''>
+                                    <div className='px-3 mt-3 float-left'>
                                         <FaFilePdf onClick={() => exportSportStudentPDF(paginatedData)} size="30px" style={{ cursor: 'pointer' }} />
                                     </div>
-                                    <div className='px-3 mt-3'>
+                                    <div className='px-3 mt-3 float-left'>
                                         <CSVLink className=' text-decoration-none' data={paginatedData}>
                                             <FaFileExcel size="30px" />
                                         </CSVLink>
                                     </div>
-                                    <div className='text-black bg-light px-3 p-3 rounded'>
+                                    <div className='text-black bg-light px-3 p-3 rounded float-left'>
                                         {loading ?
                                             <>
                                                 <div className='text-center'>
@@ -264,7 +264,8 @@ const SportStudentList = () => {
                             </div>
                         </div>
                     </>
-                )}
+                )
+                }
                 <AddEditForm
                     name='Add Sport Student Form'
                     modal={modal}
@@ -281,7 +282,7 @@ const SportStudentList = () => {
                     deleteClose={deleteClose}
                     onDeleteProduct={onDeleteProduct}
                 />
-            </div>
+            </div >
         </div >
     )
 }
