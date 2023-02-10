@@ -93,7 +93,7 @@ const CourseList = () => {
                 {Data?.map((val, i) => (
                     <div key={i} className=' bg-white rounded-4 border pb-3 me-4 mt-4 p-4 '  >
                         <div className=' text-center'>
-                            <img src={val?.img} width="100%" />
+                            <img src={val?.img} alt='' width="100%" />
                         </div>
                         <div className='card-body'>
                             <div className='mt-3'>

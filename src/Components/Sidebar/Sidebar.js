@@ -40,7 +40,7 @@ const Sidebar = ({ isOpen, toggle }) => {
             </div>
             <hr />
             <div className="side-menu">
-                <Nav vertical className="list-unstyled pb-3">
+                <Nav vertical className="list-unstyled pb-5">
                     <NavItem className='mt-2'>
                         <NavLink tag={Link} to={"/dashboard"}>
                             <FontAwesomeIcon icon={faTable} className="me-2" />
