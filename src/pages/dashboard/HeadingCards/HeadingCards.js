@@ -41,7 +41,7 @@ const HeadingCards = () => {
             {Data?.map((val, i) => (
                 <div key={i} className=' card shadow-sm px-2 me-3 bg-white rounded'>
                     <div className='card-body'>
-                        <div style={{ float: 'left' }}>
+                        <div style={{ float: 'left' }} >
                             <h5 className='card-title'>{val?.name}</h5>
                             <p className='card-text'>{val?.number}</p>
                             <div>{val?.progress}</div>

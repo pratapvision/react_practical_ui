@@ -39,19 +39,6 @@ const NavbarHead = ({ toggleSidebar }) => {
                 </Button>
                 <NavbarToggler onClick={toggleTopBar} />
                 <Collapse isOpen={topBarIsOpen} navbar>
-                    {/* <div className="card-title mx-3 leftSide">
-                    <h4 className='font-weight-bold'> Education Dashboard </h4>
-                    <label className="float-left">Welcome, Henna Baker's</label>
-                </div>
-                <div className='rightSide'>
-                <img src={EnglishIcon} className='me-3' alt="image" />
-                <label className="header-english me-3">English</label>
-                <img className='me-3' src={notificationIcon} alt="image" />
-                <img className='me-3' src={emailIcon} alt="image" />
-                <img src="/profile_icon.png" className='me-2' alt="image" />
-                    <span className="header-profile-name">Clay Johnson</span>
-                </div > */}
-
                     <div className='card-body'>
                         <div className='float-left'>
                             <h4 className='font-weight-bold'> Education Dashboard </h4>
@@ -62,8 +49,11 @@ const NavbarHead = ({ toggleSidebar }) => {
                             <label className="header-english me-3 float-left mt-3">English</label>
                             <img className='me-3 float-left mt-2' src={notificationIcon} alt="image" onClick={toggleNotificationModal} style={{ cursor: 'pointer' }} />
                             <img className='me-3 float-left mt-2' src={emailIcon} alt="image" onClick={toggleEmailModal} style={{ cursor: 'pointer' }} />
-                            <img src="/profile_icon.png" className='me-2 float-left' alt="image" />
-                            <span className="header-profile-name float-left mt-3">Clay Johnson</span>
+                            <div className="float-left ">
+                                <img src="/profile_icon.png" className='me-2 float-left' alt="image" />
+                                <span className="header-profile-name">Clay Johnson</span><br />
+                                <span className="mt-3 fs-6">Admin Staff</span>
+                            </div>
                             <i className="fa fa-angle-down header-icon prof-drop-icon float-left mt-1" aria-hidden="true" ></i>
                             <div>
                                 <NavPopupModal
